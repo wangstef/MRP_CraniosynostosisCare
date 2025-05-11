@@ -1,23 +1,39 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Create the button
+  // --- Create and insert Main Menu button ---
   const button = document.createElement('button');
   button.id = 'mainMenuButton';
   button.className = 'menu-button';
   button.innerText = '🏠 Main Menu';
-
-  // Add to body
   document.body.appendChild(button);
 
-  // Dynamically compute path to index.html
-  let depth = window.location.pathname.split('/').filter(p => p.length > 0).length - 1;
-  let pathToRoot = './' + '../'.repeat(depth);
-  let mainMenuPath = pathToRoot + 'index.html';
+  // --- Create and insert modal markup ---
+  const modalHTML = `
+    <div id="menuModalOverlay" class="modal-overlay hidden">
+      <div class="modal-box">
+        <p>Are you sure you want to return to the main menu?<br><small>Unsaved progress may be lost.</small></p>
+        <div class="modal-actions">
+          <button id="confirmYes" class="modal-button confirm">Yes</button>
+          <button id="confirmNo" class="modal-button cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+  `;
+  document.body.insertAdjacentHTML('beforeend', modalHTML);
 
-  // Add confirmation click event
+  // --- Hardcoded path to index.html (adjust as needed) ---
+  const mainMenuPath = '../../index.html'; // Change to '../index.html' or './index.html' as needed
+
+  // --- Event: Show modal ---
   button.addEventListener('click', function () {
-    const confirmed = confirm("Are you sure you want to return to the main menu? Unsaved progress may be lost.");
-    if (confirmed) {
-      window.location.href = mainMenuPath;
-    }
+    document.getElementById('menuModalOverlay').classList.remove('hidden');
+  });
+
+  // --- Event: Handle modal buttons ---
+  document.getElementById('confirmYes').addEventListener('click', function () {
+    window.location.href = mainMenuPath;
+  });
+
+  document.getElementById('confirmNo').addEventListener('click', function () {
+    document.getElementById('menuModalOverlay').classList.add('hidden');
   });
 });
