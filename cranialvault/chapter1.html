@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter 1 – cranialvault</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+
+
+<body>
+  <div class="chapter-container">
+    <img id="backgroundImg" src="" class="background-img" alt="Chapter Page Background"/>
+    <!-- Text -->
+    <div id="textBox" class="text-box"></div>
+
+    <!-- Lightbox -->
+    <button id="infoButton" class="page-button">Learn More</button>
+
+    <div id="lightbox" class="lightbox hidden">
+      <div class="close-btn" onclick="toggleLightbox()">×</div>
+      <div class="lightbox-content">
+        <h2>More Information</h2>
+        <p>This is more detailed information for page 2. You can include diagrams, text, or even video.</p>
+      </div>
+    </div>
+
+    <div class="arrow left" onclick="prevPage()">&larr;</div>
+    <div class="arrow right" onclick="nextPage()">&rarr;</div>
+  </div>
+
+  <script src="../js/cranialvault/chapter1.js"></script>
+
+
+<!-- Toggle switch -->
+  <label class="toggle-switch">
+    <input type="checkbox" id="journeyToggle">
+    <span class="slider"></span>
+  
+  <script src="../js/toggle.js"></script>
+
+</body>
+</html>

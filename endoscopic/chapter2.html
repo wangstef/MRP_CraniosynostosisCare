@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter 2 – Endoscopic</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <div class="chapter-container">
+    <img id="backgroundImg" src="../img/endoscopic-ch1-page1.jpg" class="background-img" alt="Chapter Page Background"/>
+
+    <button id="infoButton" class="page-button">Learn More</button>
+
+    <div id="lightbox" class="lightbox hidden">
+      <div class="close-btn" onclick="toggleLightbox()">×</div>
+      <div class="lightbox-content">
+        <h2>More Information</h2>
+        <p>This is more detailed information for page 2. You can include diagrams, text, or even video.</p>
+      </div>
+    </div>
+
+    <div class="arrow left" onclick="prevPage()">&larr;</div>
+    <div class="arrow right" onclick="nextPage()">&rarr;</div>
+  </div>
+
+  <script src="../js/endoscopic/chapter2.js"></script>
+</body>
+</html>

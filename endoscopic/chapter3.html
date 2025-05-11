@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chapter 1 - Craniosynostosis Visual Novel</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="chapter-body">
+  <div class="chapter-container">
+    <img src="../img/images/Non journey/Ch 1 a.png" class="background-img" alt="Chapter Background" />
+
+    <!-- Toggle Journey -->
+    <div class="toggle-container">
+      <label class="switch">
+        <input type="checkbox" id="journeyToggle" />
+        <span class="slider"></span>
+      </label>
+      <span class="toggle-label" id="toggleLabel">Endoscopic</span>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <div class="arrow left" onclick="goToPrevious()">&larr;</div>
+    <div class="arrow right" onclick="goToNext()">&rarr;</div>
+
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+      <a href="chapter1.html" class="nav-link">Chapter 1</a>
+      <a href="chapter2.html" class="nav-link">Chapter 2</a>
+      <a href="chapter3.html" class="nav-link">Chapter 3</a>
+      <!-- Add more links as needed -->
+    </div>
+  </div>
+
+  <script src="../js/chapter.js"></script>
+  <script src="../js/toggle.js"></script>
+</body>
+</html>
