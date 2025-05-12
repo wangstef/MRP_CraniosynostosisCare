@@ -4,16 +4,19 @@ const pages = [
     { 
         img: "../img/images/Non journey/Ch 1 a.png",
         showButton: false ,
+        showTextBox: true,
         text: "Welcome to the story of craniosynostosis. Let's begin with the basics."
     }, 
     {
         img: "../img/images/Non journey/Ch 1 b.png",
         showButton: true,
+        showTextBox: true,
         text: "This is what the condition looks like in early stages."
     },
     {
         img: "../img/images/Non journey/Ch 1 c.png",
         showButton: false,
+        showTextBox: true,
         text: "Treatment options differ depending on age and severity."
     }
 ];
@@ -41,6 +44,15 @@ if (window.location.hash.startsWith("#page")) {
     backgroundImg.src = page.img;
     infoButton.style.display = page.showButton ? "block" : "none";
     document.getElementById("textBox").innerText = page.text;  // This is for the text box
+
+    // Show or hide the text box based on the page's property
+    const textBox = document.getElementById("textBox");
+    if (page.showTextBox) {
+      textBox.innerText = page.text;
+      textBox.style.display = "block";
+    } else {
+      textBox.style.display = "none";
+    }
 
     // 🧩 Always store current page in the hash so toggle goes to the corresponding page
      window.location.hash = "#page" + currentPage;

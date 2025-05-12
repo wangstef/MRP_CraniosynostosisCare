@@ -2,17 +2,20 @@ const pages = [
     { 
         img: "../img/images/Non journey/Ch 2 a.png",
         showButton: false ,
-        text: "Welcome to the story of craniosynostosis. Let's begin with the basics."
+        showTextBox: true,
+        text: "Most parents have...."
     }, //showbutton is for lightbox button
     {
         img: "../img/images/Non journey/Ch 2 b.png",
         showButton: true,
-        text: "This is what the condition looks like in early stages."
+        showTextBox: true,
+        text: "If parents want...."
     },
     {
         img: "../img/images/Non journey/Ch 2 c.png",
         showButton: false,
-        text: "Treatment options differ depending on age and severity."
+        showTextBox: false,
+        text: ""
     }
   ];
   
@@ -28,8 +31,17 @@ const pages = [
     infoButton.style.display = page.showButton ? "block" : "none";
     document.getElementById("textBox").innerText = page.text;  // This is the key part!
 
+    // Show or hide the text box based on the page's property
+    const textBox = document.getElementById("textBox");
+    if (page.showTextBox) {
+      textBox.innerText = page.text;
+      textBox.style.display = "block";
+    } else {
+      textBox.style.display = "none";
+    }
+
     // 🧩 Always store current page in the hash
-  window.location.hash = "#page" + currentPage;
+    window.location.hash = "#page" + currentPage;
   }  
   
   function nextPage() {
