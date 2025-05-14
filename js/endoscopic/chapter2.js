@@ -25,20 +25,36 @@ const pages = [
   const infoButton = document.getElementById("infoButton");
   const lightbox = document.getElementById("lightbox");
   
-  function renderPage() {
-    const page = pages[currentPage];
-    backgroundImg.src = page.img;
-    infoButton.style.display = page.showButton ? "block" : "none";
-    document.getElementById("textBox").innerText = page.text;  // This is the key part!
+ //set progress bar pages (dots)
+  const progressBar = document.getElementById("progressBar");
 
-    // Show or hide the text box based on the page's property
-    const textBox = document.getElementById("textBox");
-    if (page.showTextBox) {
-      textBox.innerText = page.text;
-      textBox.style.display = "block";
-    } else {
-      textBox.style.display = "none";
-    }
+    // Create one dot per page
+    pages.forEach(() => {
+      const dot = document.createElement("div");
+      dot.classList.add("progress-dot");
+      progressBar.appendChild(dot);
+    });
+
+  function renderPage() {
+  const page = pages[currentPage];
+  backgroundImg.src = page.img;
+  infoButton.style.display = page.showButton ? "block" : "none";
+
+  const textBox = document.getElementById("textBox");
+  const textContent = document.getElementById("textContent");
+
+  if (page.showTextBox) {
+    textBox.style.display = "flex"; // changed from "block" for flex layout
+    textContent.innerText = page.text;
+  } else {
+    textBox.style.display = "none";
+  }
+
+  // Highlight current progress dot
+  const dots = document.querySelectorAll(".progress-dot");
+  dots.forEach((dot, index) => {
+    dot.classList.toggle("active", index === currentPage);
+  });
 
     // 🧩 Always store current page in the hash
     window.location.hash = "#page" + currentPage;
