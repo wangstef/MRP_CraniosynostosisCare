@@ -13,7 +13,10 @@
   <div class="chapter-container">
     <img id="backgroundImg" src="" class="background-img" alt="Chapter Page Background"/>
     <!-- Text -->
-    <div id="textBox" class="text-box"></div>
+    <div id="textBox" class="text-box">
+      <div id="textContent"></div> <!-- Holds the page text -->
+      <div id="progressBar" class="progress-bar"></div> <!-- Holds the dots -->
+    </div>
 
     <!-- Lightbox -->
     <button id="infoButton" class="page-button">Learn More</button>
@@ -27,17 +30,21 @@
       </div>
     </div>
 
+
     <div class="arrow left" onclick="prevPage()">&larr;</div>
     <div class="arrow right" onclick="nextPage()">&rarr;</div>
   </div>
 
+
+<!--LINK TO proper journey js  -->
   <script src="../js/cranialvault/chapter1.js"></script>
 
 
 <!-- Toggle switch -->
-  <label class="toggle-switch">
+<label class="toggle-switch">
     <input type="checkbox" id="journeyToggle">
     <span class="slider"></span>
+  </label>
   
   <script src="../js/toggle.js"></script>
 

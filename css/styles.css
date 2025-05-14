@@ -287,3 +287,38 @@ body, html {
 }
 
 
+/* Progress bar pages: Dots */
+.text-box {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1.2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: #333;
+  z-index: 3;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.progress-bar {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.progress-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  transition: background-color 0.3s ease;
+}
+
+.progress-dot.active {
+  background-color: #007bff; /* Or match your theme */
+}
