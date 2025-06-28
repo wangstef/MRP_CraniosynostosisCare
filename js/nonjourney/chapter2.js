@@ -14,7 +14,7 @@ const pages = [
         text: "Most parents have never heard of craniosynostosis before their child is diagnosed. Click on the button above to hear how it is pronounced.",
         // 🧩 1. ADD AUDIO PROPERTIES
         showAudioButton: true, // Show the button on this page
-        audioSrc: "/img/audio/Craniosynostosispronounce_Shelley_v001.mp3" // IMPORTANT: Replace with the actual path to your audio file
+        audioSrc: "/img/audio/Craniosynostosispronounce_Shelley.mp3" // IMPORTANT: Replace with the actual path to your audio file
     }, 
     {
         img: "../img/images/Non journey/BG-wave.png",
