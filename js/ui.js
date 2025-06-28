@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.body.insertAdjacentHTML('beforeend', modalHTML);
 
   // --- Hardcoded path to index.html (adjust as needed) ---
-  const mainMenuPath = '../index.html'; // Change to '../index.html' or './index.html' as needed
+  const mainMenuPath = '/index.html'; // Change to '../index.html' or './index.html' as needed
 
   // --- Event: Show modal ---
   mainMenuButton.addEventListener('click', function (event) {
