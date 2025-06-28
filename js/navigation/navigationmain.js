@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 { name: "Surgical options", file: "/path_selection.html" }
             ]
         },
-        { id: 3, name: "Pre-Op", file: "../endoscopic/chapter3.html" }, // Path-specific
-        { id: 4, name: "Surgery", file: "chapter4.html" }, // Path-specific
+        { id: 3, name: "Pre-Op", file: "../path_selection.html" }, // Path-specific
+        { id: 4, name: "Surgery", file: "../endoscopic/chapter3.html" }, // Path-specific
         {
             id: 5, name: "Post-Op", file: "chapter5.html", hasPopup: true, // Path-specific
             popup: [
