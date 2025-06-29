@@ -59,6 +59,7 @@
             flex-grow: 1; 
             min-height: 0;
             align-items: stretch; 
+            overflow-y: auto; /* Allows scrolling if content overflows */
         }
 
         /* --- INDIVIDUAL CARDS: THE CONTAINER QUERY SETUP --- */
@@ -175,10 +176,10 @@
         /* --- BACK ARROW --- */
         .back-arrow-button {
             position: absolute;
-            top: 1rem;
+            top: 40%;
             left: 1rem;
-            width: 45px;
-            height: 45px;
+            width: 2rem;
+            height: 2rem;
             color: #1A4651;
             cursor: pointer;
             z-index: 10;
