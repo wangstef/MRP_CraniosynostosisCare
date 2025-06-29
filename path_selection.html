@@ -5,187 +5,187 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surgical Options - Craniosynostosis Journey</title>
     <link rel="stylesheet" href="css/styles.css">
-    <style>
-    /* General body and typography improvements */
-    body.path-selection-page {
-        background-color: #FFFFFF;
-        color: #333333;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        padding: 2rem 1rem; /* Added more vertical padding */
-        box-sizing: border-box;
+<style>
+        /* --- CSS RESET: Creates a stable foundation --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
 
-        /* --- KEY CHANGES FOR SCALING --- */
-        min-height: auto;       /* REMOVED: min-height: 100vh */
-        display: block;         /* REMOVED: display: flex and flex-direction */
-        overflow-y: auto;       /* CRITICAL: Allows vertical scrolling only when needed. */
-    }
+        html {
+            height: 100%;
+        }
 
-    /* Using clamp() for fluidly responsive font sizes */
-    .path-selection-header {
-        text-align: center;
-        width: 100%;
-        max-width: 900px;
-        margin: 0 auto 2rem auto; /* Center the header and add space below */
-    }
-    
-    .path-selection-header h1 {
-        font-size: clamp(2rem, 5vw, 2.5rem);
-        color: #2C3E50;
-        margin-bottom: 0.5rem;
-    }
+        /* --- General body and typography --- */
+        body.path-selection-page {
+            background-color: #FFFFFF;
+            color: #333333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            height: 100%; 
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+        }
 
-    .path-selection-header p {
-        font-size: clamp(1rem, 2.5vw, 1.1rem);
-        color: #555555;
-    }
+        /* --- Header Section (Does not need to change) --- */
+        .path-selection-header {
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding-bottom: 1rem;
+            flex-shrink: 0; 
+        }
+        
+        .path-selection-header h1 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            color: #2C3E50;
+            margin: 0 0 0.5rem 0;
+        }
 
-    /* --- CARD CONTAINER: Made more flexible --- */
-    .path-options-container {
-        display: flex;
-        justify-content: center;
-        align-items: stretch; 
-        flex-wrap: wrap;
-        gap: 2rem;
-        max-height: 80vh; /* Limit the height of the card container */
-        max-width: 1000px; /* Limit the max width of the card container */
-        margin: 0 auto;    /* Center the container */
-    }
+        .path-selection-header p {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            color: #555555;
+            margin: 0;
+        }
 
-    /* --- CARDS: Removed fixed height, improved responsive width --- */
-    .path-option-card {
-        background-color: #FFF;
-        border: 2px solid #FDEEAA;
-        border-radius: 15px;
-        /* --- KEY CHANGE --- */
-        height: 20%;
-        width: 40%; /* Set the width to 60% of the container */
+        /* --- CARD CONTAINER: --- */
+        .path-options-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            width: 100%;
+            flex-grow: 1; 
+            min-height: 0;
+            align-items: stretch; 
+        }
 
-        /* The flex-grow and flex-basis properties are removed to allow the width property to take full control. */
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        margin-bottom: 2rem; /* Add space between stacked cards */
-    }
+        /* --- INDIVIDUAL CARDS: THE CONTAINER QUERY SETUP --- */
+        .path-option-card {
+            background-color: #FFF;
+            border: 2px solid #FDEEAA;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            
+            /* KEY CHANGE 1: Make the card scalable */
+            width: 45%; /* Use percentage to make the card scale with its container */
+            max-width: 400px; /* Optional: prevent it from getting too large */
+            min-width: 300px; /* Prevent it from getting too squished */
 
-    .path-option-card .card-header {
-        padding: 1rem 1.5rem;
-        text-align: center;
-    }
+            min-height: 0;
+            overflow: hidden;
 
-    .path-option-card .card-header .age-info {
-        font-size: clamp(0.9rem, 1vw, 1rem);
-        color: #555;
-        font-weight: bold;
-    }
+            /* KEY CHANGE 2: Define this element as a query container */
+            container-type: inline-size;
+            container-name: path-card;
+        }
 
-    .path-option-card .card-image-container {
-        width: 100%;
-        text-align: center;
-        padding: 1rem 0;
-    }
+        /* --- Card Internals --- */
+        .path-option-card .card-header {
+            padding: 0.75rem 1.5rem;
+            text-align: center;
+            flex-shrink: 0;
+        }
 
-    .path-option-card .card-image-container img {
-        max-width: 60%;
-        height: auto;
-        border-radius: 5px;
-    }
+        /* KEY CHANGE 3: Use Container Query Units (cqw) for font sizes */
+        .path-option-card .card-header .age-info {
+            font-size: 3cqw; /* 3% of the container's width */
+            color: #555;
+            font-weight: bold;
+        }
 
-    /* --- CARD CONTENT: Let content dictate the height --- */
-    .path-option-card .card-content {
-        background-color: #FEF9E7;
-        padding: 1.5rem;
-        text-align: left;
-        flex-grow: 1; 
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+        .path-option-card .card-image-container {
+            width: 100%;
+            text-align: center;
+            padding: 0;
+            flex-shrink: 0;
+        }
 
-    .path-option-card .card-content h2 {
-        font-size: clamp(1.2rem, 4vw, 1.4rem);
-        margin-top: 0;
-        margin-bottom: 0.5rem;
-        color: #333;
-    }
+        .path-option-card .card-image-container img {
+            max-width: 20vw;
+            height: auto;
+            border-radius: 0;
+        }
 
-    .path-option-card .card-content .surgery-subtitle {
-        font-size: clamp(0.85rem, 2vw, 0.9rem);
-        color: #555;
-        margin-bottom: 1rem;
-    }
+        .path-option-card .card-content {
+            background-color: #FEF9E7;
+            padding: 1rem;
+            text-align: left;
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            min-height: 0;
+        }
 
-    .path-option-card .card-content .description {
-        font-size: clamp(0.9rem, 2.5vw, 0.95rem);
-        line-height: 1.6;
-        color: #444;
-        margin-bottom: 2rem;
-    }
+        .path-option-card .card-content > div {
+            flex-shrink: 1;
+        }
 
-    .path-option-card .card-content .description strong {
-        color: #D35400;
-    }
+        .path-option-card .card-content h2 {
+            font-size: 4.5cqw; /* 4.5% of the container's width */
+            margin: 0 0 0.5rem 0;
+            color: #333;
+        }
 
-    /* --- BUTTONS --- */
-    .card-select-button1, .card-select-button2 {
-        border: none;
-        border-radius: 50%;
-        width: 45px;
-        height: 45px;
-        cursor: pointer;
-        transition: background-color 0.2s ease, transform 0.2s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        align-self: flex-end; 
-    }
+        .path-option-card .card-content .surgery-subtitle {
+            font-size: 2.8cqw; /* 2.8% of the container's width */
+            color: #555;
+            margin-bottom: 1rem;
+        }
 
-    .card-select-button1:hover, .card-select-button2:hover {
-        transform: scale(1.1);
-    }
+        .path-option-card .card-content .description {
+            font-size: 3cqw; /* 3% of the container's width */
+            line-height: 1.5;
+            color: #444;
+            margin-bottom: 1rem;
+        }
 
-    .card-select-button1 {
-        background-color: #F39C12;
-        color: white;
-    }
-    .card-select-button1:hover {
-        background-color: #E67E22;
-    }
-    .card-select-button2 {
-        background-color: #6118d6;
-        color: white;
-    }
-    .card-select-button2:hover {
-        background-color: #ba9bdd;
-    }
+        .path-option-card .card-content .description strong {
+            color: #D35400;
+        }
 
-    .card-select-button1 svg, .card-select-button2 svg {
-        width: 1em;
-        height: 1em;
-    }
+        /* --- BUTTONS --- */
+        .card-select-button1, .card-select-button2 {
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: flex-end;
+            flex-shrink: 0;
+            margin-top: auto;
+        }
+        
+        /* ... Other button styles remain the same ... */
+        .card-select-button1:hover, .card-select-button2:hover{transform: scale(1.1);}
+        .card-select-button1{background-color: #F39C12;color: white;}
+        .card-select-button1:hover{background-color: #E67E22;}
+        .card-select-button2{background-color: #6118d6;color: white;}
+        .card-select-button2:hover{background-color: #ba9bdd;}
+        .card-select-button1 svg, .card-select-button2 svg{width: 1em;height: 1em;}
 
-    /* --- BACK ARROW: Adjusted for better positioning --- */
-    .back-arrow-button {
-        position: absolute;
-        top: 50%;  /* CHANGED: Position from top is now fixed */
-        left: 2rem;
-        width: 45px; /* Made larger for easier clicking */
-        height: 45px;
-        color: #1A4651;
-        cursor: pointer;
-        z-index: 10;
-        user-select: none;
-        transition: opacity 0.3s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-    }
+        /* --- BACK ARROW --- */
+        .back-arrow-button {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            width: 45px;
+            height: 45px;
+            color: #1A4651;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .back-arrow-button:hover{opacity: 0.6;}
 
-    .back-arrow-button:hover {
-        opacity: 0.6;
-    }
-</style>
+    </style>
 </head>
 <body class="path-selection-page">
 
