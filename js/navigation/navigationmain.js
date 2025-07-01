@@ -1,57 +1,46 @@
 // js/navigation.js
 
-//Top Bar Dynamic Chapter Title Logic
-document.addEventListener('DOMContentLoaded', function() {
-    // --- Logic to set the Dynamic Chapter Title in the Top Bar ---
-
+// Function to handle dynamic chapter title in the top bar
+function setDynamicChapterTitle() {
     const dynamicTitleElement = document.getElementById('dynamic-chapter-title');
-
-    // First, check if the title element actually exists on the current page.
     if (dynamicTitleElement) {
-        // Get the full text from the page's <title> tag (e.g., "Chapter 2 – Endoscopic")
-        const pageTitle = document.title; 
-
-        // Split the title string at the "–" character and take the first part.
-        // The .trim() function removes any extra whitespace from the beginning or end.
+        const pageTitle = document.title;
         const chapterPart = pageTitle.split('–')[0].trim();
-
-        // Finally, set the text of our element in the top bar.
-        dynamicTitleElement.textContent = chapterPart; // The result will be "Chapter 2"
+        dynamicTitleElement.textContent = chapterPart;
     }
-});
+}
 
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
+// Function to generate and manage the chapter navigation
+function generateChapterNavigation() {
     const navContainer = document.getElementById('chapter-nav-container-main');
     if (!navContainer) {
         console.error("Chapter navigation container (#chapter-nav-container-main) not found in HTML.");
         return;
     }
 
+    // Clear existing navigation to prevent duplicates on hash change
+    navContainer.innerHTML = ''; 
+
     const path = window.location.pathname;
+    const hash = window.location.hash; // Get the current hash
     const pathSegments = path.split('/').filter(Boolean);
 
-    if (pathSegments.length < 2) { // Expect at least /folder/file.html
+    if (pathSegments.length < 2) {
         navContainer.style.display = 'none';
         console.warn("Path does not have enough segments to determine folder and file for navigation. Nav will not be displayed.");
         return;
     }
 
     const currentPageFilename = pathSegments[pathSegments.length - 1];
-    const currentUrlFolder = pathSegments[pathSegments.length - 2]; // Folder from the current URL
+    const currentUrlFolder = pathSegments[pathSegments.length - 2];
 
     const chosenPathKey = 'visualNovelChosenPath';
-    const chosenPath = localStorage.getItem(chosenPathKey); // e.g., 'splitcraniectomy' or 'cranialvaultadvanced'
+    const chosenPath = localStorage.getItem(chosenPathKey);
 
-    // IMPORTANT: Ensure chapterDefinitions adhere to the assumptions mentioned above.
-    // `file` properties should be filenames only.
-    // Example structure (your actual filenames might differ):
     const chapterDefinitions = [
-        { id: 1, name: "Welcome", file: "chapter1.html" }, // Implicitly in "nonjourney"
+        { id: 1, name: "Welcome", file: "chapter1.html" },
         {
-            id: 2, name: "Intro", file: "chapter2.html", hasPopup: true, // Implicitly in "nonjourney"
+            id: 2, name: "Intro", file: "chapter2.html", hasPopup: true,
             popup: [
                 { name: "Pronunciation", file: "chapter2.html#page1" },
                 { name: "Video: Craniosynostosis", file: "chapter2.html#page3" },
@@ -59,53 +48,67 @@ document.addEventListener('DOMContentLoaded', function () {
                 { name: "Surgical options", file: "../path_selection.html" }
             ]
         },
-        { id: 3, name: "Pre-Op", file: "../path_selection.html" }, // Path-specific
-        { id: 4, name: "Surgery", file: "../endoscopic/chapter3.html" }, // Path-specific
+        { id: 3, name: "Pre-Op", file: "chapter3.html" }, // Assuming this will resolve to e.g., endoscopic/chapter3.html
+        { id: 4, name: "Surgery", file: "chapter4.html" }, // Assuming this will resolve to e.g., endoscopic/chapter4.html
         {
-            id: 5, name: "Post-Op", file: "chapter5.html", hasPopup: true, // Path-specific
+            id: 5, name: "Post-Op", file: "chapter5.html", hasPopup: true,
             popup: [
                 { name: "Timeline", file: "popup_timeline.html" },
                 { name: "Benefit vs Risks", file: "popup_benefits.html" },
             ]
         },
-        { id: 6, name: "End", file: "chapter6.html" } // Path-specific
+        { id: 6, name: "End", file: "chapter6.html" }
     ];
 
-    // Determine the effective folder context of the current page
-    let currentContextualFolder = 'nonjourney'; // Default to nonjourney
+    let currentContextualFolder = 'nonjourney';
     if (chosenPath && currentUrlFolder === chosenPath) {
         currentContextualFolder = chosenPath;
     } else if (currentUrlFolder !== 'nonjourney' && chosenPath && currentUrlFolder !== chosenPath) {
-        // If chosenPath is set, but currentUrlFolder is neither 'nonjourney' nor the chosenPath,
-        // this might be an unexpected state or a generic page not tied to these contexts.
-        // For active state logic, it's safer to assume it's not in a defined nav context.
         console.warn(`Current URL folder "${currentUrlFolder}" does not match chosenPath "${chosenPath}" or "nonjourney". Navigation active states might be affected.`);
-        currentContextualFolder = currentUrlFolder; // Or set to null if strict matching is required
+        currentContextualFolder = currentUrlFolder;
     } else {
-         currentContextualFolder = currentUrlFolder; // Could be 'nonjourney' or other if no chosenPath
+        currentContextualFolder = currentUrlFolder;
     }
 
-
-    // Determine the ID of the chapter the user is currently viewing
     let viewerChapterId = null;
+    let viewerSubItemId = null; // Track the active sub-item ID/name if applicable
+
+    // Determine the viewerChapterId and potentially viewerSubItemId
     for (const chapterDef of chapterDefinitions) {
         const isPathSpecificChapter = chapterDef.id >= 3;
-        // Determine the folder this chapter definition would reside in
         let chapterDefExpectedFolder = isPathSpecificChapter ? chosenPath : 'nonjourney';
 
         if (isPathSpecificChapter && !chosenPath) {
-            // If no path is chosen, path-specific chapters don't have a determined folder yet.
             chapterDefExpectedFolder = null;
         }
 
+        // Match main chapter file
         if (chapterDef.file === currentPageFilename && chapterDefExpectedFolder && chapterDefExpectedFolder === currentContextualFolder) {
             viewerChapterId = chapterDef.id;
-            break;
+            // If the current URL has a hash, and this chapter has popups,
+            // we need to check if the hash matches a sub-item for active state.
+            if (hash && chapterDef.hasPopup && chapterDef.popup) {
+                const matchedSubItem = chapterDef.popup.find(subItem => subItem.file.endsWith(hash));
+                if (matchedSubItem) {
+                    viewerSubItemId = matchedSubItem.name; // Use name or unique ID
+                }
+            }
+            break; 
         }
+
+        // Match popup sub-items (if the main file matches or sub-item directly matches)
         if (chapterDef.popup) {
             for (const subItem of chapterDef.popup) {
-                if (subItem.file === currentPageFilename && chapterDefExpectedFolder && chapterDefExpectedFolder === currentContextualFolder) {
+                // If the subItem.file includes the current page filename AND the current hash
+                // This handles cases like chapter2.html#page1 matching subItem.file "chapter2.html#page1"
+                const subItemMatchesCurrentPage = subItem.file.startsWith(currentPageFilename) && subItem.file.endsWith(hash);
+
+                // For cases where a sub-item file might be just the filename without hash if current page has no hash
+                const subItemIsJustFilename = subItem.file === currentPageFilename && !hash;
+
+                if ((subItemMatchesCurrentPage || subItemIsJustFilename) && chapterDefExpectedFolder && chapterDefExpectedFolder === currentContextualFolder) {
                     viewerChapterId = chapterDef.id;
+                    viewerSubItemId = subItem.name; 
                     break;
                 }
             }
@@ -118,34 +121,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
     chapterDefinitions.forEach(chapter => {
         const isTargetChapterPathSpecific = chapter.id >= 3;
-        let targetLinkFolder; // The folder name used to construct the link path
+        let targetLinkFolder;
 
         if (isTargetChapterPathSpecific) {
             if (chosenPath) {
                 targetLinkFolder = chosenPath;
             } else {
-                // Do not render nav items for chapters 3+ if no path has been chosen.
-                // The modal will be triggered by links on earlier pages that *point* to these chapters.
-                return;
+                return; // Do not render nav items for chapters 3+ if no path chosen.
             }
-        } else { // Chapters 1, 2 are common
+        } else {
             targetLinkFolder = 'nonjourney';
         }
 
-        // `chapter.file` is assumed to be just the filename.
-        // `targetChapterFileForModal` will be this filename, used by the modal to redirect correctly.
         const targetChapterFileForModal = chapter.file || 
-                                       (chapter.popup && chapter.popup[0] ? chapter.popup[0].file : 
-                                       (isTargetChapterPathSpecific ? `chapter${chapter.id}.html` : 'chapter1.html'));
-
+                                           (chapter.popup && chapter.popup[0] ? chapter.popup[0].file : 
+                                           (isTargetChapterPathSpecific ? `chapter${chapter.id}.html` : 'chapter1.html'));
 
         let chapterLinkPath = "";
         if (chapter.file) {
-            chapterLinkPath = `../${targetLinkFolder}/${chapter.file}`;
-        } else if (chapter.hasPopup) { // Main chapter is a non-clickable header for a popup menu
+            // Adjust link path for chapters with hashes if not a direct file
+            if (chapter.file.includes('#')) {
+                chapterLinkPath = `../${targetLinkFolder}/${chapter.file}`;
+            } else {
+                chapterLinkPath = `../${targetLinkFolder}/${chapter.file}`;
+            }
+        } else if (chapter.hasPopup) {
             chapterLinkPath = "javascript:void(0);";
         } else {
-            return; // Skip if chapter has no file and no popup items
+            return;
         }
 
         const li = document.createElement('li');
@@ -156,17 +159,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const a = document.createElement('a');
         a.textContent = chapter.name;
 
-        // Modal trigger logic:
-        // If on an early chapter (1 or 2, or not on a recognized chapter page) AND
-        // the link is for a future path-specific chapter (3+) AND
-        // no path has been chosen yet.
         const onEarlyChapterOrNonChapterPage = (viewerChapterId === null || viewerChapterId === 1 || viewerChapterId === 2);
 
         if (onEarlyChapterOrNonChapterPage && isTargetChapterPathSpecific && !chosenPath) {
             a.href = "javascript:void(0);";
             a.addEventListener('click', (e) => {
                 e.preventDefault();
-                // Pass the actual target filename for the chapter to the modal
                 displayPathSelectionModalInNav(targetChapterFileForModal);
             });
         } else {
@@ -178,15 +176,18 @@ document.addEventListener('DOMContentLoaded', function () {
             iconSpan.className = 'nav-icon popup-icon';
             iconSpan.innerHTML = " &#9650;"; // Upwards triangle
             if (onEarlyChapterOrNonChapterPage && isTargetChapterPathSpecific && !chosenPath) {
-                iconSpan.style.display = 'none'; // Hide icon if link is intercepted by modal
+                iconSpan.style.display = 'none';
             }
             a.appendChild(iconSpan);
         }
 
-        // Active state for main chapter link
-        if (chapter.file && chapter.file === currentPageFilename && targetLinkFolder === currentContextualFolder) {
+        // Active state for main chapter link (based on file *and* fragment if present)
+        const currentFullPage = currentPageFilename + hash;
+        if ((chapter.file === currentPageFilename && targetLinkFolder === currentContextualFolder) ||
+            (chapter.popup && chapter.popup.some(sub => sub.file === currentFullPage && targetLinkFolder === currentContextualFolder))) {
             a.classList.add('active');
         }
+        
         li.appendChild(a);
 
         if (chapter.hasPopup && chapter.popup && chapter.popup.length > 0) {
@@ -195,7 +196,6 @@ document.addEventListener('DOMContentLoaded', function () {
             let parentIsActiveFromSub = false;
 
             chapter.popup.forEach(subItem => {
-                // Popups use the same folder context as their parent chapter's link
                 const subItemTargetFolder = targetLinkFolder; 
                 const subItemFileForModal = subItem.file;
 
@@ -211,14 +211,20 @@ document.addEventListener('DOMContentLoaded', function () {
                     });
                 } else {
                     if (!subItemTargetFolder) {
-                         console.warn("Sub-item cannot determine target folder:", subItem.name, "Parent Chapter ID:", chapter.id);
-                         subA.href = "javascript:void(0);"; // Should not happen if parent is valid
+                        console.warn("Sub-item cannot determine target folder:", subItem.name, "Parent Chapter ID:", chapter.id);
+                        subA.href = "javascript:void(0);";
                     } else {
+                        // Ensure relative path is correct. If subItem.file already contains full path relative to root,
+                        // you might need to adjust. Assuming subItem.file is just the filename + hash.
                         subA.href = `../${subItemTargetFolder}/${subItem.file}`;
                     }
                 }
 
-                if (subItem.file === currentPageFilename && subItemTargetFolder === currentContextualFolder) {
+                // Active state for sub-items: Match current page filename AND hash
+                const subItemFullFile = subItem.file; // e.g., chapter2.html#page1
+                const currentBrowserUrl = currentPageFilename + hash; // e.g., chapter2.html#page1
+
+                if (subItemFullFile === currentBrowserUrl && subItemTargetFolder === currentContextualFolder) {
                     subA.classList.add('active-sub-item');
                     parentIsActiveFromSub = true;
                 }
@@ -227,23 +233,21 @@ document.addEventListener('DOMContentLoaded', function () {
             });
             li.appendChild(popupUl);
             if (parentIsActiveFromSub) {
-                a.classList.add('active-parent'); // Style for parent if a sub-item is active
+                a.classList.add('active-parent');
             }
         }
         ul.appendChild(li);
     });
 
     navElement.appendChild(ul);
-    navContainer.innerHTML = ''; 
     navContainer.appendChild(navElement);
 
     // Event listeners for popups (hover logic)
     document.querySelectorAll('.has-popup').forEach(popupLi => {
-        const mainLink = popupLi.querySelector('a'); // Get the main link
+        const mainLink = popupLi.querySelector('a');
         const popupMenu = popupLi.querySelector('.popup-menu');
         let closeTimer = null; 
 
-        // Only attach hover listeners if it's a real link and has a popup menu
         if (mainLink && mainLink.getAttribute('href') !== "javascript:void(0);" && popupMenu) {
             const openMenuByLink = () => {
                 if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
@@ -253,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 popupLi.classList.remove('popup-open');
             };
             const startHideTimer = () => {
-                if (closeTimer) { clearTimeout(closeTimer); } // Clear existing timer before starting a new one
+                if (closeTimer) { clearTimeout(closeTimer); }
                 closeTimer = setTimeout(hideMenu, 250); 
             };
             const cancelHideTimer = () => {
@@ -274,20 +278,26 @@ document.addEventListener('DOMContentLoaded', function () {
     if (chosenPath && currentChapterDefForTheme && currentChapterDefForTheme.id >= 3) {
         document.body.classList.add(`path-${chosenPath}`);
     } else if (currentContextualFolder === 'nonjourney' && (currentChapterDefForTheme && currentChapterDefForTheme.id <=2 || viewerChapterId === null)) {
-         // If in 'nonjourney' folder context (either matched to ch1/2 or no specific chapter match but URL is nonjourney)
         document.body.classList.add('journey-nonjourney');
     } else if (chosenPath && currentContextualFolder === chosenPath) {
-        // Fallback if current page is in a chosen path folder but not specifically matched to a chapter
         document.body.classList.add(`path-${chosenPath}`);
     }
-});
+
+    // Scroll to the hash element after navigation is built/updated
+    if (hash) {
+        const targetElement = document.getElementById(hash.substring(1)); // Remove '#'
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+}
 
 
 // --- Function to display the path selection modal ---
 function displayPathSelectionModalInNav(targetChapterFileOnClick) {
     if (document.getElementById('pathChoiceOverlay')) {
         const existingOverlay = document.getElementById('pathChoiceOverlay');
-        existingOverlay.dataset.targetFile = targetChapterFileOnClick; // Update target file
+        existingOverlay.dataset.targetFile = targetChapterFileOnClick;
         requestAnimationFrame(() => existingOverlay.classList.add('visible'));
         return;
     }
@@ -297,7 +307,6 @@ function displayPathSelectionModalInNav(targetChapterFileOnClick) {
     choiceContainer.className = 'path-choice-overlay'; 
     choiceContainer.dataset.targetFile = targetChapterFileOnClick; 
 
-    // These IDs will be used as folder names and stored in localStorage
     const PATH_SPLIT_CRANIECTOMY_MODAL = {
         id: 'splitcraniectomy', 
         displayText: 'Split Craniectomy Path'
@@ -323,12 +332,14 @@ function displayPathSelectionModalInNav(targetChapterFileOnClick) {
 
     const handlePathSelection = (selectedPathId) => {
         localStorage.setItem('visualNovelChosenPath', selectedPathId);
-        let targetFile = document.getElementById('pathChoiceOverlay').dataset.targetFile || `chapter3.html`; // Default to chapter3.html
+        let targetFile = document.getElementById('pathChoiceOverlay').dataset.targetFile || `chapter3.html`;
         
-        // Ensure targetFile is just a filename, not a path
-        const finalTargetFile = targetFile.split('/').pop(); 
+        const finalTargetFile = targetFile.split('/').pop().split('#')[0]; // Remove hash from finalTargetFile
 
-        window.location.href = `../${selectedPathId}/${finalTargetFile}#page0`; // Assumes #page0 is desired
+        // Append the original hash if it was part of the targetChapterFileOnClick
+        const originalHash = targetFile.includes('#') ? '#' + targetFile.split('#')[1] : '';
+
+        window.location.href = `../${selectedPathId}/${finalTargetFile}${originalHash || '#page0'}`; 
         removeModal();
     };
 
@@ -344,8 +355,19 @@ function displayPathSelectionModalInNav(targetChapterFileOnClick) {
                 if (overlay && overlay.parentElement) {
                     overlay.parentElement.removeChild(overlay);
                 }
-            }, 300); // Match CSS transition duration
+            }, 300);
         }
     }
 }
 
+
+// Event Listeners
+document.addEventListener('DOMContentLoaded', () => {
+    setDynamicChapterTitle();
+    generateChapterNavigation(); // Initial navigation load
+});
+
+window.addEventListener('hashchange', () => {
+    setDynamicChapterTitle(); // Re-evaluate title if needed (though unlikely to change just on hash)
+    generateChapterNavigation(); // Re-generate navigation to update active states and scroll
+});

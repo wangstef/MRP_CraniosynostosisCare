@@ -1,5 +1,7 @@
+// js/chapter2.js (your provided code)
+
 const pages = [
-   {
+    {
         img: "../img/images/Non journey/Ch 2 What is Craniosynostosis_.png",
         showButton: false,
         showTextBox: false,
@@ -12,18 +14,16 @@ const pages = [
         showTextBox: true,
         showProgressDots: true,
         text: "Most parents have never heard of craniosynostosis before their child is diagnosed. Click on the button above to hear how it is pronounced.",
-        // 🧩 1. ADD AUDIO PROPERTIES
-        showAudioButton: true, // Show the button on this page
-        audioSrc: "/img/audio/Craniosynostosispronounce_Shelley.mp3" // IMPORTANT: Replace with the actual path to your audio file
+        showAudioButton: true,
+        audioSrc: "/img/audio/Craniosynostosispronounce_Shelley.mp3"
     }, 
     {
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false,
         showTextBox: true,
-        // showNextArrow: false,
         showProgressDots: true,
         showVideoButton: true,
-        text: "If parents want to go through with surgical options, the timing is very important, as certain options (ex. Endoscopic strip Craniectomy) can only be done while the skull is still soft and growing. The following video will give a summary of craniosynostosis. "
+        text: "If parents want to go through with surgical options, the timing is very important, as certain options (ex. Endoscopic strip Craniectomy) can only be done while the skull is still soft and growing. The following video will give a summary of craniosynostosis. "
     },
     {
         img: "../img/images/Slide 16_9 - 1.png",
@@ -32,14 +32,13 @@ const pages = [
         showProgressDots: true,
         text: "",
         youtubeId: "OCecxsDDwWY"
-        
     },
     {
         img: "../img/images/Non journey/Ch 2 n.png",
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
-        text: "Challenges children may face growing up with craniosynostosis "
+        text: "Challenges children may face growing up with craniosynostosis "
     },
     {
         img: "../img/images/Non journey/Ch 2 l.png",
@@ -67,7 +66,7 @@ const pages = [
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
-        text: "Although many children undergo craniosynostosis surgery, the decision is yours to make based on what you believe is best for your child. Children with craniosynostosis have grown up with healthy brain function and lead fulfilling, successful lives"
+        text: "Although many children undergo craniosynostosis surgery, the decision is yours to make based on what you believe is best for your child. Children with craniosynostosis have grown up with healthy brain function and lead fulfilling, successful lives"
     },
     {
         img: "../img/images/Non journey/BG-wave.png",
@@ -76,39 +75,19 @@ const pages = [
         showProgressDots: true,
         text: "No matter what your decision is, your team at SickKids hospital will be there to help. If you choose not to pursue surgery, your team will still monitor and regularly check up to make sure your child stays healthy "
     }
-      
-  ]; 
+]; 
 
-  
-  let currentPage = 0;
+let currentPage = 0; // Initialize currentPage to 0
 
-  //Necessary to determine the current page based on URL hash
-  if (window.location.hash && window.location.hash.startsWith("#page")) {
-    // console.log("Hash found, attempting to parse...");
-    const pageFromHash = parseInt(window.location.hash.substring(5)); // Extracts number after "#page"
-    // console.log("Parsed pageFromHash:", pageFromHash);
+// Removed initial hash parsing from here. We'll handle it in a function.
 
-    if (!isNaN(pageFromHash) && pageFromHash >= 0 && pageFromHash < pages.length) {
-        currentPage = pageFromHash;
-        // console.log("currentPage successfully set from hash:", currentPage);
-    } else {
-        // console.warn("pageFromHash is invalid or out of bounds. Sticking with default currentPage.", pageFromHash);
-        // Fallback to currentPage = 0 is already handled by initial declaration.
-    }
-} else {
-    // console.log("No '#page' hash found in URL, or hash is not for a page. Using default currentPage.");
-}
-// console.log("Final currentPage before initial renderPage() call:", currentPage);
+const backgroundImg = document.getElementById("backgroundImg");
+const infoButton = document.getElementById("infoButton");
+const lightbox = document.getElementById("lightbox");
+const nextArrow = document.getElementById("nextArrow"); 
+const videoContainer = document.getElementById("videoContainer");
 
-  
-  const backgroundImg = document.getElementById("backgroundImg");
-  const infoButton = document.getElementById("infoButton");
-  const lightbox = document.getElementById("lightbox");
-  const nextArrow = document.getElementById("nextArrow"); 
-   const videoContainer = document.getElementById("videoContainer");
-  
 //Audio
-// 🧩 2. GET REFERENCES TO AUDIO
 const audioButton = document.getElementById("audioButton");
 const pageAudio = document.getElementById("pageAudio");
 const playPauseIcon = document.getElementById("playPauseIcon");
@@ -124,154 +103,171 @@ const pauseIconSVG = '<svg width="24" height="24" viewBox="0 0 24 24" fill="whit
 // Icons for video play
 const videoIconSVG = '<svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"></path></svg>';
 
- //set progress bar pages (dots)
-  const progressBar = document.getElementById("progressBar");
+//set progress bar pages (dots)
+const progressBar = document.getElementById("progressBar");
 
-    // Create one dot per page
+// Moved dot creation into a function to be called on page load
+function createProgressDots() {
+    progressBar.innerHTML = ''; // Clear existing dots
     pages.forEach(() => {
-      const dot = document.createElement("div");
-      dot.classList.add("progress-dot");
-      progressBar.appendChild(dot);
+        const dot = document.createElement("div");
+        dot.classList.add("progress-dot");
+        progressBar.appendChild(dot);
     });
-
-  function renderPage() {
-      const page = pages[currentPage];
-      
-      progressBar.style.display = page.showProgressDots ? "flex" : "none";
-
-
-      backgroundImg.src = page.img;
-      infoButton.style.display = page.showButton ? "block" : "none";
-
-      const textBox = document.getElementById("textBox");
-      const textContent = document.getElementById("textContent");
-
-      if (page.showTextBox) {
-        textBox.style.display = "flex"; // changed from "block" for flex layout
-        textContent.innerText = page.text;
-      } else {
-        textBox.style.display = "none";
-      }
-
-    // 🧩 3. CONTROL AUDIO BUTTON VISIBILITY AND STATE
-        if (page.showAudioButton) {
-            audioButton.style.display = "flex";
-            // Only update src if it's different to prevent re-loading on same page
-            if (pageAudio.getAttribute('src') !== page.audioSrc) {
-                pageAudio.src = page.audioSrc;
-            }
-        } else {
-            audioButton.style.display = "none";
-            // IMPORTANT: Stop and reset audio if we navigate away from a page with audio
-            pageAudio.pause();
-            pageAudio.currentTime = 0;
-        }
-            // Reset icon to 'play' every time the page renders or audio ends
-        playPauseIcon.innerHTML = playIconSVG;
-
-    // 🧩 6. CONTROL VIDEO BUTTON VISIBILITY AND STATE
-       if (page.showVideoButton) {
-           videoButton.style.display = "flex"; // Use 'flex' to honor the alignment styles
-           playVidIcon.innerHTML = videoIconSVG;
-       } else {
-           videoButton.style.display = "none";
-       }
-
-    // VIDEO CONTAINER LOGIC
-       if (page.youtubeId) {
-           // If the page has a youtubeId, show the container and create the iframe
-           videoContainer.style.display = "block";
-           // The '?autoplay=1' makes the video play immediately.
-           // The '&rel=0' prevents related videos from showing at the end.
-            videoContainer.innerHTML = `
-                <div class="video-responsive-wrapper">
-                    <iframe
-                        // FIX: Use the correct YouTube embed URL and template literal syntax.
-                        src="https://www.youtube.com/embed/${page.youtubeId}?autoplay=1&rel=0"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            `;
-       } else {
-           // If not, hide the container and REMOVE the iframe.
-           // This is crucial to stop the video from playing in the background.
-           videoContainer.style.display = "none";
-           videoContainer.innerHTML = "";
-       }
-
-
-      // Highlight current progress dot
-      const dots = document.querySelectorAll(".progress-dot");
-      dots.forEach((dot, index) => {
-        dot.classList.toggle("active", index === currentPage);
-      });
-
-            //make next arrow disappear
-      if (page.showNextArrow === false) {
-        nextArrow.style.display = "none";
-    // } else {
-    //     nextArrow.style.display = "block"; 
-    }
-
-        // 🧩 Always store current page in the hash
-        window.location.hash = "#page" + currentPage;
-      }  
-      
-    // 🧩 4. FUNCTION TO PLAY/PAUSE AUDIO
-    function toggleAudio() {
-        if (pageAudio.paused) {
-            pageAudio.play();
-            playPauseIcon.innerHTML = pauseIconSVG; // Show pause icon
-        } else {
-            pageAudio.pause();
-            playPauseIcon.innerHTML = playIconSVG; // Show play icon
-        }
 }
 
-// 🧩 5. EVENT LISTENERS
+
+function renderPage() {
+    const page = pages[currentPage];
+    
+    progressBar.style.display = page.showProgressDots ? "flex" : "none";
+
+    backgroundImg.src = page.img;
+    infoButton.style.display = page.showButton ? "block" : "none";
+
+    const textBox = document.getElementById("textBox2");
+    const textContent = document.getElementById("textContent");
+
+    if (page.showTextBox) {
+        textBox.style.display = "flex";
+        textContent.innerText = page.text;
+    } else {
+        textBox.style.display = "none";
+    }
+
+    if (page.showAudioButton) {
+        audioButton.style.display = "flex";
+        if (pageAudio.getAttribute('src') !== page.audioSrc) {
+            pageAudio.src = page.audioSrc;
+        }
+    } else {
+        audioButton.style.display = "none";
+        pageAudio.pause();
+        pageAudio.currentTime = 0;
+    }
+    playPauseIcon.innerHTML = playIconSVG;
+
+    if (page.showVideoButton) {
+        videoButton.style.display = "flex";
+        playVidIcon.innerHTML = videoIconSVG;
+    } else {
+        videoButton.style.display = "none";
+    }
+
+    // VIDEO CONTAINER LOGIC
+    if (page.youtubeId) {
+        videoContainer.style.display = "block";
+        // FIX: Corrected YouTube embed URL.
+        videoContainer.innerHTML = `
+            <div class="video-responsive-wrapper">
+                <iframe
+                    src="https://www.youtube.com/embed/${page.youtubeId}?autoplay=1&rel=0"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        `;
+    } else {
+        videoContainer.style.display = "none";
+        videoContainer.innerHTML = "";
+    }
+
+    // Highlight current progress dot
+    const dots = document.querySelectorAll(".progress-dot");
+    dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentPage);
+    });
+
+    //make next arrow disappear
+    if (page.showNextArrow === false) {
+        nextArrow.style.display = "none";
+    } else {
+        // Ensure next arrow is visible if not explicitly hidden
+        // This is important because it might have been hidden by a previous page's setting
+        nextArrow.style.display = "block"; 
+    }
+
+    // Always update the URL hash to reflect the current page
+    // This is crucial for navigation.js to work correctly when linking to specific pages.
+    window.location.hash = "#page" + currentPage; 
+
+    // Explicitly scroll to the top of the content area if the hash changes,
+    // to ensure the user sees the start of the new "page".
+    // Or, if you have a specific container for your pages, scroll that.
+    // document.querySelector('.main-content-area').scrollTop = 0; 
+    // Or window.scrollTo(0, 0);
+} 
+    
+function toggleAudio() {
+    if (pageAudio.paused) {
+        pageAudio.play();
+        playPauseIcon.innerHTML = pauseIconSVG;
+    } else {
+        pageAudio.pause();
+        playPauseIcon.innerHTML = playIconSVG;
+    }
+}
+
+// Function to update currentPage and render the page based on the URL hash
+function updatePageFromHash() {
+    const hash = window.location.hash;
+    if (hash.startsWith("#page")) {
+        const pageFromHash = parseInt(hash.substring(5));
+        if (!isNaN(pageFromHash) && pageFromHash >= 0 && pageFromHash < pages.length) {
+            currentPage = pageFromHash;
+            renderPage(); // Re-render the page based on the new currentPage
+        } else {
+            console.warn("Invalid page number in hash:", hash);
+            currentPage = 0; // Fallback to default
+            renderPage();
+        }
+    } else if (hash === "") {
+        // If hash is cleared (e.g., direct navigation to chapter2.html), go to page 0
+        currentPage = 0;
+        renderPage();
+    }
+}
+
+// 5. EVENT LISTENERS
 audioButton.addEventListener("click", toggleAudio);
-// When the audio finishes playing, reset the icon to 'play'
 pageAudio.addEventListener("ended", () => {
     playPauseIcon.innerHTML = playIconSVG;
 });
 
+videoButton.addEventListener("click", nextPage); // If clicking video button should go to next page
 
-videoButton.addEventListener("click", nextPage);
-
-  //next page and end of chapter 2
-  function nextPage() {
+function nextPage() {
     if (currentPage < pages.length - 1) {
         currentPage++;
-        if (typeof renderPage === "function") { // Ensure renderPage is defined
-            renderPage();
-        } else {
-            console.error("renderPage function is not defined in this chapter script.");
-        }
+        renderPage(); // Call renderPage to display the new content
     } else {
-        // End of Chapter 2 - Redirect to the dedicated path selection page
-        // The path_selection.html is in the root, so '../' from 'endoscopic/' or 'cranialvault/'
         window.location.href = "../path_selection.html";
     }
 }
-  
-  function prevPage() {
+    
+function prevPage() {
     if (currentPage > 0) {
-      currentPage--;
-      renderPage();
+        currentPage--;
+        renderPage(); // Call renderPage to display the new content
     } else {
-      // Go to the last page of Chapter 1
-      window.location.href = "chapter1.html#page5";
+        // Go to the last page of Chapter 1 - This will trigger a full page reload for chapter1.html
+        window.location.href = "chapter1.html#page5"; 
     }
-  }
-  
-  function toggleLightbox() {
+}
+    
+function toggleLightbox() {
     lightbox.classList.toggle("hidden");
-  }
-  
-  infoButton.addEventListener("click", toggleLightbox);
-  
-  // Initial render
-  renderPage();
-  
+}
+
+infoButton.addEventListener("click", toggleLightbox);
+
+// Initial setup and render when the DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    createProgressDots(); // Create dots once on initial load
+    updatePageFromHash(); // Determine initial page from hash and render it
+});
+
+// LISTEN FOR HASH CHANGES
+// This is the crucial part that makes navigation from your top menu work
+window.addEventListener('hashchange', updatePageFromHash);
