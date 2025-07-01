@@ -1,30 +1,34 @@
+// js/toggle.js
+
 document.addEventListener('DOMContentLoaded', function () {
-    const toggle = document.getElementById('journeyToggle');
+    const journeyToggle = document.getElementById('journeyToggle');
+    if (!journeyToggle) return;
 
-    if (!toggle) return;
+    const pathKey = 'visualNovelChosenPath';
 
-    const path = window.location.pathname;
-    const filename = path.split("/").pop(); // e.g., chapter1.html
-    const isEndoscopic = path.includes("/endoscopic/");
-    const isCranial = path.includes("/cranialvault/");
+    // Function to determine the current journey from the URL folder
+    const getCurrentJourneyFromURL = () => {
+        const pathSegments = window.location.pathname.split('/').filter(Boolean);
+        return pathSegments[pathSegments.length - 2] || 'cranialvault'; // Default to cranialvault if no folder found
+    };
 
-    // Set toggle position based on journey
-    toggle.checked = isCranial;
+    // Set the toggle's initial state based on the URL
+    const currentJourney = getCurrentJourneyFromURL();
+    journeyToggle.checked = currentJourney === 'cranialvault';
 
-    toggle.addEventListener('change', function () {
-        let newPath;
+    // Add the event listener to handle clicks
+    journeyToggle.addEventListener('change', function () {
+        const newJourney = this.checked ? 'cranialvault' : 'endoscopic'; // Determine target journey
 
-        if (isEndoscopic) {
-            newPath = path.replace("/endoscopic/", "/cranialvault/");
-        } else if (isCranial) {
-            newPath = path.replace("/cranialvault/", "/endoscopic/");
-        } else {
-            alert("Unknown journey folder");
-            return;
-        }
+        // --- KEY CHANGE ---
+        // 1. Set the chosen path in localStorage so the next page knows the context
+        localStorage.setItem(pathKey, newJourney);
 
-        // Preserve hash (e.g., #page2)
-        const hash = window.location.hash;
-        window.location.href = newPath + hash;
+        // 2. Get the current filename and hash
+        const currentPageFilename = window.location.pathname.split("/").pop();
+        const currentHash = window.location.hash || "#page0";
+
+        // 3. Redirect to force a full page reload in the new context
+        window.location.href = `../${newJourney}/${currentPageFilename}${currentHash}`;
     });
 });
