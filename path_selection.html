@@ -31,10 +31,14 @@
         .path-selection-header {
             text-align: center;
             width: 100%;
-            max-width: 500px;
             margin: 0 auto;
             padding-bottom: 1rem;
             flex-shrink: 0; 
+            display: flex;
+            flex-direction: column; /* Default to column for smaller screens */
+            align-items: center; /* Center items horizontally when in column */
+            position: relative; /* Needed if you want to perfectly align the back button with the H1 */
+
         }
         
         .path-selection-header h1 {
@@ -176,27 +180,40 @@
         /* --- BACK ARROW --- */
         .back-arrow-button {
             position: absolute;
-            top: 40%;
-            left: 1rem;
-            width: 2rem;
-            height: 2rem;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%); 
+            display: flex;
+            align-items: center;
+            gap: 0.5vw;
             color: #1A4651;
             cursor: pointer;
             z-index: 10;
+            height: auto;
+            padding-left: 1rem; 
         }
         .back-arrow-button:hover{opacity: 0.6;}
+        .back-arrow-button h3 {
+            font-size: 1rem;
+            margin: 0;
+        }
+        .back-arrow-button svg {
+        flex-shrink: 0; /* Prevents the SVG from shrinking */
+        width: 4rem; /* Set a specific width for the SVG */
+        height: 4rem; /* Set a specific height for the SVG */
+        }   
 
     </style>
 </head>
 <body class="path-selection-page">
 
-    <div class="back-arrow-button" id="backButton" aria-label="Go back">
+    <div class="path-selection-header">
+         <div class="back-arrow-button" id="backButton" aria-label="Go back">
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" xml:space="preserve" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 298 511.93">
             <path fill-rule="nonzero" d="M285.77 441c16.24 16.17 16.32 42.46.15 58.7-16.16 16.24-42.45 16.32-58.69.16l-215-214.47c-16.24-16.16-16.32-42.45-.15-58.69L227.23 12.08c16.24-16.17 42.53-16.09 58.69.15 16.17 16.24 16.09 42.54-.15 58.7l-185.5 185.04L285.77 441z"/>
         </svg>
+        <h3> Go <br> Back </h3>
     </div>
-
-    <div class="path-selection-header">
         <h1>Surgical Options</h1>
         <p>Click one of the surgical paths to learn more</p>
     </div>

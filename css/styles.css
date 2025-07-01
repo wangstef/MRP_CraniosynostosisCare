@@ -376,7 +376,73 @@ body {
     object-fit: cover;
     z-index: 0; /* Ensure it's behind content */
 }
- 
+/* NEED FOR  background image and chapter changes FOR CHAPTER 2*/
+/*--------------------------*/
+.background-img-dynamic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Remains the magic for proper scaling */
+    z-index: 0; /* Ensures it's at the back */
+}
+#pages-wrapper {
+    position: absolute; /* Positioned relative to chapter-container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* It now correctly fills the chapter-container */
+}
+.vn-page {
+    display: none; /* Hidden by default */
+    position: absolute; /* Stacks these pages on top of each other */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Each page fills its parent (#pages-wrapper) */
+    box-sizing: border-box;
+    padding: 20px; /* Added general padding for content within each page */
+
+    display: flex; /* Default for the JS `active-page` class */
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically within the page */
+    align-items: center; /* Centers content horizontally within the page */
+    text-align: center; /* Centers text */
+    
+    z-index: 1; /* Ensures vn-pages are above the background image */
+}
+
+.vn-page.active-page {
+    display: flex; /* Overrides `display: none` to show the active page */
+}
+
+.text-box2 {
+    position: fixed;
+    bottom: 6rem; /* Adjust if it overlaps with new nav bar */
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 6rem); /* Max width with padding */
+    /* Max width for readability */
+    background: #E1F3F4;
+    border: 5px solid #457885; 
+    padding: 2rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    color: #1A4651;
+    z-index: 3; /* Above background image */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    text-align: center; /* Text content should be centered if desired */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+/*--------------------------*/
+
+
+
 .arrow {
     position: absolute;
     top: 40%;
