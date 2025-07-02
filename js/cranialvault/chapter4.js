@@ -1,45 +1,51 @@
-
 const pages = [
-    //img: is bg img, showbutton is for lightbox button, text: is the text in the text box
     { 
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false ,
         showTextBox: true,
-        text: "Cranial Vault"
-    }, 
+        text: "cv ch4"
+    }, //showbutton is for lightbox button
     {
         img: "../img/images/Non journey/BG-wave.png",
         showButton: true,
         showTextBox: true,
-        text: "This is what the condition looks like in early stages."
+        text: "cv ch4 2"
     },
     {
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false,
-        showTextBox: true,
-        text: "Treatment options differ depending on age and severity."
+        showTextBox: false,
+        text: ""
     }
-];
-  
-let currentPage = 0;
+  ];
 
   
-// Jump to specific page if URL hash exists
-if (window.location.hash.startsWith("#page")) {
-    const pageFromHash = parseInt(window.location.hash.replace("#page", ""));
+  let currentPage = 0;
+
+  //Necessary to determine the current page based on URL hash
+  if (window.location.hash && window.location.hash.startsWith("#page")) {
+    // console.log("Hash found, attempting to parse...");
+    const pageFromHash = parseInt(window.location.hash.substring(5)); // Extracts number after "#page"
+    // console.log("Parsed pageFromHash:", pageFromHash);
+
     if (!isNaN(pageFromHash) && pageFromHash >= 0 && pageFromHash < pages.length) {
-      currentPage = pageFromHash;
+        currentPage = pageFromHash;
+        // console.log("currentPage successfully set from hash:", currentPage);
+    } else {
+        // console.warn("pageFromHash is invalid or out of bounds. Sticking with default currentPage.", pageFromHash);
+        // Fallback to currentPage = 0 is already handled by initial declaration.
     }
-  } else {
-    currentPage = 0; // default only if no hash
-  }
-  
+} else {
+    // console.log("No '#page' hash found in URL, or hash is not for a page. Using default currentPage.");
+}
+// console.log("Final currentPage before initial renderPage() call:", currentPage);
+
   
   const backgroundImg = document.getElementById("backgroundImg");
   const infoButton = document.getElementById("infoButton");
   const lightbox = document.getElementById("lightbox");
   
-  //set progress bar pages (dots)
+ //set progress bar pages (dots)
   const progressBar = document.getElementById("progressBar");
 
     // Create one dot per page
@@ -70,27 +76,34 @@ if (window.location.hash.startsWith("#page")) {
     dot.classList.toggle("active", index === currentPage);
   });
 
-    // 🧩 Always store current page in the hash so toggle goes to the corresponding page
-     window.location.hash = "#page" + currentPage;
+    // 🧩 Always store current page in the hash
+    window.location.hash = "#page" + currentPage;
   }  
   
+
+  //next page and end of chapter 2
   function nextPage() {
     if (currentPage < pages.length - 1) {
-      currentPage++;
-      renderPage();
+        currentPage++;
+        if (typeof renderPage === "function") { // Ensure renderPage is defined
+            renderPage();
+        } else {
+            console.error("renderPage function is not defined in this chapter script.");
+        }
     } else {
-      // Go to next chapter
-      window.location.href = "chapter4.html#page0";
+        // End of Chapter 2 - Redirect to the dedicated path selection page
+        // The path_selection.html is in the root, so '../' from 'endoscopic/' or 'cranialvault/'
+        window.location.href = "chapter5.html#page0"; // Redirect to the first page of Chapter 5
     }
-  }
+}
   
   function prevPage() {
     if (currentPage > 0) {
       currentPage--;
       renderPage();
     } else {
-      // Go to the last page of Chapter 2
-      window.location.href = "../nonjourney/chapter2.html#page9"; // Redirect to the last page of Chapter 2
+      // Go to the last page of Chapter 1
+      window.location.href = "chapter3.html#page2";
     }
   }
   

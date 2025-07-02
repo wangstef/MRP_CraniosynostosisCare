@@ -2,22 +2,22 @@
 const pages = [
     //img: is bg img, showbutton is for lightbox button, text: is the text in the text box
     { 
-        img: "../img/images/Non journey/BG-wave.png",
+        img: "../img/images/Non journey/C Ch 7 End credits.png",
         showButton: false ,
-        showTextBox: true,
-        text: "Cranial Vault"
+        showTextBox: false,
+        text: "ch6"
     }, 
     {
-        img: "../img/images/Non journey/BG-wave.png",
-        showButton: true,
-        showTextBox: true,
-        text: "This is what the condition looks like in early stages."
-    },
-    {
-        img: "../img/images/Non journey/BG-wave.png",
+        img: "../img/images/Non journey/C End.png",
         showButton: false,
         showTextBox: true,
-        text: "Treatment options differ depending on age and severity."
+        text: "Although we reach the end of this resource, your journey will continue. There are so many people that want to help and support you and your family."
+    }, 
+    {
+        img: "../img/images/Non journey/C End.png",
+        showButton: false,
+        showTextBox: false,
+        text: ""
     }
 ];
   
@@ -80,20 +80,40 @@ if (window.location.hash.startsWith("#page")) {
       renderPage();
     } else {
       // Go to next chapter
-      window.location.href = "chapter4.html#page0";
+      window.location.href = "chapter2.html";
     }
   }
   
-  function prevPage() {
-    if (currentPage > 0) {
-      currentPage--;
-      renderPage();
-    } else {
-      // Go to the last page of Chapter 2
-      window.location.href = "../nonjourney/chapter2.html#page9"; // Redirect to the last page of Chapter 2
-    }
+function prevPage() {
+  if (currentPage > 0) {
+    // If we are not on the first page, just go to the previous one.
+    currentPage--;
+    renderPage();
+  } else {
+    // If on the first page (page 0), check where the user came from.
+    const previousPageUrl = document.referrer;
+
+    // Check if the previous page was chapter 5 of the endoscopic path.
+    if (previousPageUrl.includes('endoscopic')) {
+      // 👉 Redirect directly to page 2 of that chapter.
+      window.location.href = '../endoscopic/chapter5.html#page2';
+
+    // Check if the previous page was chapter 5 of the cranial vault path.
+    } else if (previousPageUrl.includes('cranialvault')) {
+      // 👉 Redirect directly to page 2 of that chapter.
+      window.location.href = '../cranialvault/chapter5.html#page2';
+     } // else if (previousPageUrl.includes('nonjourney')) {
+    //   // 👉 Redirect directly to page 2 of that chapter.
+    //   window.location.href = '.././path_selection.html';
+    // }
+    // If the user came from any other page, clicking 'previous' on page 0 will do nothing.
   }
+}
   
+    
+
+
+  // Event listeners THE LIGHTBOX
   function toggleLightbox() {
     lightbox.classList.toggle("hidden");
   }
