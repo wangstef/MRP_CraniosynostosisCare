@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Words</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    :root {
+    --primary-orange: #f29a00;
+    --light-blue: #cce0eb;
+    --dark-blue: #6699cc; /* A slightly darker blue for accents if needed */
+    --text-color: #333;
+    --background-color: #f5f5f5;
+    --button-hover-orange: #e08b00;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to the top */
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 30px; /* Add some space from the top */
+    margin-bottom: 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #fff; /* Assuming header background is white based on image */
+    border-bottom: 1px solid #eee;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between back button and menu button */
+}
+
+.back-button {
+    background-color: var(--primary-orange);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: var(--button-hover-orange);
+}
+
+/* --- Hamburger Menu Styles --- */
+.hamburger-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.hamburger-btn {
+    width: 40px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0;
+}
+
+.hamburger-btn span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: var(--text-color);
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger-btn.open span:nth-child(1) {
+    transform: translateY(13px) rotate(45deg);
+}
+
+.hamburger-btn.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-btn.open span:nth-child(3) {
+    transform: translateY(-13px) rotate(-45deg);
+}
+
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    min-width: 200px;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.menu-dropdown.active {
+    display: block;
+}
+
+.menu-dropdown .menu-item {
+    display: block;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    transition: background-color 0.2s ease;
+}
+
+.menu-dropdown .menu-item:hover {
+    background-color: #f1f1f1;
+}
+
+.hidden {
+    display: none !important;
+}
+/* --- End Hamburger Menu Styles --- */
+
+
+.content-section {
+    padding: 40px;
+    text-align: center;
+}
+
+.content-section h1 {
+    font-size: 2.5em;
+    color: var(--primary-orange);
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+/* --- Alphabet Navigation Styles --- */
+.alphabet-nav {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to next line */
+    justify-content: center;
+    gap: 10px; /* Space between letters */
+    margin-bottom: 40px;
+    background-color: var(--light-blue);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.alphabet-nav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px; /* Fixed width for each letter button */
+    height: 35px; /* Fixed height for each letter button */
+    background-color: #fff;
+    color: var(--dark-blue);
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50%; /* Make them circular */
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.alphabet-nav a:hover {
+    background-color: var(--primary-orange);
+    color: white;
+    transform: translateY(-2px);
+}
+/* --- End Alphabet Navigation Styles --- */
+
+
+/* Styles for general content sections (e.g., resource-section, download-section, glossary-letter-group) */
+.resource-section,
+.download-section,
+.glossary-intro, /* Apply basic card styling to intro paragraph too */
+.glossary-letter-group {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 25px; /* Space between sections */
+    text-align: left; /* Ensure text is left-aligned within the section */
+}
+
+/* Remove default padding from the first letter group to avoid double padding */
+.glossary-letter-group:first-of-type {
+    margin-top: 0;
+}
+
+
+/* General heading style for sub-sections */
+.resource-section h2,
+.download-section h2 {
+    color: var(--dark-blue);
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--light-blue); /* A subtle separator */
+    padding-bottom: 10px;
+}
+
+/* Specific styling for the letter headings in glossary */
+.glossary-letter-group .letter-heading {
+    color: var(--primary-orange); /* Use primary orange for letter headings */
+    font-size: 2.2em; /* Larger font size for letter headings */
+    margin-top: 0;
+    margin-bottom: 30px; /* More space below letter heading */
+    border-bottom: 3px solid var(--light-blue); /* Thicker separator for letters */
+    padding-bottom: 15px;
+    text-align: center; /* Center the letter heading */
+}
+
+
+/* --- Styles for Resource List --- */
+.resource-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.resource-section li {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.resource-section li:last-child {
+    margin-bottom: 0;
+}
+
+.resource-section li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary-orange);
+    border-radius: 50%;
+}
+
+.resource-section li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+
+.resource-section li a:hover {
+    color: var(--dark-blue);
+    text-decoration: underline;
+}
+/* --- End Resource List Styles --- */
+
+
+/* --- Styles for Download Gallery --- */
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    justify-content: center;
+}
+
+.download-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.download-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.download-thumbnail {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.download-icon-wrapper {
+    background-color: var(--light-blue);
+    color: var(--dark-blue);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.download-item h3 {
+    color: var(--dark-blue);
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.2em;
+}
+
+.download-item p {
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: #666;
+    flex-grow: 1;
+}
+/* --- End Download Gallery Styles --- */
+
+
+/* --- Styles for Glossary --- */
+.glossary-intro {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    color: #555;
+    line-height: 1.6;
+    padding: 25px; /* Apply padding consistent with sections */
+}
+
+.glossary-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.glossary-list li {
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 30px;
+}
+
+.glossary-list li:last-child {
+    margin-bottom: 0;
+}
+
+.glossary-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--dark-blue);
+    border-radius: 50%;
+}
+
+.glossary-term {
+    font-weight: 700;
+    color: var(--primary-orange);
+    margin-right: 8px;
+    font-size: 1.1em;
+    display: inline-block;
+}
+
+.glossary-definition {
+    font-size: 1em;
+    line-height: 1.5;
+    color: var(--text-color);
+    display: inline;
+}
+/* --- End New Styles for Glossary --- */
+
+
+/* Responsive adjustments (applied to all relevant sections) */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    .content-section {
+        padding: 20px;
+    }
+
+    .content-section h1 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    .alphabet-nav {
+        gap: 8px;
+        padding: 10px;
+        margin-bottom: 25px;
+    }
+
+    .alphabet-nav a {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9em;
+    }
+
+    .resource-section,
+    .download-section,
+    .glossary-intro,
+    .glossary-letter-group {
+        padding: 20px;
+    }
+
+    .resource-section h2,
+    .download-section h2 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+
+    .glossary-letter-group .letter-heading {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+
+    .download-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .download-thumbnail {
+        max-width: 150px;
+    }
+
+    .download-icon-wrapper {
+        width: 60px;
+        height: 60px;
+        font-size: 2.5em;
+    }
+
+    .resource-section li,
+    .glossary-list li {
+        padding-left: 20px;
+    }
+    .resource-section li::before,
+    .glossary-list li::before {
+        top: 6px;
+        width: 8px;
+        height: 8px;
+    }
+
+    .glossary-intro {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-right {
+        gap: 10px;
+    }
+
+    .back-button {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    .alphabet-nav {
+        gap: 5px;
+    }
+
+    .alphabet-nav a {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8em;
+    }
+
+    .download-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .download-item {
+        padding: 15px;
+    }
+}
+</style>
+
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-left">
+                </div>
+            <div class="header-right">
+                <a href="index.html" class="back-button">Back</a>
+                <div class="hamburger-menu">
+                    <button id="hamburger-btn" class="hamburger-btn" aria-label="Open menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <div id="menu-dropdown" class="menu-dropdown">
+                        <a href="./downloadables.html" class="menu-item">Downloadable Resources</a>
+                        <a href="./glossary.html" class="menu-item">Vocabulary Words</a>
+                        <a href="./resources.html" class="menu-item">Other Resources</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="content-section">
+            <h1>Vocabulary Words (Glossary)</h1>
+
+            <nav class="alphabet-nav">
+                <a href="#A">A</a>
+                <a href="#B">B</a>
+                <a href="#C">C</a>
+                <a href="#D">D</a>
+                <a href="#E">E</a>
+                <a href="#F">F</a>
+                <a href="#G">G</a>
+                <a href="#H">H</a>
+                <a href="#I">I</a>
+                <a href="#J">J</a>
+                <a href="#K">K</a>
+                <a href="#L">L</a>
+                <a href="#M">M</a>
+                <a href="#N">N</a>
+                <a href="#O">O</a>
+                <a href="#P">P</a>
+                <a href="#Q">Q</a>
+                <a href="#R">R</a>
+                <a href="#S">S</a>
+                <a href="#T">T</a>
+                <a href="#U">U</a>
+                <a href="#V">V</a>
+                <a href="#W">W</a>
+                <a href="#X">X</a>
+                <a href="#Y">Y</a>
+                <a href="#Z">Z</a>
+            </nav>
+
+            <p class="glossary-intro">
+                Below is a list of key vocabulary words and their definitions related to endoscopic and cranial vault surgical journeys, organized alphabetically.
+            </p>
+
+            <div id="A" class="glossary-letter-group">
+                <h2 class="letter-heading">A</h2>
+                <ul class="glossary-list">
+                    <li>
+                        <span class="glossary-term">Ablation:</span>
+                        <span class="glossary-definition">The removal or destruction of a body part or tissue or its function.</span>
+                    </li>
+                    <li>
+                        <span class="glossary-term">Anesthesia:</span>
+                        <span class="glossary-definition">Loss of sensation or awareness, induced by drugs.</span>
+                    </li>
+                    <li>
+                        <span class="glossary-term">Aneurysm:</span>
+                        <span class="glossary-definition">A localized, blood-filled balloon-like bulge in the wall of a blood vessel.</span>
+                    </li>
+                    </ul>
+            </div>
+
+            <div id="B" class="glossary-letter-group">
+                <h2 class="letter-heading">B</h2>
+                <ul class="glossary-list">
+                    <li>
+                        <span class="glossary-term">Biopsy:</span>
+                        <span class="glossary-definition">An examination of tissue removed from a living body to discover the presence, cause, or extent of a disease.</span>
+                    </li>
+                    <li>
+                        <span class="glossary-term">Brainstem:</span>
+                        <span class="glossary-definition">The central trunk of the mammalian brain, consisting of the medulla oblongata, pons, and midbrain, and continuing downward to form the spinal cord.</span>
+                    </li>
+                    </ul>
+            </div>
+
+            <div id="C" class="glossary-letter-group">
+                <h2 class="letter-heading">C</h2>
+                <ul class="glossary-list">
+                    <li>
+                        <span class="glossary-term">Cerebellum:</span>
+                        <span class="glossary-definition">The part of the brain at the back of the skull in vertebrates, which coordinates and regulates muscular activity.</span>
+                    </li>
+                    <li>
+                        <span class="glossary-term">Cerebrum:</span>
+                        <span class="glossary-definition">The principal and most anterior part of the brain in vertebrates, located in the front area of the skull and consisting of two hemispheres.</span>
+                    </li>
+                    <li>
+                        <span class="glossary-term">Craniotomy:</span>
+                        <span class="glossary-definition">A surgical operation in which a bone flap is temporarily removed from the skull to access the brain.</span>
+                    </li>
+                    </ul>
+            </div>
+
+            <div id="D" class="glossary-letter-group">
+                <h2 class="letter-heading">D</h2>
+                <ul class="glossary-list">
+                    <li>
+                        <span class="glossary-term">Dura Mater:</span>
+                        <span class="glossary-definition">The tough outermost membrane enveloping the brain and spinal cord.</span>
+                    </li>
+                    </ul>
+            </div>
+
+            <div id="E" class="glossary-letter-group">
+                <h2 class="letter-heading">E</h2>
+                <ul class="glossary-list">
+                    <li>
+                        <span class="glossary-term">Endoscopy:</span>
+                        <span class="glossary-definition">A non-surgical procedure used to examine a person's digestive tract using an endoscope, a flexible tube with a light and camera.</span>
+                    </li>
+                    </ul>
+            </div>
+
+            <div id="F" class="glossary-letter-group">
+                <h2 class="letter-heading">F</h2>
+                <ul class="glossary-list">
+                    <li>
+                        <span class="glossary-term">Fontanelle:</span>
+                        <span class="glossary-definition">A soft spot on an infant's skull where the bones have not yet fused.</span>
+                    </li>
+                    </ul>
+            </div>
+
+            <div id="H" class="glossary-letter-group">
+                <h2 class="letter-heading">H</h2>
+                <ul class="glossary-list">
+                    <li>
+                        <span class="glossary-term">Hemostasis:</span>
+                        <span class="glossary-definition">The process which causes bleeding to stop, meaning to keep blood within a damaged blood vessel.</span>
+                    </li>
+                    </ul>
+            </div>
+
+            <div id="I" class="glossary-letter-group">
+                <h2 class="letter-heading">I</h2>
+                <ul class="glossary-list">
+                    <li>
+                        <span class="glossary-term">Intracranial:</span>
+                        <span class="glossary-definition">Within the skull.</span>
+                    </li>
+                    </ul>
+            </div>
+
+            <div id="L" class="glossary-letter-group">
+                <h2 class="letter-heading">L</h2>
+                <ul class="glossary-list">
+                    <li>
+                        <span class="glossary-term">Laparoscopy:</span>
+                        <span class="glossary-definition">A surgical procedure in which a fiber-optic instrument is inserted through the abdominal wall to view the organs in the abdomen or permit small-scale surgery.</span>
+                    </li>
+                    </ul>
+            </div>
+
+            <div id="N" class="glossary-letter-group">
+                <h2 class="letter-heading">N</h2>
+                <ul class="glossary-list">
+                    <li>
+                        <span class="glossary-term">Neurosurgery:</span>
+                        <span class="glossary-definition">Medical specialty concerned with the diagnosis and surgical treatment of disorders of the central and peripheral nervous system.</span>
+                    </li>
+                    </ul>
+            </div>
+
+            <div id="P" class="glossary-letter-group">
+                <h2 class="letter-heading">P</h2>
+                <ul class="glossary-list">
+                    <li>
+                        <span class="glossary-term">Pathology:</span>
+                        <span class="glossary-definition">The science of the causes and effects of diseases, especially the branch of medicine that deals with the laboratory examination of samples of body tissue for diagnostic or forensic purposes.</span>
+                    </li>
+                    </ul>
+            </div>
+
+            <div id="R" class="glossary-letter-group">
+                <h2 class="letter-heading">R</h2>
+                <ul class="glossary-list">
+                    <li>
+                        <span class="glossary-term">Resection:</span>
+                        <span class="glossary-definition">The surgical removal of part of an organ or structure.</span>
+                    </li>
+                    </ul>
+            </div>
+
+            <div id="S" class="glossary-letter-group">
+                <h2 class="letter-heading">S</h2>
+                <ul class="glossary-list">
+                    <li>
+                        <span class="glossary-term">Scalpel:</span>
+                        <span class="glossary-definition">A small and extremely sharp-bladed instrument used for surgery, anatomical dissection, and various arts and crafts.</span>
+                    </li>
+                    <li>
+                        <span class="glossary-term">Suture:</span>
+                        <span class="glossary-definition">A medical device used to hold body tissues together after an injury or surgery.</span>
+                    </li>
+                    </ul>
+            </div>
+
+            <div id="T" class="glossary-letter-group">
+                <h2 class="letter-heading">T</h2>
+                <ul class="glossary-list">
+                    <li>
+                        <span class="glossary-term">Tumor:</span>
+                        <span class="glossary-definition">A mass of tissue formed by an abnormal growth of cells.</span>
+                    </li>
+                    </ul>
+            </div>
+
+            <div id="W" class="glossary-letter-group">
+                <h2 class="letter-heading">W</h2>
+                <ul class="glossary-list">
+                    <li>
+                        <span class="glossary-term">Whipple Procedure:</span>
+                        <span class="glossary-definition">A complex operation to remove the head of the pancreas, the first part of the small intestine (duodenum), the gallbladder, and the bile duct.</span>
+                    </li>
+                    </ul>
+            </div>
+
+
+            </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hamburger menu functionality
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const menuDropdown = document.getElementById('menu-dropdown');
+
+            hamburgerBtn.addEventListener('click', function() {
+                menuDropdown.classList.toggle('active');
+                hamburgerBtn.classList.toggle('open');
+                const isExpanded = hamburgerBtn.classList.contains('open');
+                hamburgerBtn.setAttribute('aria-expanded', isExpanded);
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!hamburgerBtn.contains(event.target) && !menuDropdown.contains(event.target)) {
+                    if (menuDropdown.classList.contains('active')) {
+                        menuDropdown.classList.remove('active');
+                        hamburgerBtn.classList.remove('open');
+                        hamburgerBtn.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+
+            // Smooth scroll for alphabet navigation
+            const alphabetLinks = document.querySelectorAll('.alphabet-nav a');
+
+            alphabetLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault(); // Prevent default jump behavior
+
+                    const targetId = this.getAttribute('href').substring(1); // Get the ID without '#'
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        // Scroll smoothly to the target element
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start' // Align the top of the element with the top of the scroll area
+                        });
+
+                        // Optional: Add a small offset if you have a fixed header
+                        // window.scrollBy(0, -document.querySelector('header').offsetHeight);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
