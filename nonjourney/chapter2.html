@@ -142,6 +142,10 @@
             /* display: none; */ /* Controlled by JS */
         }
     /* Styling for the lightbox poster*/
+    .lightbox-content h5 {
+            color: #c33939; /* White text for better contrast */
+            bottom: 20%; 
+        }
 
      .lightbox {
             position: fixed;
@@ -184,14 +188,16 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
-            min-width: 575px; /* these determine the poster size */
-            min-height: 400px; /* Example min-height */
+            min-width: 590px; /* these determine the poster size */
+            min-height: 420px; /* Example min-height */
             display: flex; /* Use flexbox to center content if needed, or remove for absolute PNGs */
             justify-content: center;
             align-items: center;
             flex-direction: column; /* Stack content vertically */
             gap: 10px; /* Space between content elements */
         }
+
+        /* CLick on skulls to learn more text styling*/
 
         .close-btn {
             position: absolute;
@@ -214,8 +220,8 @@
             position: absolute; /* Position relative to .lightbox-content */
             cursor: pointer;
             transition: opacity 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: subtle shadow */
-            border-radius: 50%; /* If your PNGs are circular */
+            /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); Optional: subtle shadow */
+            border-radius: 30%; /* If your PNGs are circular */
         }
 
         .overlay-png:hover {
@@ -224,41 +230,42 @@
 
         /* Specific positioning and sizing for each PNG */
         #png1 {
-            top: 15%;
-            left: 20%;
+            top: 65%;
+            left: 5%;
             width: 100px; /* Fixed size example */
             height: 100px;
         }
 
         #png2 {
-            top: 30%;
-            right: 25%;
-            width: 80px;
-            height: 80px;
+            top: 25%;
+            left: 10%;
+            width: 100px; /* Fixed size example */
+            height: 100px;
         }
 
         #png3 {
             top: 20%;
             left: 50%;
             transform: translateX(-50%); /* Center horizontally */
-            width: 120px;
-            height: 120px;
+            width: 100px; /* Fixed size example */
+            height: 100px;
         }
         
         #png4 {
-            top: 50%;
-            left: 10%;
-            width: 90px;
-            height: 90px;
+            top: 25%;
+            right: 10%;
+            width: 100px; /* Fixed size example */
+            height: 100px;
         }
         #png5 {
-            top: 70%;
-            left: 80%;
-            width: 90px;
-            height: 90px;
+            top: 65%;
+            right: 5%;
+            width: 100px; /* Fixed size example */
+            height: 100px;
         }
 
-        /* Styling for the unique detail lightbox content */
+
+        /* Styling for the SKULL info lightboxes */
         
         .detail-content {
             background-color: #fdfdfd; /* Lighter background for detail popup */
@@ -367,12 +374,12 @@
  <div id="lightbox" class="lightbox hidden">
         <div class="lightbox-content">
             <button class="close-btn" onclick="toggleLightbox()">×</button>
-            
-            <img src="/img/images/Non journey/P-Bicoronal.png" class="overlay-png" id="png1" alt="Red Circle">
-            <img src="https://via.placeholder.com/80/00ff00/ffffff?text=PNG2" class="overlay-png" id="png2" alt="Green Square">
-            <img src="https://via.placeholder.com/120/0000ff/ffffff?text=PNG3" class="overlay-png" id="png3" alt="Blue Triangle">
-            <img src="https://via.placeholder.com/90/ffa500/ffffff?text=PNG4" class="overlay-png" id="png4" alt="Orange Star">
-            <img src="https://via.placeholder.com/90/800080/ffffff?text=PNG5" class="overlay-png" id="png5" alt="Purple Hexagon">
+            <h5>Click on a skull to learn more</h5>
+            <img src="/img/images/Non journey/P-Sagittal.png" class="overlay-png" id="png1" alt="Red Circle">
+            <img src="/img/images/Non journey/P-Metopic.png" class="overlay-png" id="png2" alt="Green Square">
+            <img src="/img/images/Non journey/P-Lambdoid.png" class="overlay-png" id="png3" alt="Blue Triangle">
+            <img src="/img/images/Non journey/P-Unicoronal.png" class="overlay-png" id="png4" alt="Orange Star">
+            <img src="/img/images/Non journey/P-Bicoronal.png" class="overlay-png" id="png5" alt="Purple Hexagon">
         </div>
     </div>
 
@@ -424,6 +431,10 @@
             png4: {
                 illustration: 'https://via.placeholder.com/400x300/ffa500/ffffff?text=Detail_for_PNG4',
                 text: 'Here is some context for PNG 4. This orange star highlights an important feature or a critical warning that users should be aware of, explained in a brief summary.'
+            },
+            png5: {
+                illustration: 'https://via.placeholder.com/400x300/ffa500/ffffff?text=Detail_for_PNG4',
+                text: 'Here is some context for PNG 5. This orange star highlights an important feature or a critical warning that users should be aware of, explained in a brief summary.'
             }
             // Add data for all your PNGs
         };
