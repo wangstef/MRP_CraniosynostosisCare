@@ -143,10 +143,11 @@
         }
     /* Styling for the lightbox poster*/
     .lightbox-content h5 {
-            background-color: #c33939;
-            color: #ffffff; /* White text for better contrast */
-            border-radius: 0px;
-            padding: 10px 20px;
+            background-color: #e8aaaa;
+            color: #000000; /* White text for better contrast */
+            border-radius: 8px;
+            border: 4px solid #c62c2c;
+            padding: 8px 10px;
         }
 
      .lightbox {
@@ -200,7 +201,6 @@
         }
 
         /* CLick on skulls to learn more text styling*/
-
         .close-btn {
             position: absolute;
             top: 10px;
@@ -223,11 +223,14 @@
             cursor: pointer;
             transition: opacity 0.3s ease;
             /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); Optional: subtle shadow */
-            border-radius: 30%; /* If your PNGs are circular */
+            border-radius: 8px; /* If your PNGs are circular */
+            border: 4px solid transparent; /* Add a transparent border of the desired width */
+            box-sizing: border-box;
         }
 
         .overlay-png:hover {
-            opacity: 0.7;
+            /* opacity: 0.5; */
+            border: #c62c2c 4px solid; /* Optional: border on hover */
         }
 
         /* Specific positioning and sizing for each PNG */
