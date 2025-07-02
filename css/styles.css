@@ -52,7 +52,10 @@ body {
 
 /* 2. Title Container */
 .title-container {
-  text-align: left;
+  display: flex; /* Make it a flex container */
+  align-items: baseline; /* Align items at their text baseline */
+  gap: 10px; /* Add some space between the resource title and chapter title */
+  text-align: left; /* Keep overall text alignment left */
   margin: 3rem;
   color: #1A4651;
   flex-grow: 1; /* Allows the title to take up the middle space */
@@ -61,11 +64,13 @@ body {
 .resource-title {
   font-weight: bold;
   font-size: 1.2rem;
+  white-space: nowrap; /* Prevent the resource title from wrapping */
 }
 
 .chapter-title {
   font-size: 1rem;
   color: #555;
+  white-space: nowrap; /* Prevent the chapter title from wrapping */
 }
 
 /* 3. Toggle Switch Container */
@@ -73,6 +78,7 @@ body {
   display: flex;
   align-items: center;
   gap: 10px; /* Space between labels and the switch */
+  margin: 10px;
 }
 
 .toggle-label {

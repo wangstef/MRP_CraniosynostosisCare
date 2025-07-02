@@ -1,3 +1,20 @@
+
+// Function to handle dynamic chapter title in the top bar
+function setDynamicChapterTitle() {
+    const dynamicTitleElement = document.getElementById('dynamic-chapter-title');
+    if (dynamicTitleElement) {
+        const pageTitle = document.title;
+        const chapterPart = pageTitle.split('–')[0].trim();
+        dynamicTitleElement.textContent = chapterPart;
+    }
+}
+
+
+
+
+
+
+
 // js/navigation.js (adapted for "endoscopic" default)
 document.addEventListener('DOMContentLoaded', function () {
     const navContainer = document.getElementById('chapter-nav-container-endo');
