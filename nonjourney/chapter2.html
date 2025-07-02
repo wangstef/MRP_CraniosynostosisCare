@@ -33,7 +33,7 @@
     .vn-page .background-img {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Cover the page area */
+        object-fit:cover; /* Cover the page area */
     }
 
     /* Basic styling for video embed if not already in styles.css */
@@ -52,6 +52,166 @@
         width: 100%;
         height: 100%;
     }
+
+     .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.3s ease; /* Smooth transition for showing/hiding */
+        }
+
+        .lightbox.hidden {
+            display: none;
+            opacity: 0;
+            pointer-events: none; /* Disable interactions when hidden */
+        }
+
+        .lightbox:not(.hidden) {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+
+        /* Styling for the content container within any lightbox */
+        .lightbox-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 90%;
+            max-height: 100%;
+            overflow-y: auto;
+            position: relative; /* Crucial for absolute positioning of PNGs */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            /* Background illustration for the main lightbox */
+            background-image: url('/img/images/Non journey/Ch 2 j.png'); /* Replace with your image path */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            min-width: 575px; /* these determine the poster size */
+            min-height: 400px; /* Example min-height */
+            display: flex; /* Use flexbox to center content if needed, or remove for absolute PNGs */
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Stack content vertically */
+            gap: 10px; /* Space between content elements */
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2em;
+            cursor: pointer;
+            color: #888;
+            background: none; /* Ensure no default button styling */
+            border: none;
+            padding: 0;
+        }
+
+        .close-btn:hover {
+            color: #333;
+        }
+
+        /* Styling for the overlay PNGs on the main lightbox */
+        .overlay-png {
+            position: absolute; /* Position relative to .lightbox-content */
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: subtle shadow */
+            border-radius: 50%; /* If your PNGs are circular */
+        }
+
+        .overlay-png:hover {
+            opacity: 0.7;
+        }
+
+        /* Specific positioning and sizing for each PNG */
+        #png1 {
+            top: 15%;
+            left: 20%;
+            width: 100px; /* Fixed size example */
+            height: 100px;
+        }
+
+        #png2 {
+            top: 30%;
+            right: 25%;
+            width: 80px;
+            height: 80px;
+        }
+
+        #png3 {
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            width: 120px;
+            height: 120px;
+        }
+        
+        #png4 {
+            top: 50%;
+            left: 10%;
+            width: 90px;
+            height: 90px;
+        }
+
+        /* Styling for the unique detail lightbox content */
+        .detail-content {
+            background-color: #fdfdfd; /* Lighter background for detail popup */
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 600px; /* Max width for detail popup */
+            min-height: unset; /* Override main lightbox content min-height */
+            background-image: none; /* No background image for detail content */
+        }
+
+        .detail-illustration-container {
+            width: 100%;
+            max-height: 300px; /* Limit height of detail illustration */
+            overflow: hidden; /* Hide overflow if image is too large */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .detail-illustration-container img {
+            max-width: 100%;
+            height: auto;
+            display: block; /* Remove extra space below image */
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #444;
+            margin: 0; /* Remove default paragraph margin */
+        }
+
+        /* Styles for the button that opens the main lightbox */
+        #openMainLightboxBtn {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #openMainLightboxBtn:hover {
+            background-color: #0056b3;
+        }
 
   </style>
 </head>
@@ -120,8 +280,7 @@
     <div id="lightbox" class="lightbox hidden">
         <div class="lightbox-content">
             <div class="close-btn" onclick="toggleLightbox()">×</div>
-            <h2>More Information</h2>
-            <p>This is more detailed information for page 2. You can include diagrams, text, or even video.</p>
+           
         </div>
     </div>
 

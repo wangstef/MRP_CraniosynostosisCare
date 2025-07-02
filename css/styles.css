@@ -502,43 +502,7 @@ body {
     /* display: none; */ /* Controlled by JS */
 }
  
-.lightbox {
-    position: fixed; /* Use fixed for full screen overlay */
-    top: 0; 
-    left: 0;
-    width: 100%; 
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-    z-index: 999; /* High z-index for lightbox */
-}
- 
-.lightbox-content {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    max-width: 90%;
-    max-height: 90%;
-    position: relative; /* For close button positioning */
-}
- 
-.close-btn {
-    position: absolute; /* Position relative to lightbox-content */
-    top: 10px; 
-    right: 15px;
-    font-size: 2rem;
-    color: #333; /* Darker close button for contrast on white */
-    /* background: rgba(255, 27, 27, 0.5); */ /* Optional background */
-    border-radius: 30px;
-    /* max-width: 35px; */
-    line-height: 1;
-    padding: 0 5px;
-    cursor: pointer;
-    z-index: 1000; /* Above lightbox content */
-}
+
  
 /* Textbox */
 .text-box {
@@ -1076,7 +1040,7 @@ input:checked + .slider:before {
 /* --- Video Player --- */
 .video-button {
     position: fixed;
-    bottom: 50%;
+    bottom: 55%;
     left: 58%;
     transform: translateX(-50%);
     padding: 12px 24px;
