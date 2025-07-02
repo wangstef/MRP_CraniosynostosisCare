@@ -486,23 +486,6 @@ body {
     right: 2rem;
 }
 
-/* Lightbox */
-.page-button {
-    position: absolute; /* This might need adjustment based on overall layout */
-    bottom: 40%; /* Example position */
-    left: 70%;   /* Example position */
-    padding: 12px 20px;
-    font-size: 1rem;
-    background-color: #6192fd;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    z-index: 2;
-    /* display: none; */ /* Controlled by JS */
-}
- 
-
  
 /* Textbox */
 .text-box {

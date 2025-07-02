@@ -53,6 +53,8 @@
         height: 100%;
     }
 
+    /* Styling for the lightbox poster*/
+
      .lightbox {
             position: fixed;
             top: 0;
@@ -148,7 +150,7 @@
         }
 
         #png3 {
-            bottom: 10%;
+            top: 20%;
             left: 50%;
             transform: translateX(-50%); /* Center horizontally */
             width: 120px;
@@ -158,6 +160,12 @@
         #png4 {
             top: 50%;
             left: 10%;
+            width: 90px;
+            height: 90px;
+        }
+        #png5 {
+            top: 70%;
+            left: 80%;
             width: 90px;
             height: 90px;
         }
@@ -198,21 +206,22 @@
             color: #444;
             margin: 0; /* Remove default paragraph margin */
         }
-
-        /* Styles for the button that opens the main lightbox */
-        #openMainLightboxBtn {
-            padding: 10px 20px;
-            font-size: 1em;
-            cursor: pointer;
-            background-color: #007bff;
+        /* Styling for the Learn more button */
+        .page-button {
+            position: absolute; /* This might need adjustment based on overall layout */
+            bottom: 40%; /* Example position */
+            left: 70%;   /* Example position */
+            padding: 12px 20px;
+            font-size: 1rem;
+            background-color: #6192fd;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
+            cursor: pointer;
+            z-index: 2;
+            /* display: none; */ /* Controlled by JS */
         }
-        #openMainLightboxBtn:hover {
-            background-color: #0056b3;
-        }
-
+ 
   </style>
 </head>
 
@@ -278,7 +287,7 @@
     <button id="infoButton" class="page-button">Learn More</button>
 
 
-    <!--Lightbox  -->
+    <!--Lightbox POSTER -->
  <div id="lightbox" class="lightbox hidden">
         <div class="lightbox-content">
             <button class="close-btn" onclick="toggleLightbox()">×</button>
@@ -287,6 +296,7 @@
             <img src="https://via.placeholder.com/80/00ff00/ffffff?text=PNG2" class="overlay-png" id="png2" alt="Green Square">
             <img src="https://via.placeholder.com/120/0000ff/ffffff?text=PNG3" class="overlay-png" id="png3" alt="Blue Triangle">
             <img src="https://via.placeholder.com/90/ffa500/ffffff?text=PNG4" class="overlay-png" id="png4" alt="Orange Star">
+            <img src="https://via.placeholder.com/90/800080/ffffff?text=PNG5" class="overlay-png" id="png5" alt="Purple Hexagon">
         </div>
     </div>
 
@@ -317,8 +327,11 @@
 <script src="../js/ui.js"></script>
 <script src="/js/navigation/navigationmain.js"></script> <script src="../js/nonjourney/chapter2.js"></script>
 
+
+
+<!-- SCRIPT FOR LIGHTBOX POSTER -->
     <script>
-        // Data structure to hold content for each PNG
+        // Data structure to hold content for each PNG of the poster
         const pngData = {
             png1: {
                 illustration: 'https://via.placeholder.com/400x300/ff6347/ffffff?text=Detail_for_PNG1',
@@ -356,7 +369,7 @@
                 detailText.textContent = data.text;
                 
                 detailLightbox.classList.remove('hidden'); // Show the detail lightbox
-                document.getElementById('lightbox').classList.add('hidden'); // Hide the main lightbox
+                // document.getElementById('lightbox').classList.add('hidden'); // This line is now commented out
             }
         }
 
