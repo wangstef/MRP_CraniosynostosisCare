@@ -3,7 +3,7 @@ body {
     font-family:"Space Grotesk", sans-serif; /* Use Inter font for better readability */
     margin: 0;
     padding: 0;
-    background: #f3dcae;
+    background: #ffffff;
     width: 100vw; /* Full viewport width */
     height: 100vh; /* Full viewport height */
     overflow:hidden; /* Allow vertical scroll, prevent horizontal */
