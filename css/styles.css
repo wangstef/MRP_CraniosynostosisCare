@@ -3,7 +3,7 @@ body {
     font-family:"Space Grotesk", sans-serif; /* Use Inter font for better readability */
     margin: 0;
     padding: 0;
-    background: #f4f4f4;
+    background: #f3dcae;
     width: 100vw; /* Full viewport width */
     height: 100vh; /* Full viewport height */
     overflow:hidden; /* Allow vertical scroll, prevent horizontal */
@@ -460,7 +460,7 @@ body {
     align-items: center;
     justify-content: center;
     /* background-color: rgba(0, 0, 0, 0.5); */
-    color: #1A4651;
+    color: #C85E00;
     padding: 1rem;
     cursor: pointer;
     z-index: 4 ; /* Above background, below popups if any */
@@ -845,7 +845,7 @@ input:checked + .slider:before {
         display: flex; 
         align-items: center;
         justify-content: center;
-        background-color: #DCDAEB; /* light purple*/
+        background-color: #cfc6ec; /* light purple*/
         color: #45327C; 
         text-decoration: none;
         padding: 10px 18px; 
