@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chapter 2 – Endoscopic</title>
+  <title>Chapter 4: Surgery – Endoscopic</title>
   <link rel="stylesheet" href="../css/styles.css" />
 </head>
 <body>
@@ -23,6 +23,19 @@
       </label>
       <span class="toggle-label">Cranial Vault</span>
     </div>
+
+         <div class="hamburger-menu">
+                <button id="hamburger-btn" class="hamburger-btn" aria-label="Open menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button> 
+                <div id="menu-dropdown" class="menu-dropdown">
+                    <a href="./downloadables.html" class="menu-item">Downloadable Resources</a>
+                    <a href="./glossary.html" class="menu-item">Vocabulary Words</a>
+                    <a href="./resources.html" class="menu-item">Other Resources</a>
+                </div> 
+            </div>
   </header>
   
 
@@ -65,15 +78,8 @@
 
  <!-- Navigation bar placeholder -->
   <div id="chapter-nav-container-endo"></div>
-
-  <!-- Toggle switch -->
-<!-- <label class="toggle-switch">
-    <input type="checkbox" id="journeyToggle">
-    <span class="slider"></span>
-  </label>
-  
-  <script src="../js/toggle.js"></script> -->
-
+  <!-- toggle -->
+  <script src="../js/toggle.js"></script>
 
 <!-- Scripts -->
 <!-- Main menu button -->
@@ -81,6 +87,7 @@
 <!-- Navigation bar -->
 <script src="../js/navigation/Endo_nav.js"></script>
 <script src="../js/endoscopic/chapter4.js"></script>
+<script src="/js/hamburgerMenu.js"></script>
 
 </body>
 </html>

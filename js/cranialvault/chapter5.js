@@ -3,7 +3,7 @@ const pages = [
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false ,
         showTextBox: true,
-        text: "Most parents have...."
+        text: "CHAPTER 5 have...."
     }, //showbutton is for lightbox button
     {
         img: "../img/images/Non journey/BG-wave.png",
@@ -93,7 +93,7 @@ const pages = [
     } else {
         // End of Chapter 2 - Redirect to the dedicated path selection page
         // The path_selection.html is in the root, so '../' from 'endoscopic/' or 'cranialvault/'
-        window.location.href = "chapter5.html#page0"; // Redirect to the first page of Chapter 5
+        window.location.href = "../nonjourney/chapter6.html#page0"; // Redirect to the first page of Chapter 6
     }
 }
   
@@ -103,7 +103,7 @@ const pages = [
       renderPage();
     } else {
       // Go to the last page of Chapter 1
-      window.location.href = "chapter3.html#page2";
+      window.location.href = "chapter4.html#page2";
     }
   }
   

@@ -48,7 +48,7 @@ function generateChapterNavigation() {
                 { name: "Surgical options", file: "../path_selection.html" }
             ]
         },
-        { id: 3, name: "Pre-Op", file: "chapter3.html" }, // Assuming this will resolve to e.g., endoscopic/chapter3.html
+        { id: 3, name: "Pre-Op", file: "../path_selection.html" }, // Assuming this will resolve to e.g., endoscopic/chapter3.html
         { id: 4, name: "Surgery", file: "chapter4.html" }, // Assuming this will resolve to e.g., endoscopic/chapter4.html
         {
             id: 5, name: "Post-Op", file: "chapter5.html", hasPopup: true,
@@ -75,7 +75,7 @@ function generateChapterNavigation() {
 
     // Determine the viewerChapterId and potentially viewerSubItemId
     for (const chapterDef of chapterDefinitions) {
-        const isPathSpecificChapter = chapterDef.id >= 3;
+        const isPathSpecificChapter = chapterDef.id >= 3 && chapterDef.id <= 5;
         let chapterDefExpectedFolder = 'nonjourney'; // Default for chapters 1 and 2
 
         if (isPathSpecificChapter) {
@@ -133,7 +133,7 @@ function generateChapterNavigation() {
     const ul = document.createElement('ul');
 
     chapterDefinitions.forEach(chapter => {
-        const isTargetChapterPathSpecific = chapter.id >= 3;
+        const isTargetChapterPathSpecific = chapter.id >= 3 && chapter.id <= 5;
         let targetLinkFolder;
         
         if (isTargetChapterPathSpecific) {

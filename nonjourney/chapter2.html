@@ -61,7 +61,7 @@
         left: 58%;
         transform: translateX(-50%);
         padding: 12px 24px;
-        background-color: #489bce; /* An orange-brown color from your image */
+        background-color: #457885; /* An orange-brown color from your image */
         color: white;
         border: none;
         border-radius: 50px; /* Highly rounded corners */
@@ -78,7 +78,7 @@
     }
     .video-button:hover {
         transform: translateX(-50%) scale(1.05); /* Slightly enlarges the button on hover */
-        background-color: #f69b23; /* Darkens the blue on hover */
+        background-color: #4b95a8; /* Darkens the blue on hover */
         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
     }
 
@@ -133,7 +133,7 @@
             left: 70%;   /* Example position */
             padding: 12px 20px;
             font-size: 1rem;
-            background-color: #6192fd;
+            background-color: #457885;
             color: white;
             border: none;
             border-radius: 8px;
@@ -141,6 +141,11 @@
             z-index: 2;
             /* display: none; */ /* Controlled by JS */
         }
+    .page-button:hover {
+        background-color: #4b95a8; /* Darkens the blue on hover */
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    }
+
     /* Styling for the lightbox poster*/
     .lightbox-content h5 {
             background-color: #e8aaaa;
@@ -320,9 +325,10 @@
 
     <div class="title-container">
       <div class="resource-title">Craniosynostosis Care</div>
+      <div id="dynamic-chapter-title" class="chapter-title"></div>
+
     </div>
 
-    <div id="dynamic-chapter-title" class="chapter-title"></div> 
     
     <div class="toggle-container">
       <span class="toggle-label">Endoscopic</span>
@@ -332,6 +338,18 @@
       </label>
       <span class="toggle-label">Cranial Vault</span>
     </div>
+    <div class="hamburger-menu">
+                <button id="hamburger-btn" class="hamburger-btn" aria-label="Open menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button> 
+                <div id="menu-dropdown" class="menu-dropdown">
+                    <a href="./downloadables.html" class="menu-item">Downloadable Resources</a>
+                    <a href="./glossary.html" class="menu-item">Vocabulary Words</a>
+                    <a href="./resources.html" class="menu-item">Other Resources</a>
+                </div> 
+            </div>
   </header>
   
   <div class="chapter-container">
@@ -360,7 +378,7 @@
     <audio id="pageAudio" src=""></audio> 
     <button id="audioButton" class="audio-button" style="display: none;">
         <div id="playPauseIcon" class="icon-container"></div>
-        <span id="audioButtonText">Craniosynostosis (Cray-nee-oh-sin-oh-stow-sis)</span>
+        <span id="audioButtonText">Craniosynostosis (CRAY-nee-oh-sin-oh-STOW-sis)</span>
     </button>
     <div id="textBox2" class="text-box2">
         <div id="textContent"></div>
@@ -411,9 +429,6 @@
     </div>
 
   </div> <div id="chapter-nav-container-main"></div>
-
-<script src="../js/ui.js"></script>
-<script src="/js/navigation/navigationmain.js"></script> <script src="../js/nonjourney/chapter2.js"></script>
 
 
 
@@ -486,6 +501,10 @@
             }
         });
     </script>
+
+    <script src="../js/ui.js"></script>
+    <script src="/js/navigation/navigationmain.js"></script> <script src="../js/nonjourney/chapter2.js"></script>
+    <script src="/js/hamburgerMenu.js"></script>
 
 
 </body>
