@@ -33,7 +33,7 @@
     .vn-page .background-img {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Cover the page area */
+        object-fit:cover; /* Cover the page area */
     }
 
     /* Basic styling for video embed if not already in styles.css */
@@ -53,6 +53,257 @@
         height: 100%;
     }
 
+    /* --- Video Player --- */
+    /* ---------------------------------------------------------------------------------------------------------------- */
+    .video-button {
+        position: fixed;
+        bottom: 58%;
+        left: 58%;
+        transform: translateX(-50%);
+        padding: 12px 24px;
+        background-color: #489bce; /* An orange-brown color from your image */
+        color: white;
+        border: none;
+        border-radius: 50px; /* Highly rounded corners */
+        cursor: pointer;
+        font-family: sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        z-index: 6; /* Ensure it's above other content */
+        display: flex; /* Make the button a flex container */
+        align-items: center; /* Vertically align items in the center */
+        justify-content: center; /* Horizontally align items in the center (if you want them grouped) */
+        gap: 8px; /* Add some space between the text and the SVG */
+    }
+    .video-button:hover {
+        transform: translateX(-50%) scale(1.05); /* Slightly enlarges the button on hover */
+        background-color: #f69b23; /* Darkens the blue on hover */
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Styles the icon container within the new button */
+    .video-button .icon-container {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Ensures the SVG icon fills its container */
+    .video-button .icon-container svg {
+        height: 100%;
+        align-content: center;
+    }
+
+    /* --- Video Player --- */
+    .video-container {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 65vw; /* Use 80% of the screen width */
+        max-width: 80vw; /* But don't let it get bigger than 900px */
+        max-height: 80vh;
+        z-index: 20; /* Make sure it's on top of everything */
+        background: black;
+        box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+
+    /* This part creates a responsive container that keeps a 16:9 aspect ratio.
+    It's a standard CSS trick for responsive video.
+    */
+    .video-responsive-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio (9 / 16 = 0.5625) */
+        height: 0;
+    }
+
+    .video-responsive-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    /* ---------------------------------------------------------------------------------------------------------------- */
+
+    /* Styling for the Learn more button */
+        .page-button {
+            position: absolute; /* This might need adjustment based on overall layout */
+            bottom: 75%; /* Example position */
+            left: 70%;   /* Example position */
+            padding: 12px 20px;
+            font-size: 1rem;
+            background-color: #6192fd;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            z-index: 2;
+            /* display: none; */ /* Controlled by JS */
+        }
+    /* Styling for the lightbox poster*/
+    .lightbox-content h5 {
+            color: #c33939; /* White text for better contrast */
+            bottom: 20%; 
+        }
+
+     .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.3s ease; /* Smooth transition for showing/hiding */
+        }
+
+        .lightbox.hidden {
+            display: none;
+            opacity: 0;
+            pointer-events: none; /* Disable interactions when hidden */
+        }
+
+        .lightbox:not(.hidden) {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+
+        /* Styling for the content container within any lightbox */
+        .lightbox-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 90%;
+            max-height: 100%;
+            overflow-y: auto;
+            position: relative; /* Crucial for absolute positioning of PNGs */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            /* Background illustration for the main lightbox */
+            background-image: url('/img/images/Non journey/Ch 2 j.png'); /* Replace with your image path */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            min-width: 590px; /* these determine the poster size */
+            min-height: 420px; /* Example min-height */
+            display: flex; /* Use flexbox to center content if needed, or remove for absolute PNGs */
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Stack content vertically */
+            gap: 10px; /* Space between content elements */
+        }
+
+        /* CLick on skulls to learn more text styling*/
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2em;
+            cursor: pointer;
+            color: #888;
+            background: none; /* Ensure no default button styling */
+            border: none;
+            padding: 0;
+        }
+
+        .close-btn:hover {
+            color: #333;
+        }
+
+        /* Styling for the overlay PNGs on the main lightbox */
+        .overlay-png {
+            position: absolute; /* Position relative to .lightbox-content */
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); Optional: subtle shadow */
+            border-radius: 30%; /* If your PNGs are circular */
+        }
+
+        .overlay-png:hover {
+            opacity: 0.7;
+        }
+
+        /* Specific positioning and sizing for each PNG */
+        #png1 {
+            top: 65%;
+            left: 5%;
+            width: 100px; /* Fixed size example */
+            height: 100px;
+        }
+
+        #png2 {
+            top: 25%;
+            left: 10%;
+            width: 100px; /* Fixed size example */
+            height: 100px;
+        }
+
+        #png3 {
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            width: 100px; /* Fixed size example */
+            height: 100px;
+        }
+        
+        #png4 {
+            top: 25%;
+            right: 10%;
+            width: 100px; /* Fixed size example */
+            height: 100px;
+        }
+        #png5 {
+            top: 65%;
+            right: 5%;
+            width: 100px; /* Fixed size example */
+            height: 100px;
+        }
+
+
+        /* Styling for the SKULL info lightboxes */
+        
+        .detail-content {
+            background-color: #fdfdfd; /* Lighter background for detail popup */
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 600px; /* Max width for detail popup */
+            min-height: unset; /* Override main lightbox content min-height */
+            background-image: none; /* No background image for detail content */
+        }
+
+        .detail-illustration-container {
+            width: 100%;
+            max-height: 300px; /* Limit height of detail illustration */
+            overflow: hidden; /* Hide overflow if image is too large */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .detail-illustration-container img {
+            max-width: 100%;
+            height: auto;
+            display: block; /* Remove extra space below image */
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #444;
+            margin: 0; /* Remove default paragraph margin */
+        }
+        
+ 
   </style>
 </head>
 
@@ -110,6 +361,7 @@
         <div id="textContent"></div>
     </div>
     <div id="progressBar" class="progress-bar"></div>
+
     <button id="videoButton" class="video-button" style="display: none;">
         <div id="playVidIcon" class="icon-container"></div>
         <span id="videoButtonText"></span>
@@ -117,11 +369,27 @@
     <div id="videoContainer" class="video-container" style="display: none;"></div>
     <button id="infoButton" class="page-button">Learn More</button>
 
-    <div id="lightbox" class="lightbox hidden">
+
+    <!--Lightbox POSTER -->
+ <div id="lightbox" class="lightbox hidden">
         <div class="lightbox-content">
-            <div class="close-btn" onclick="toggleLightbox()">×</div>
-            <h2>More Information</h2>
-            <p>This is more detailed information for page 2. You can include diagrams, text, or even video.</p>
+            <button class="close-btn" onclick="toggleLightbox()">×</button>
+            <h5>Click on a skull to learn more</h5>
+            <img src="/img/images/Non journey/P-Sagittal.png" class="overlay-png" id="png1" alt="Red Circle">
+            <img src="/img/images/Non journey/P-Metopic.png" class="overlay-png" id="png2" alt="Green Square">
+            <img src="/img/images/Non journey/P-Lambdoid.png" class="overlay-png" id="png3" alt="Blue Triangle">
+            <img src="/img/images/Non journey/P-Unicoronal.png" class="overlay-png" id="png4" alt="Orange Star">
+            <img src="/img/images/Non journey/P-Bicoronal.png" class="overlay-png" id="png5" alt="Purple Hexagon">
+        </div>
+    </div>
+
+    <div id="detailLightbox" class="lightbox hidden">
+        <div class="lightbox-content detail-content">
+            <button class="close-btn" onclick="hideDetailLightbox()">×</button>
+            <div class="detail-illustration-container">
+                <img id="detailIllustration" src="" alt="Detail Illustration">
+            </div>
+            <p id="detailText"></p>
         </div>
     </div>
 
@@ -141,6 +409,79 @@
 
 <script src="../js/ui.js"></script>
 <script src="/js/navigation/navigationmain.js"></script> <script src="../js/nonjourney/chapter2.js"></script>
+
+
+
+<!-- SCRIPT FOR LIGHTBOX POSTER -->
+    <script>
+        // Data structure to hold content for each PNG of the poster
+        const pngData = {
+            png1: {
+                illustration: 'https://via.placeholder.com/400x300/ff6347/ffffff?text=Detail_for_PNG1',
+                text: 'This is the detailed information for PNG 1. It explains various aspects and provides context about this specific red circle. It can contain 3 to 5 sentences providing concise but informative content.'
+            },
+            png2: {
+                illustration: 'https://via.placeholder.com/400x300/32cd32/ffffff?text=Detail_for_PNG2',
+                text: 'More insights into PNG 2, detailing its features and significance in a few sentences. This green square represents a key component in our system and its function is vital.'
+            },
+            png3: {
+                illustration: 'https://via.placeholder.com/400x300/4169e1/ffffff?text=Detail_for_PNG3',
+                text: 'Information specific to PNG 3, covering its purpose and functionality concisely. The blue triangle signifies a point of interest, leading to further exploration of related topics.'
+            },
+            png4: {
+                illustration: 'https://via.placeholder.com/400x300/ffa500/ffffff?text=Detail_for_PNG4',
+                text: 'Here is some context for PNG 4. This orange star highlights an important feature or a critical warning that users should be aware of, explained in a brief summary.'
+            },
+            png5: {
+                illustration: 'https://via.placeholder.com/400x300/ffa500/ffffff?text=Detail_for_PNG4',
+                text: 'Here is some context for PNG 5. This orange star highlights an important feature or a critical warning that users should be aware of, explained in a brief summary.'
+            }
+            // Add data for all your PNGs
+        };
+
+        function toggleLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.toggle('hidden');
+        }
+
+        function showDetailLightbox(pngId) {
+            const detailLightbox = document.getElementById('detailLightbox');
+            const detailIllustration = document.getElementById('detailIllustration');
+            const detailText = document.getElementById('detailText');
+
+            const data = pngData[pngId];
+
+            if (data) {
+                detailIllustration.src = data.illustration;
+                detailText.textContent = data.text;
+                
+                detailLightbox.classList.remove('hidden'); // Show the detail lightbox
+                // document.getElementById('lightbox').classList.add('hidden'); // This line is now commented out
+            }
+        }
+
+        function hideDetailLightbox() {
+            const detailLightbox = document.getElementById('detailLightbox');
+            detailLightbox.classList.add('hidden'); // Hide the detail lightbox
+            // You can choose to show the main lightbox again here if desired
+            // document.getElementById('lightbox').classList.remove('hidden'); 
+        }
+
+        // Attach click listeners to your PNGs
+        document.addEventListener('DOMContentLoaded', () => {
+            const pngs = document.querySelectorAll('.overlay-png');
+            pngs.forEach(png => {
+                png.addEventListener('click', () => showDetailLightbox(png.id));
+            });
+
+            // Listener for the button to open the main lightbox
+            const openMainLightboxBtn = document.getElementById('openMainLightboxBtn');
+            if (openMainLightboxBtn) {
+                openMainLightboxBtn.addEventListener('click', toggleLightbox);
+            }
+        });
+    </script>
+
 
 </body>
 </html>
