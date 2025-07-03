@@ -1,18 +1,54 @@
 const pages = [
     { 
-        img: "../img/images/Non journey/BG-wave.png",
+        img: "../img/images/Endoscopic/EPost-title.png",
         showButton: false ,
-        showTextBox: true,
+        showTextBox: false,
         text: "endo ch5"
     }, //showbutton is for lightbox button
     {
-        img: "../img/images/Non journey/BG-wave.png",
-        showButton: true,
-        showTextBox: true,
+        img: "../img/images/Endoscopic/EPost-after.png",
+        showButton: false,
+        showTextBox: false,
         text: "If parents want to go through with surgical options, the timing is very important, as certain options (ex. Endoscopic strip Craniectomy) can only be done while the skull is still soft and growing. The following video will give a summary of craniosynostosis. "
     },
     {
-        img: "../img/images/Non journey/BG-wave.png",
+        img: "../img/images/Endoscopic/EPost-timeline.png",
+        showButton: false,
+        showTextBox: false,
+        text: ""
+    },
+    { 
+        img: "../img/images/Endoscopic/EPost-helmet.png",
+        showButton: false ,
+        showTextBox: false,
+        text: "endo ch5"
+    }, //showbutton is for lightbox button
+    {
+        img: "../img/images/Endoscopic/EPost-HTtips.png",
+        showButton: false,
+        showTextBox: false,
+        text: "If parents want to go through with surgical options, the timing is very important, as certain options (ex. Endoscopic strip Craniectomy) can only be done while the skull is still soft and growing. The following video will give a summary of craniosynostosis. "
+    },
+    {
+        img: "../img/images/Endoscopic/EPost-HTteam.png",
+        showButton: false,
+        showTextBox: false,
+        text: ""
+    },
+    {
+        img: "../img/images/Endoscopic/EPost-healing.png",
+        showButton: false,
+        showTextBox: false,
+        text: ""
+    },
+    {
+        img: "../img/images/Endoscopic/EPost-Healingtips.png",
+        showButton: false,
+        showTextBox: false,
+        text: ""
+    },
+    {
+        img: "../img/images/Endoscopic/EPost-pvc.png",
         showButton: false,
         showTextBox: false,
         text: ""

@@ -100,19 +100,13 @@ function generateChapterNavigation() {
         const currentFileOnly = currentPageFilename.split('#')[0];
 
         // Main Chapter Active Check:
-        if (chapterFileOnly === currentFileOnly) {
-            const chapterFolderMatch = targetLinkFolder === currentUrlFolder;
+        if (chapterFileOnly === currentFileOnly) { // Check if the base filenames match
+            const chapterFolderMatch = targetLinkFolder === currentUrlFolder; // Check if the folder contexts match
             
             if (chapterFolderMatch) {
-                if (chapter.hasPopup && chapter.popup) {
-                    // **MODIFIED LINE HERE:**
-                    // Main button is active if current hash is empty (default view)
-                    // OR if the current hash matches the main chapter's explicit hash (e.g., #page0)
-                    isMainActive = (!hash || hash === `#${chapter.file.split('#')[1]}`);
-                } else {
-                    // For chapters WITHOUT popups:
-                    isMainActive = true; 
-                }
+                // If both filename and folder match, then this chapter's main button should be active.
+                // This is true for ALL chapter types (with or without popups).
+                isMainActive = true; 
             }
         }
 
