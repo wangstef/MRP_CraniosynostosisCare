@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chapter 4: Surgery – Endoscopic</title>
+  <title>Chapter 4: Surgery – Cranial Vault</title>
   <link rel="stylesheet" href="../css/styles.css" />
 </head>
 <body>
@@ -24,34 +24,31 @@
       <span class="toggle-label">Cranial Vault</span>
     </div>
 
-         <div class="hamburger-menu">
+          <div class="hamburger-menu">
                 <button id="hamburger-btn" class="hamburger-btn" aria-label="Open menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
-                </button> 
+                </button>
                 <div id="menu-dropdown" class="menu-dropdown">
                     <a href="../downloadables.html" class="menu-item" target="_blank" rel="noopener noreferrer">Downloadable Resources</a>
                     <a href="../glossary.html" class="menu-item" target="_blank" rel="noopener noreferrer">Vocabulary Words</a>
                     <a href="../resources.html" class="menu-item" target="_blank" rel="noopener noreferrer">Other Resources</a>
-                </div> 
+                </div>
             </div>
   </header>
-  
+
 
   <div class="chapter-container">
     <img id="backgroundImg" src="../img/endoscopic-ch1-page1.jpg" class="background-img" alt="Chapter Page Background"/>
 
-    <!-- Text -->
+    <div id="pageContentTitle" class="page-content-title"></div>
+    <div id="pageContentDescription" class="page-content-description"></div>
+
     <div id="textBox" class="text-box">
-      <div id="textContent"></div> <!-- Holds the page text -->
-    </div>
+      <div id="textContent"></div> </div>
 
-   <!--Progess dots-->
-    <div id="progressBar" class="progress-bar"></div> <!-- Holds the dots -->
-
-    <!-- Lightbox -->
-    <button id="infoButton" class="page-button">Learn More</button>
+   <div id="progressBar" class="progress-bar"></div> <button id="infoButton" class="page-button">Learn More</button>
 
     <div id="lightbox" class="lightbox hidden">
       <div class="lightbox-content">
@@ -61,7 +58,6 @@
       </div>
     </div>
 
-    <!--Arrows-->
     <div class="arrow left" onclick="prevPage()">
       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" xml:space="preserve" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 298 511.93">
             <path fill-rule="nonzero" d="M285.77 441c16.24 16.17 16.32 42.46.15 58.7-16.16 16.24-42.45 16.32-58.69.16l-215-214.47c-16.24-16.16-16.32-42.45-.15-58.69L227.23 12.08c16.24-16.17 42.53-16.09 58.69.15 16.17 16.24 16.09 42.54-.15 58.7l-185.5 185.04L285.77 441z"/>
@@ -76,15 +72,9 @@
 
   </div>
 
- <!-- Navigation bar placeholder -->
   <div id="chapter-nav-container-endo"></div>
-  <!-- toggle -->
-  <script src="../js/toggle.js"></script>
-
-<!-- Scripts -->
-<!-- Main menu button -->
+<script src="../js/toggle.js"></script>
 <script src="../js/ui.js"></script>
-<!-- Navigation bar -->
 <script src="../js/navigation/Endo_nav.js"></script>
 <script src="../js/endoscopic/chapter4.js"></script>
 <script src="/js/hamburgerMenu.js"></script>

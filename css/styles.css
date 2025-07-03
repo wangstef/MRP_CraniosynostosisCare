@@ -1162,3 +1162,33 @@ input:checked + .slider:before {
         min-width: 200px; /* Ensure a minimum width */
     }
 }
+
+
+
+
+/* FOR SURGERY PAGES */
+
+.page-content-title { /* Changed class name */
+  position: absolute;
+  top: 100px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  text-align: center;
+  font-size: 2em; /* Adjust as needed */
+  color: #333; /* Or your preferred color */
+  z-index: 10; /* Ensure it's above the background image */
+  font-weight: bold;
+}
+
+.page-content-description { /* Changed class name */
+  position: absolute;
+  top: 150px; /* Adjust to be below the title */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  text-align: center;
+  font-size: 1.2em; /* Adjust as needed */
+  color: #555; /* Or your preferred color */
+  z-index: 10;
+}
