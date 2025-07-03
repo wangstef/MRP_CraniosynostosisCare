@@ -231,8 +231,7 @@ function createAndShowModal(title, text, targetFile) {
     requestAnimationFrame(() => choiceContainer.classList.add('visible'));
 
     const handlePathSelection = (selectedPathId) => {
-        // MODIFICATION: Do not save to localStorage anymore.
-        // localStorage.setItem('visualNovelChosenPath', selectedPathId);
+        localStorage.setItem('visualNovelChosenPath', selectedPathId);
         
         // Use the targetFile passed to the function
         const [filename, hash] = targetFile.split('#');
