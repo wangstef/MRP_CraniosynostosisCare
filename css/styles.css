@@ -1141,7 +1141,7 @@ input:checked + .slider:before {
 }
 
 #navModalCancelPathChoice:hover {
-    background-color: #6c7a89; /* Darker grey on hover */
+    background-color: #3b4044; /* Darker grey on hover */
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(127, 140, 141, 0.4);
 }

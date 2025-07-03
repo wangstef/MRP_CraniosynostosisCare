@@ -224,7 +224,7 @@ function createAndShowModal(title, text, targetFile) {
                 <button id="navModalSelectEndoscopic" class="path-choice-button">Endoscopic Path</button>
                 <button id="navModalSelectCV" class="path-choice-button">Cranial Vault Path</button>
             </div>
-            <button id="navModalCancelPathChoice" class="path-choice-button" style="background-color: #7f8c8d; margin-top: 15px;">Cancel</button>
+            <button id="navModalCancelPathChoice" class="path-choice-button">Cancel</button>
         </div>
     `;
     document.body.appendChild(choiceContainer);
@@ -257,8 +257,8 @@ function createAndShowModal(title, text, targetFile) {
 function displayPreOpModal() {
     // Manually define the title, text, and where the buttons go (chapter3.html)
     createAndShowModal(
-        'Pre-Op Path Selection',
-        'To view the pre-operative steps, please select a surgical path.',
+        '<strong>Pre-Op Path Selection</strong>',
+        'To view the pre-operative steps, please select which procedure to follow.',
         'chapter3.html'
     );
 }
@@ -266,8 +266,8 @@ function displayPreOpModal() {
 function displaySurgeryModal() {
     // Manually define the title, text, and where the buttons go (chapter4.html)
     createAndShowModal(
-        'Surgery Path Selection',
-        'To see the details of the surgery, you must first choose a path.',
+        '<strong>Surgery Path Selection</strong>',
+        'To see the details of the surgery, please select which procedure to follow.',
         'chapter4.html'
     );
 }
@@ -275,7 +275,7 @@ function displaySurgeryModal() {
 function displayPostOpModal(targetFile = 'chapter5.html') {
     // Manually define the title, text, and where the buttons go (chapter5.html or a sub-item)
     createAndShowModal(
-        'Post-Op Path Selection',
+        '<strong>Post-Op Path Selection</strong>',
         'For post-operative information, please select which procedure to follow.',
         targetFile
     );
