@@ -1104,16 +1104,24 @@ input:checked + .slider:before {
 }
 
 /* Specific styling for path selection buttons */
-#navModalSelectEndoscopic,
-#navModalSelectCV {
-    background-color: #8b026f; /* Blue */
+#navModalSelectEndoscopic {
+    background-color: #2D6460; /* Blue */
     color: #ffffff;
-    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+    /* box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3); */
+}
+#navModalSelectCV {
+    background-color: #45327C; /* Blue */
+    color: #ffffff;
+    /* box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3); */
 }
 
-#navModalSelecEndoscopic:hover,
+#navModalSelectEndoscopic:hover{
+    background-color: #A9C384; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+}
 #navModalSelectCV:hover {
-    background-color: #2980b9; /* Darker blue on hover */
+    background-color: #ba9bdd; /* Darker blue on hover */
     transform: translateY(-2px); /* Slight lift effect */
     box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
 }
@@ -1133,7 +1141,7 @@ input:checked + .slider:before {
 }
 
 #navModalCancelPathChoice:hover {
-    background-color: #6c7a89; /* Darker grey on hover */
+    background-color: #3b4044; /* Darker grey on hover */
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(127, 140, 141, 0.4);
 }
