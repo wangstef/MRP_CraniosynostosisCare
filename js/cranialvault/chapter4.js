@@ -1,27 +1,75 @@
 const pages = [
     {
-        img: "../img/images/Non journey/BG-wave.png",
+        img: "../img/images/Cranial Vault/CV-title.png",
         showButton: false,
         showTextBox: false,
-        text: "cv ch4",
-        pageContentTitle: "Introduction to Surgery", // Changed name
-        pageContentDescription: "This chapter covers the surgical approaches for craniosynostosis. Here's an overview of what to expect." // Changed name
+        text: "cv ch4", 
+        pageContentTitle: "", // Changed name
+        pageContentDescription: "" // Changed name
     },
     {
-        img: "../img/images/Non journey/BG-wave.png",
+        img: "../img/images/Cranial Vault/Surg-time.png",
+        showButton: false,
+        showTextBox: false,
+        text: "cv ch4", 
+        pageContentTitle: "", // Changed name
+        pageContentDescription: "The surgery will likely last around 4-6 hours" // Changed name
+    },
+    {
+        img: "../img/images/Cranial Vault/CVSurg-1.png",
+        showButton: false,
+        showTextBox: false,
+        text: "cv ch4", 
+        pageContentTitle: "1. Preparation", // Changed name
+        pageContentDescription: "The doctor will have the child fall asleep with medication through a gas mask, and after they will give the child anesthesia through an IV." // Changed name
+    },
+    {
+        img: "../img/images/Cranial Vault/CVSurg-2.png",
         showButton: false,
         showTextBox: false,
         text: "cv ch4 2",
-        pageContentTitle: "Preparing for the Operation", // Changed name
-        pageContentDescription: "Important steps and considerations before your child's surgery. We'll guide you through it." // Changed name
+        pageContentTitle: "2. Making the incision", // Changed name
+        pageContentDescription: "The surgeon will make an incision across the top of the child’s head, from one ear to the other." // Changed name
     },
     {
-        img: "../img/images/Non journey/BG-wave.png",
+        img: "../img/images/Cranial Vault/CVSurg-3.png",
         showButton: false,
         showTextBox: false,
         text: "",
-        pageContentTitle: "Post-Operative Care", // Changed name
-        pageContentDescription: "What to expect during recovery and how to care for your child after surgery. Follow these guidelines." // Changed name
+        pageContentTitle: "3. Removing skull ", // Changed name
+        pageContentDescription: "The doctor carefully removes sections of the skull bones." // Changed name
+    },
+    {
+        img: "../img/images/Cranial Vault/CVSurg-4.png",
+        showButton: false,
+        showTextBox: false,
+        text: "",
+        pageContentTitle: "4. Reshaping the bones", // Changed name
+        pageContentDescription: "The doctor reshapes the pieces of bone they removed. " // Changed name
+    },
+    {
+        img: "../img/images/Cranial Vault/CVSurg-5.png",
+        showButton: false,
+        showTextBox: false,
+        text: "",
+        pageContentTitle: "5. Placing bones in place", // Changed name
+        pageContentDescription: "Placing the pieces back together in a way that allows the skull to grow normally." // Changed name
+    },
+    {
+        img: "../img/images/Cranial Vault/CVSurg-6.png",
+        showButton: false,
+        showTextBox: false,
+        text: "",
+        pageContentTitle: "6. Secure bones in place", // Changed name
+        pageContentDescription: "They use special small plates and screws that will later dissolve on their own." // Changed name
+    },
+    {
+        img: "../img/images/Cranial Vault/CVSurg-7.png",
+        showButton: false,
+        showTextBox: false,
+        text: "",
+        pageContentTitle: "7. Closing the incision ", // Changed name
+        pageContentDescription: "After the bones are put back in place, the doctor closes up the incision with stitches." // Changed name
     }
 ];
 

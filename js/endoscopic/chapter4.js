@@ -1,27 +1,59 @@
 const pages = [
     {
-        img: "../img/images/Non journey/BG-wave.png",
+        img: "../img/images/Endoscopic/ESurg-title.png",
         showButton: false,
         showTextBox: false,
-        text: "cv ch4",
-        pageContentTitle: "Introduction to Surgery", // Changed name
-        pageContentDescription: "This chapter covers the surgical approaches for craniosynostosis. Here's an overview of what to expect." // Changed name
+        text: "cv ch4", 
+        pageContentTitle: "", // Changed name
+        pageContentDescription: "" // Changed name
     },
     {
-        img: "../img/images/Non journey/BG-wave.png",
+        img: "../img/images/Endoscopic/Surg-time.png",
+        showButton: false,
+        showTextBox: false,
+        text: "cv ch4", 
+        pageContentTitle: "", // Changed name
+        pageContentDescription: "The surgery will likely last around 2-3 hours" // Changed name
+    },
+    {
+        img: "../img/images/Endoscopic/ESurg-1.png",
+        showButton: false,
+        showTextBox: false,
+        text: "cv ch4", 
+        pageContentTitle: "1. Preparation", // Changed name
+        pageContentDescription: "The doctor will have the child fall asleep with medication through a gas mask, and after they will give the child anesthesia through an IV." // Changed name
+    },
+    {
+        img: "../img/images/Endoscopic/ESurg-2.png",
         showButton: false,
         showTextBox: false,
         text: "cv ch4 2",
-        pageContentTitle: "Preparing for the Operation", // Changed name
-        pageContentDescription: "Important steps and considerations before your child's surgery. We'll guide you through it." // Changed name
+        pageContentTitle: "2. Making the incision", // Changed name
+        pageContentDescription: "The doctor makes two small incisions on the child’s head, near the closed sutures."
     },
     {
-        img: "../img/images/Non journey/BG-wave.png",
+        img: "../img/images/Endoscopic/ESurg-3.png", 
         showButton: false,
         showTextBox: false,
         text: "",
-        pageContentTitle: "Post-Operative Care", // Changed name
-        pageContentDescription: "What to expect during recovery and how to care for your child after surgery. Follow these guidelines." // Changed name
+        pageContentTitle: "3. Tools ", // Changed name
+        pageContentDescription: "Once the child is asleep, the doctors will use small tools and a tiny camera called an endoscope." // Changed name
+    },
+    {
+        img: "../img/images/Endoscopic/ESurg-4.png",
+        showButton: false,
+        showTextBox: false,
+        text: "",
+        pageContentTitle: "4. Removing the bone strip", // Changed name
+        pageContentDescription: "Using the camera and tools, the doctor carefully removes a strip of bone from the fused area. This opens up space so the skull can grow properly." // Changed name
+    },
+    {
+        img: "../img/images/Endoscopic/ESurg-5.png",
+        showButton: false,
+        showTextBox: false,
+        text: "",
+        pageContentTitle: "5. Closing the incision", // Changed name
+        pageContentDescription: "Because the tools are tiny, they don’t need to make a big cut, which means after surgery, the child heals faster." // Changed name
     }
 ];
 

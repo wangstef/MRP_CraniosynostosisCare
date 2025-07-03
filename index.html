@@ -1,29 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Craniosynostosis Visual Novel</title>
-  <link rel="stylesheet" href="/css/styles.css" />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Craniosynostosis Visual Novel</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <!-- Lightbox -->
-             <button class="btn btn-primary-orange" id="ourTeamBtn">Our Team</button>
+    <div class="container">
+        <header>
+            <button class="btn btn-primary-orange" id="ourTeamBtn">Our Team</button>
 
-            <div id="lightbox" class="lightbox hidden">
-            <!-- <div class="close-btn" onclick="toggleLightbox()">×</div> -->
-            <div class="lightbox-content">
-                <div class="close-btn" onclick="toggleLightbox()">×</div>
-                
-                <p>OUR TEAM</p>
-            </div>
+            <div id="ourTeamLightbox" class="our-team-lightbox hidden">
+                <div class="our-team-lightbox-content">
+                    <div class="close-btn" onclick="toggleOurTeamLightbox()">×</div>
+
+                    <h2>OUR TEAM</h2>
+
+                    <div class="team-members">
+                        <div class="team-member">
+                            <img src="https://via.placeholder.com/150" alt="Team Member 1" class="team-portrait">
+                            <h3>Stefanie Jinyin Wang</h3>
+                            <h4>BA&Sc, MSCBMC</h4>
+                            <p>Medical Illustrator and Developer</p>
+                            <p>Contact:</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="https://via.placeholder.com/150" alt="Team Member 2" class="team-portrait">
+                            <h3>Dr. Shelley Wall</h3>
+                            <h4>AOCAD, MScBMC, PhD, CMI, FAMI</h4>
+                            <p>Supervisor, Associate Director and Associate Professor</p>
+                            <p>Contact:</p> </div>
+                        <div class="team-member">
+                            <img src="https://via.placeholder.com/150" alt="Team Member 3" class="team-portrait">
+                            <h3>Dr. Christopher R. Forrest</h3>
+                            <h4>MD, MSc, FRCSC, FACS, FAAP</h4>
+                            <p>Content Advisor, Surgeon-Investigator </p>
+                            <p>Contact:</p> </div>
+                    </div>
+                </div>
             </div>
 
             <div class="hamburger-menu">
@@ -31,33 +51,30 @@
                     <span></span>
                     <span></span>
                     <span></span>
-                </button> 
+                </button>
                 <div id="menu-dropdown" class="menu-dropdown">
                     <a href="./downloadables.html" class="menu-item">Downloadable Resources</a>
                     <a href="./glossary.html" class="menu-item">Vocabulary Words</a>
                     <a href="./resources.html" class="menu-item">Other Resources</a>
-                </div> 
+                </div>
             </div>
-        </header>
+        </header>
 
-        <main class="main-content">
+        <main class="main-content">
             <img src="/img/images/Logo/CC-logo-colour-v002-01.png" alt="logo" class="main-icon">
 
             <div class="content-stack">
                 <p class="intro-text">
                     This is a narrative based module that will teach you the basics of Endoscopic and Cranial Vault surgical journeys.
-                </p> 
+                </p>
                 <button class="btn btn-primary-orange" id="startbtn" onclick="startJourney()">Start</button>
             </div>
-            
+
         </main>
-    </div>
+    </div>
 
-    <div class="mainmenu-lightbox-overlay" id="MainMenuLightbox">
-            </div>
-<!-- 
-   <div id="chapter-nav-container-main"></div> -->
-
+    <div class="mainmenu-lightbox-overlay" id="MainMenuLightbox">
+    </div>
 
 <script src="js/main.js"></script>
 <script src="js/hamburgerMenu.js"></script>
