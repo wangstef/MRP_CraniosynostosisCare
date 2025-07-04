@@ -16,14 +16,7 @@
         height: 100%; /* Or adjust to fit your content area */
         overflow: hidden; /* Prevent content from spilling outside its page div */
     }
-
-    /* Styles for elements common to all pages, like arrows, progress bar, etc.
-       These should be positioned outside the .vn-page divs if they are always visible */
-    .arrow, #progressBar, #infoButton, #audioButton, #videoButton, #textBox {
-        position: absolute; /* Adjust positions as needed for your design */
-        z-index: 10; /* Ensure they are above the page content */
-    }
-
+    
     /* The one visible page */
     .vn-page.active-page { /* chapter2.js will add this class to the current page */
         display: block;

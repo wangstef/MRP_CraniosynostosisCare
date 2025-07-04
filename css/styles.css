@@ -6,7 +6,7 @@ body {
     background: #ffffff;
     width: 100vw; /* Full viewport width */
     height: 100vh; /* Full viewport height */
-    overflow:hidden; /* Allow vertical scroll, prevent horizontal */
+    overflow:scroll; /* Allow vertical scroll, prevent horizontal */
 
     /*added for arrows*/
     display: flex; /* Use flexbox for layout */
@@ -450,7 +450,7 @@ body {
 
 
 .arrow {
-    position: absolute;
+    position: fixed;
     top: 40%;
     transform: translateY(-50%);
     /*sizing arrows*/
@@ -518,8 +518,8 @@ body {
 /* Progress bar pages: Dots (inside text-box) */
 .progress-bar {
     /* Positioning */
-    position: absolute;
-    bottom: 8.6rem;
+    position: fixed;
+    bottom: 4rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 600; /* Ensures it's on top of other content */
@@ -1160,5 +1160,210 @@ input:checked + .slider:before {
     .path-choice-button {
         width: auto; /* Allow buttons to size naturally */
         min-width: 200px; /* Ensure a minimum width */
+    }
+}
+
+
+
+
+/* FOR SURGERY PAGES */
+
+.page-content-title { /* Changed class name */
+  position: absolute;
+  top: 80px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  text-align: center;
+  font-size: 2em; /* Adjust as needed */
+  color: #333; /* Or your preferred color */
+  z-index: 10; /* Ensure it's above the background image */
+  font-weight: bold;
+  /* background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 5px; Add some padding for better readability */
+}
+
+.page-content-description { /* Changed class name */
+  position: absolute;
+  top: 150px; /* Adjust to be below the title */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  text-align: center;
+  font-size: 1.2em; /* Adjust as needed */
+  color: #555; /* Or your preferred color */
+  z-index: 10;
+  /* background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 5px; Add some padding for better readability */
+}
+
+
+/*Our team lightbox styling*/
+/* --- Our Team Lightbox Styles --- */
+.our-team-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top of other content */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.our-team-lightbox.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.our-team-lightbox-content {
+    background-color: #fff;
+    padding: 25px; /* Reduced padding from 30px */
+    border-radius: 8px;
+    position: relative;
+    max-width: 75%; /* Reduced max-width from 90% */
+    max-height: 85%; /* Reduced max-height from 90% */
+    overflow-y: auto; /* Enable scrolling for content that exceeds height */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+.our-team-lightbox.hidden .our-team-lightbox-content {
+    transform: scale(0.95); /* Slight scale down animation when hidden */
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px; /* Adjusted slightly */
+    right: 15px; /* Adjusted slightly */
+    font-size: 1.8em; /* Reduced font size from 2em */
+    cursor: pointer;
+    color: #333;
+    transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+    color: rgb(73, 73, 73); /* Red on hover for close button */
+}
+
+.our-team-lightbox-content h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px; /* Reduced margin */
+    font-size: 2em; /* Reduced font size from 2.2em */
+    letter-spacing: 1.2px; /* Slightly reduced letter spacing */
+    text-transform: uppercase;
+}
+
+/* --- Team Members Layout --- */
+.team-members {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Ensures three equal-width columns */
+    gap: 20px; /* Reduced gap from 30px */
+    justify-content: center;
+}
+
+.team-member {
+    background-color: #f9f9f9;
+    padding: 15px; /* Reduced padding from 20px */
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-portrait {
+    width: 120px; /* Reduced width from 150px */
+    height: 120px; /* Reduced height from 150px */
+    border-radius: 50%; /* Make them round */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    margin-bottom: 10px; /* Reduced margin */
+    border: 3px solid #FF8C00; /* Orange border, matching your button */
+}
+
+.team-member h3 {
+    font-family: 'Inter', sans-serif;
+    color: #555;
+    margin-bottom: 8px; /* Reduced margin */
+    font-size: 1.2em; /* Reduced font size from 1.4em */
+}
+
+.team-member p {
+    font-family: 'Inter', sans-serif;
+    color: #666;
+    font-size: 0.9em; /* Reduced font size from 0.95em */
+    line-height: 1.5; /* Slightly reduced line height */
+    text-align: left; /* Align bio text to the left */
+}
+
+/* --- Responsive Adjustments (Keep these for general responsiveness if needed, but the core layout remains 3 columns) --- */
+@media (max-width: 992px) { /* Adjusted breakpoint to make it smaller sooner */
+    .our-team-lightbox-content {
+        max-width: 85%; /* Adjusting max-width for slightly smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .our-team-lightbox-content {
+        padding: 20px; /* Further reduction for smaller screens */
+        max-width: 90%; /* Allow it to be wider on smaller screens to avoid tiny content */
+    }
+
+    .our-team-lightbox-content h2 {
+        font-size: 1.6em; /* Further reduction */
+        margin-bottom: 15px;
+    }
+
+    .team-members {
+        /* Still 3 columns, but might need horizontal scrolling */
+        gap: 15px;
+    }
+
+    .team-portrait {
+        width: 100px; /* Further reduction */
+        height: 100px;
+    }
+
+    .team-member h3 {
+        font-size: 1.1em;
+    }
+
+    .team-member p {
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 480px) {
+    .our-team-lightbox-content {
+        padding: 15px;
+        max-width: 95%; /* Maximizing width for very small screens */
+        max-height: 80%;
+    }
+
+    .our-team-lightbox-content h2 {
+        font-size: 1.4em;
+        margin-bottom: 10px;
+    }
+
+    .close-btn {
+        font-size: 1.6em;
+        top: 8px;
+        right: 12px;
+    }
+
+    .team-portrait {
+        width: 80px; /* Smallest portrait size */
+        height: 80px;
     }
 }

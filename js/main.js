@@ -5,15 +5,20 @@
  }
 
 
+// When clicking the "Start" button, redirect to the first chapter of the nonjourney html
+function startJourney() {
+    window.location.href = '/nonjourney/tutorial.html';
+}
+
 // Button for our team button
 // Get the HTML elements
 const infoButton = document.getElementById('ourTeamBtn');
-const lightbox = document.getElementById('lightbox');
+const ourTeamLightbox = document.getElementById('ourTeamLightbox'); // Renamed variable
 
-// Function to toggle the lightbox's visibility
-function toggleLightbox() {
-  lightbox.classList.toggle('hidden');
+// Function to toggle the "Our Team" lightbox's visibility
+function toggleOurTeamLightbox() { // Renamed function
+    ourTeamLightbox.classList.toggle('hidden');
 }
 
-// Add a click event listener to the "Learn More" button
-infoButton.addEventListener('click', toggleLightbox);
+// Add a click event listener to the "Our Team" button
+infoButton.addEventListener('click', toggleOurTeamLightbox); // Updated function call

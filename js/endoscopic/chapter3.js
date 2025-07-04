@@ -2,22 +2,16 @@
 const pages = [
     //img: is bg img, showbutton is for lightbox button, text: is the text in the text box
     { 
-        img: "../img/images/Non journey/BG-wave.png",
+        img: "../img/images/Endoscopic/Ch 4 a tips.png",
         showButton: false ,
         showTextBox: true,
         text: "Endoscopic"
-    }, 
-    {
-        img: "../img/images/Non journey/BG-wave.png",
-        showButton: true,
-        showTextBox: true,
-        text: "This is what the condition looks like in early stages."
     },
-    {
-        img: "../img/images/Non journey/BG-wave.png",
-        showButton: false,
+    { 
+        img: "../img/images/Endoscopic/Ch 4 a tips.png",
+        showButton: false ,
         showTextBox: true,
-        text: "Treatment options differ depending on age and severity."
+        text: "Endoscopic"
     }
 ];
   
@@ -88,6 +82,8 @@ if (window.location.hash.startsWith("#page")) {
     if (currentPage > 0) {
       currentPage--;
       renderPage();
+    } else {
+            window.location.href = "../nonjourney/chapter2.html#page9"; // Redirect to the last page of Chapter 2
     }
   }
   

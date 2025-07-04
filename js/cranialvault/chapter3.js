@@ -2,22 +2,16 @@
 const pages = [
     //img: is bg img, showbutton is for lightbox button, text: is the text in the text box
     { 
-        img: "../img/images/Non journey/BG-wave.png",
+        img: "../img/images/Cranial Vault/CVPre-title.png",
         showButton: false ,
-        showTextBox: true,
+        showTextBox: false,
         text: "Cranial Vault"
-    }, 
-    {
-        img: "../img/images/Non journey/BG-wave.png",
-        showButton: true,
-        showTextBox: true,
-        text: "This is what the condition looks like in early stages."
     },
-    {
-        img: "../img/images/Non journey/BG-wave.png",
-        showButton: false,
-        showTextBox: true,
-        text: "Treatment options differ depending on age and severity."
+    { 
+        img: "../img/images/Cranial Vault/CVPre-healingTips.png",
+        showButton: false ,
+        showTextBox: false,
+        text: "Cranial Vault"
     }
 ];
   
