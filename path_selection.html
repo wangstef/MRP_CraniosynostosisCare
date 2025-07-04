@@ -80,7 +80,7 @@
             max-width: 400px; /* Optional: prevent it from getting too large */
             min-width: 300px; /* Prevent it from getting too squished */
 
-            min-height: 0;
+            max-height: 450px;
             overflow: hidden;
 
             /* KEY CHANGE 2: Define this element as a query container */
@@ -97,7 +97,7 @@
 
         /* KEY CHANGE 3: Use Container Query Units (cqw) for font sizes */
         .path-option-card .card-header .age-info {
-            font-size: 3cqw; /* 3% of the container's width */
+            font-size: 4cqw; /* 3% of the container's width */
             color: #555;
             font-weight: bold;
         }
@@ -137,13 +137,13 @@
         }
 
         .path-option-card .card-content .surgery-subtitle {
-            font-size: 2.8cqw; /* 2.8% of the container's width */
+            font-size: 4.5cqw; /* 2.8% of the container's width */
             color: #555;
             margin-bottom: 1rem;
         }
 
         .path-option-card .card-content .description {
-            font-size: 3cqw; /* 3% of the container's width */
+            font-size: 4cqw; /* 3% of the container's width */
             line-height: 1.5;
             color: #444;
             margin-bottom: 1rem;
@@ -155,6 +155,7 @@
 
         /* --- BUTTONS --- */
         .card-select-button1, .card-select-button2 {
+            position: fixed;
             border: none;
             border-radius: 50%;
             width: 45px;
@@ -194,7 +195,7 @@
         }
         .back-arrow-button:hover{opacity: 0.6;}
         .back-arrow-button h3 {
-            font-size: 1rem;
+            font-size: rem;
             margin: 0;
         }
         .back-arrow-button svg {

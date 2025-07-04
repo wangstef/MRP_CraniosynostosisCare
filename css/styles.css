@@ -4,17 +4,16 @@ body {
     margin: 0;
     padding: 0;
     background: #ffffff;
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
-    overflow:scroll; /* Allow vertical scroll, prevent horizontal */
+    width: 100; /* Full viewport width */
+    height: 100; /* Full viewport height */
+    overflow-y:scroll; /* Allow vertical scroll, prevent horizontal */
 
     /*added for arrows*/
     display: flex; /* Use flexbox for layout */
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     position: relative; /* For absolute positioning of child elements */
-    padding-top: 35px;
+    /* padding-top: 35px; */
 }
 
 /*Top bar styling*/
@@ -1169,7 +1168,7 @@ input:checked + .slider:before {
 /* FOR SURGERY PAGES */
 
 .page-content-title { /* Changed class name */
-  position: absolute;
+  position: fixed;
   top: 80px; /* Adjust as needed */
   left: 50%;
   transform: translateX(-50%);
@@ -1185,7 +1184,7 @@ input:checked + .slider:before {
 }
 
 .page-content-description { /* Changed class name */
-  position: absolute;
+  position: fixed;
   top: 150px; /* Adjust to be below the title */
   left: 50%;
   transform: translateX(-50%);
