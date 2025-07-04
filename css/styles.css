@@ -565,8 +565,9 @@ body {
 .toggle-switch {
     position: relative;     /* CRITICAL: This allows the inner .slider to be positioned correctly within the switch */
     display: inline-block;  /* This is fine, it allows the element to have a defined width and height */
-    width: 60px;            /* KEEP: This defines the switch's size */
+    min-width: 60px;            /* KEEP: This defines the switch's size */
     height: 34px;           /* KEEP: This defines the switch's size */
+    ;
 }
 .toggle-switch input { display: none; }
 .slider {
