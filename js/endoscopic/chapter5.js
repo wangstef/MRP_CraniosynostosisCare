@@ -141,7 +141,7 @@ function prevPage() {
         renderPage();
     } else {
         // Go to the last page of Chapter 4
-        window.location.href = "../endoscopic/chapter4.html#lastpage"; // Adjust #lastpage as needed
+        window.location.href = "../endoscopic/chapter4.html#page6"; // Adjust #lastpage as needed
     }
 }
  

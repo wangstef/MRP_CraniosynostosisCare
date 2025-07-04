@@ -2,7 +2,13 @@
 const pages = [
     //img: is bg img, showbutton is for lightbox button, text: is the text in the text box
     { 
-        img: "../img/images/Cranial Vault/C Ch 4a tips.png",
+        img: "../img/images/Cranial Vault/CVPre-title.png",
+        showButton: false ,
+        showTextBox: false,
+        text: "Cranial Vault"
+    },
+    { 
+        img: "../img/images/Cranial Vault/CVPre-healingTips.png",
         showButton: false ,
         showTextBox: false,
         text: "Cranial Vault"

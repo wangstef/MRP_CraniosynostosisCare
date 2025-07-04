@@ -6,6 +6,12 @@ const pages = [
         showButton: false ,
         showTextBox: true,
         text: "Endoscopic"
+    },
+    { 
+        img: "../img/images/Endoscopic/Ch 4 a tips.png",
+        showButton: false ,
+        showTextBox: true,
+        text: "Endoscopic"
     }
 ];
   
@@ -76,6 +82,8 @@ if (window.location.hash.startsWith("#page")) {
     if (currentPage > 0) {
       currentPage--;
       renderPage();
+    } else {
+            window.location.href = "../nonjourney/chapter2.html#page9"; // Redirect to the last page of Chapter 2
     }
   }
   

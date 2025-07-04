@@ -123,7 +123,7 @@ function prevPage() {
         renderPage();
     } else {
         // Go to the last page of Chapter 4
-        window.location.href = "../cranialvault/chapter4.html#lastpage"; // Adjust #lastpage as needed
+        window.location.href = "../cranialvault/chapter4.html#page8"; // Adjust #lastpage as needed
     }
 }
  
