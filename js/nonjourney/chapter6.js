@@ -80,7 +80,7 @@ if (window.location.hash.startsWith("#page")) {
       renderPage();
     } else {
       // Go to next chapter
-      window.location.href = "chapter2.html";
+      window.location.href = "/index.html";
     }
   }
   
