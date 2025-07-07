@@ -326,7 +326,7 @@ body {
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     border-radius: 8px;
     min-width: 200px;
-    z-index: 1000; /* Ensures it appears on top of other content */
+    z-index: 3000; /* Ensures it appears on top of other content */
     overflow: hidden; /* Ensures content respects the border-radius */
 }
 
@@ -1379,10 +1379,10 @@ input:checked + .slider:before {
 /* Glow Effect */
 /* box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.7); Soft white glow */
 /* Experiment with these values: */
-box-shadow: 0 0 8px 2px rgba(200, 200, 200, 0.6); /* Light gray glow*/
-   z-index: 2000;
+    box-shadow: 0 0 8px 2px rgba(200, 200, 200, 0.6); /* Light gray glow*/
+    z-index: 1000;
     width: auto;
-    max-width: 20vw;
+    max-width: 25vw;
     min-width: 150px;
     text-align: center;
     font-family: Arial, sans-serif;
@@ -1445,3 +1445,31 @@ box-shadow: 0 0 8px 2px rgba(200, 200, 200, 0.6); /* Light gray glow*/
     top: var(--arrow-vertical-offset); /* Use custom property */
     transform: translateY(-50%); /* Only translateY needed */
 }
+
+
+/* Chapter 5 more details */
+.more-details-link {
+    position: absolute; /* Position it relative to its parent (chapter-container) */
+    bottom: 31vh; /* Adjust as needed for vertical positioning from the bottom */
+    right: 29vw; /* Adjust as needed for horizontal positioning from the right */
+    background-color: transparent; /* Or a color that matches your design */
+    padding: 10px 15px; /* Add some padding around the text */
+    border: 0px solid #000; /* Optional: Add a border for a "box" look */
+    text-align: center;
+    cursor: pointer; /* Indicates it's clickable */
+    z-index: 10; /* Ensure it's above other content if there's overlap */
+}
+
+.more-details-link a {
+    color: rgb(233, 147, 72); /* Or your desired link color */
+    text-decoration: underline; /* Make the text underlined */
+    font-weight: bold; /* Make the text bold */
+    font-size: 1.1em; /* Adjust font size as needed */
+    display: block; /* Make the entire div clickable */
+}
+
+/* To hide it by default and show it only when needed (controlled by JS) */
+.more-details-link.hidden {
+    display: none;
+}
+
