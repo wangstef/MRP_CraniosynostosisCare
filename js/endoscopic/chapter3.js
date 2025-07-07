@@ -2,15 +2,15 @@
 const pages = [
     //img: is bg img, showbutton is for lightbox button, text: is the text in the text box
     { 
-        img: "../img/images/Endoscopic/Ch 4 a tips.png",
+        img: "../img/images/Endoscopic/EPre-title.png",
         showButton: false ,
-        showTextBox: true,
+        showTextBox: false,
         text: "Endoscopic"
     },
     { 
-        img: "../img/images/Endoscopic/Ch 4 a tips.png",
+        img: "../img/images/Cranial Vault/CVPre-healingTips.png",
         showButton: false ,
-        showTextBox: true,
+        showTextBox: false,
         text: "Endoscopic"
     }
 ];
