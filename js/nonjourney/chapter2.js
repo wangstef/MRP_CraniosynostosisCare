@@ -31,7 +31,7 @@ const pages = [
         showTextBox: false,
         showProgressDots: true,
         text: "",
-        youtubeId: "OCecxsDDwWY"
+        youtubeId: "qVMcp1ZcgZw" // YouTube video ID
     },
     {
         img: "../img/images/Non journey/Ch 2 n.png",
