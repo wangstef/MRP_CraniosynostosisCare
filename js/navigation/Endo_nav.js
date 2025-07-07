@@ -44,7 +44,7 @@ function generateChapterNavigation() {
             hasPopup: true,
             popup: [
                 { name: "Pronunciation", file: "chapter2.html#page1" },
-                { name: "Video: Craniosynostosis", file: "chapter2.html#page3" },
+                { name: "Video: Introduction to Craniosynostosis", file: "chapter2.html#page3" },
                 { name: "Types", file: "chapter2.html#page7" },
                 { name: "Surgical options", file: "../path_selection.html" }
             ]

@@ -80,7 +80,7 @@ if (window.location.hash.startsWith("#page")) {
       renderPage();
     } else {
       // Go to next chapter
-      window.location.href = "chapter2.html";
+      window.location.href = "/index.html";
     }
   }
   
@@ -96,12 +96,12 @@ function prevPage() {
     // Check if the previous page was chapter 5 of the endoscopic path.
     if (previousPageUrl.includes('endoscopic')) {
       // 👉 Redirect directly to page 2 of that chapter.
-      window.location.href = '../endoscopic/chapter5.html#page2';
+      window.location.href = '../endoscopic/chapter5.html#page8';
 
     // Check if the previous page was chapter 5 of the cranial vault path.
     } else if (previousPageUrl.includes('cranialvault')) {
       // 👉 Redirect directly to page 2 of that chapter.
-      window.location.href = '../cranialvault/chapter5.html#page2';
+      window.location.href = '../cranialvault/chapter5.html#page5';
      } // else if (previousPageUrl.includes('nonjourney')) {
     //   // 👉 Redirect directly to page 2 of that chapter.
     //   window.location.href = '.././path_selection.html';

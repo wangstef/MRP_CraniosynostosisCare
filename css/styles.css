@@ -4,17 +4,16 @@ body {
     margin: 0;
     padding: 0;
     background: #ffffff;
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
-    overflow:scroll; /* Allow vertical scroll, prevent horizontal */
+    width: 100; /* Full viewport width */
+    height: 100; /* Full viewport height */
+    overflow-y:scroll; /* Allow vertical scroll, prevent horizontal */
 
     /*added for arrows*/
     display: flex; /* Use flexbox for layout */
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     position: relative; /* For absolute positioning of child elements */
-    padding-top: 35px;
+    /* padding-top: 35px; */
 }
 
 /*Top bar styling*/
@@ -566,8 +565,9 @@ body {
 .toggle-switch {
     position: relative;     /* CRITICAL: This allows the inner .slider to be positioned correctly within the switch */
     display: inline-block;  /* This is fine, it allows the element to have a defined width and height */
-    width: 60px;            /* KEEP: This defines the switch's size */
+    min-width: 60px;            /* KEEP: This defines the switch's size */
     height: 34px;           /* KEEP: This defines the switch's size */
+    ;
 }
 .toggle-switch input { display: none; }
 .slider {
@@ -1169,7 +1169,7 @@ input:checked + .slider:before {
 /* FOR SURGERY PAGES */
 
 .page-content-title { /* Changed class name */
-  position: absolute;
+  position: fixed;
   top: 80px; /* Adjust as needed */
   left: 50%;
   transform: translateX(-50%);
@@ -1185,7 +1185,7 @@ input:checked + .slider:before {
 }
 
 .page-content-description { /* Changed class name */
-  position: absolute;
+  position: fixed;
   top: 150px; /* Adjust to be below the title */
   left: 50%;
   transform: translateX(-50%);
@@ -1366,4 +1366,82 @@ input:checked + .slider:before {
         width: 80px; /* Smallest portrait size */
         height: 80px;
     }
+}
+
+
+
+/* Tooltip Container - No changes needed here for this specific request */
+.static-tooltip-container {
+    position: fixed;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1.5vw;
+/* Glow Effect */
+/* box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.7); Soft white glow */
+/* Experiment with these values: */
+box-shadow: 0 0 8px 2px rgba(200, 200, 200, 0.6); /* Light gray glow*/
+   z-index: 2000;
+    width: auto;
+    max-width: 20vw;
+    min-width: 150px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+    pointer-events: auto;
+    font-size: clamp(0.8rem, 1.2vw, 1.1rem);
+    line-height: 1.4;
+    box-sizing: border-box;
+
+
+    /* Define custom properties for arrow offset */
+    /* These will be overridden by inline styles on individual tooltips */
+    --arrow-horizontal-offset: 50%; /* Default to center */
+    --arrow-vertical-offset: 50%;   /* Default to center */
+}
+
+
+/* Tooltip Triangle (Arrow) - UPDATED for flexible positioning */
+.static-tooltip-container::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    z-index: 1001;
+    border-width: clamp(8px, 1vw, 15px);
+
+
+    /* Remove transforms here, apply them per direction with offset */
+}
+
+/* Arrow pointing UP (tooltip is BELOW target) */
+.static-tooltip-container.arrow-top::before {
+    border-color: transparent transparent #fff transparent;
+    top: calc(-1 * (clamp(16px, 2vw, 30px) - 1px)); /* Added +1px */
+    left: var(--arrow-horizontal-offset);
+    transform: translateX(-50%);
+}
+
+/* Arrow pointing DOWN (tooltip is ABOVE target) */
+.static-tooltip-container.arrow-bottom::before {
+    border-color: #fff transparent transparent transparent;
+    bottom: calc(-1 * (clamp(16px, 2vw, 30px) - 1px));
+    left: var(--arrow-horizontal-offset); /* Use custom property */
+    transform: translateX(-50%); /* Only translateX needed */
+}
+
+/* Arrow pointing LEFT (tooltip is to the RIGHT of target) */
+.static-tooltip-container.arrow-left::before {
+    border-color: transparent #fff transparent transparent;
+    left: calc(-1 * (clamp(16px, 2vw, 30px) - 1px));
+    top: var(--arrow-vertical-offset); /* Use custom property */
+    transform: translateY(-50%); /* Only translateY needed */
+}
+
+/* Arrow pointing RIGHT (tooltip is to the LEFT of target) */
+.static-tooltip-container.arrow-right::before {
+    border-color: transparent transparent transparent #fff;
+    right:calc(-1 * (clamp(16px, 2vw, 30px) - 1px));
+    top: var(--arrow-vertical-offset); /* Use custom property */
+    transform: translateY(-50%); /* Only translateY needed */
 }
