@@ -2,97 +2,111 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tutorial</title>
-  <link rel="stylesheet" href="/css/styles.css" />
-</head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Tutorial</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    </head>
 
 
 <body class="page-tutorial">
-<header id="top-bar">
-    <a href="#" id="logo-menu-button" class="logo-menu-button">
-      <img src="/img/images/Logo/CC-logo-colour-v002-01.png" alt="Main Menu" /> </a>
 
-    <div class="title-container">
-      <div class="resource-title">Craniosynostosis Care</div>
-      <div id="dynamic-chapter-title" class="chapter-title"></div>
-      </div>
+        <div id="tooltip-fixed-overlay">
+        <div class="static-tooltip-container arrow-left" style="left: 80px; top: 10px; --arrow-vertical-offset: 30%;">
+            <div class="static-tooltip-content">Click logo to return to Main Menu.</div>
+        </div>
 
-      
-    <div class="toggle-container">
-      <span class="toggle-label">Endoscopic</span>
-      <label class="toggle-switch">
-        <input type="checkbox" id="journeyToggle">
-        <span class="slider"></span>
-      </label>
-      <span class="toggle-label">Cranial Vault</span>
+        <!-- <div class="static-tooltip-container arrow-top" style="left: 45vw; top: 8vh; transform: translateX(-50%); --arrow-horizontal-offset: 80%;">
+            <div class="static-tooltip-content">Toggle between Endoscopic and Cranial Vault journey views.</div>
+        </div> -->
+
+        <div class="static-tooltip-container arrow-top" style="right: 10px; top: 60px; --arrow-horizontal-offset: 90%;">
+            <div class="static-tooltip-content">Access additional resources and information here.</div>
+        </div>
+
+        <div class="static-tooltip-container arrow-bottom" style="left: 10px; bottom: 70px;">
+            <div class="static-tooltip-content">Click any chapter button to jump to the chapter.</div>
+        </div>
+
+        <div class="static-tooltip-container arrow-left" style="left: 100px; top: 205px;">
+            <div class="static-tooltip-content">Navigate to the previous page.</div>
+        </div>
+
+        <div class="static-tooltip-container arrow-right" style="right: 100px; top: 205px;">
+            <div class="static-tooltip-content">Nagivate to the next page.</div>
+        </div>
     </div>
-     <div class="hamburger-menu">
-                <button id="hamburger-btn" class="hamburger-btn" aria-label="Open menu" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button> 
-                <div id="menu-dropdown" class="menu-dropdown">
-                    <a href="../downloadables.html" class="menu-item" target="_blank" rel="noopener noreferrer">Downloadable Resources</a>
-                    <a href="../glossary.html" class="menu-item" target="_blank" rel="noopener noreferrer">Vocabulary Words</a>
-                    <a href="../resources.html" class="menu-item" target="_blank" rel="noopener noreferrer">Other Resources</a>
-                </div> 
-  </header>
+    <header id="top-bar">
+        <a href="#" id="logo-menu-button" class="logo-menu-button">
+            <img src="/img/images/Logo/CC-logo-colour-v002-01.png" alt="Main Menu" /> </a>
 
-  <div class="chapter-container">
-    <img id="backgroundImg" src="" class="background-img" alt="Chapter Page Background"/>
+        <div class="title-container">
+            <div class="resource-title">Craniosynostosis Care</div>
+            <div id="dynamic-chapter-title" class="chapter-title"></div>
+        </div>
 
 
-  
-    <!-- Text -->
-    <div id="textBox" class="text-box">
-      <div id="textContent"></div> <!-- Holds the page text -->
+        <div class="toggle-container">
+            <span class="toggle-label">Endoscopic</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="journeyToggle">
+                <span class="slider"></span>
+            </label>
+            <span class="toggle-label">Cranial Vault</span>
+        </div>
+        <div class="hamburger-menu">
+            <button id="hamburger-btn" class="hamburger-btn" aria-label="Open menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div id="menu-dropdown" class="menu-dropdown">
+                <a href="../downloadables.html" class="menu-item" target="_blank" rel="noopener noreferrer">Downloadable Resources</a>
+                <a href="../glossary.html" class="menu-item" target="_blank" rel="noopener noreferrer">Vocabulary Words</a>
+                <a href="../resources.html" class="menu-item" target="_blank" rel="noopener noreferrer">Other Resources</a>
+            </div>
+    </header>
+
+    <div class="chapter-container">
+        <img id="backgroundImg" src="" class="background-img" alt="Chapter Page Background"/>
+
+
+        <div id="textBox" class="text-box">
+            <div id="textContent"></div> </div>
+
+        <div id="progressBar" class="progress-bar"></div> <button id="infoButton" class="page-button">Learn More</button>
+
+        <div id="lightbox" class="lightbox hidden">
+            <div class="lightbox-content">
+                <div class="close-btn" onclick="toggleLightbox()">×</div>
+                <h2>More Information</h2>
+                <p>PLACEHOLDER.</p>
+            </div>
+        </div>
+
+
+        <div class="arrow left" onclick="prevPage()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" xml:space="preserve" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 298 511.93">
+                <path fill-rule="nonzero" d="M285.77 441c16.24 16.17 16.32 42.46.15 58.7-16.16 16.24-42.45 16.32-58.69.16l-215-214.47c-16.24-16.16-16.32-42.45-.15-58.69L227.23 12.08c16.24-16.17 42.53-16.09 58.69.15 16.17 16.24 16.09 42.54-.15 58.7l-185.5 185.04L285.77 441z"/>
+            </svg>
+        </div>
+
+        <div class="arrow right" id="nextArrow" onclick="nextPage()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" xml:space="preserve" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 298 511.93">
+                <path fill-rule="nonzero" d="M70.77 499.85c-16.24 16.17-42.53 16.09-58.69-.15-16.17-16.25-16.09-42.54.15-58.7l185.5-185.03L12.23 70.93c-16.24-16.16-16.32-42.45-.15-58.7 16.16-16.24 42.45-16.32 58.69-.15l215.15 214.61c16.17 16.25 16.09 42.54-.15 58.7l-215 214.46z"/>
+            </svg>
+        </div>
+    </div>
     </div>
 
-    <!--Progess dots-->
-    <div id="progressBar" class="progress-bar"></div> <!-- Holds the dots -->
 
-    <!-- Lightbox -->
-    <button id="infoButton" class="page-button">Learn More</button>
-
-    <div id="lightbox" class="lightbox hidden">
-      <!-- <div class="close-btn" onclick="toggleLightbox()">×</div> -->
-      <div class="lightbox-content">
-        <div class="close-btn" onclick="toggleLightbox()">×</div>
-        <h2>More Information</h2>
-        <p>PLACEHOLDER.</p>
-      </div>
-    </div>
-
-
-    <div class="arrow left" onclick="prevPage()">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" xml:space="preserve" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 298 511.93">
-            <path fill-rule="nonzero" d="M285.77 441c16.24 16.17 16.32 42.46.15 58.7-16.16 16.24-42.45 16.32-58.69.16l-215-214.47c-16.24-16.16-16.32-42.45-.15-58.69L227.23 12.08c16.24-16.17 42.53-16.09 58.69.15 16.17 16.24 16.09 42.54-.15 58.7l-185.5 185.04L285.77 441z"/>
-        </svg>
-    </div>
-
-    <div class="arrow right" id="nextArrow" onclick="nextPage()">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" xml:space="preserve" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 298 511.93">
-          <path fill-rule="nonzero" d="M70.77 499.85c-16.24 16.17-42.53 16.09-58.69-.15-16.17-16.25-16.09-42.54.15-58.7l185.5-185.03L12.23 70.93c-16.24-16.16-16.32-42.45-.15-58.7 16.16-16.24 42.45-16.32 58.69-.15l215.15 214.61c16.17 16.25 16.09 42.54-.15 58.7l-215 214.46z"/>
-      </svg>
-    </div>
-  </div>
-  </div>
-
-  
-  <div id="chapter-nav-container-main"></div>
+    <div id="chapter-nav-container-main"></div>
 
 
 
-<!-- Scripts -->
-<!-- Main menu button -->
 <script src="/js/ui.js"></script>
-<!-- Navigation bar -->
 <script src="/js/navigation/navigationmain.js"></script>
 
-<!-- !CHANGE -->
 <script src="/js/nonjourney/tutorial.js"></script>
 <script src="/js/hamburgerMenu.js"></script>
 
