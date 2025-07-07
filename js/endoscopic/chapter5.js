@@ -67,6 +67,7 @@ const textContent = document.getElementById("textContent"); // Assuming textCont
 // Add other global elements here if they are controlled by renderPage:
 // const nextArrow = document.getElementById("nextArrow"); // If you have one
 // const prevArrow = document.getElementById("prevArrow"); // If you have one
+const moreDetailsLink = document.getElementById("moreDetailsLink")
 
 
 // Function to create progress dots (should run once)
@@ -97,6 +98,13 @@ function renderPage() {
     dots.forEach((dot, index) => {
         dot.classList.toggle("active", index === currentPage);
     });
+
+    // Show/hide the "More Details" link only on the last page
+    if (currentPage === pages.length - 1) {
+        moreDetailsLink.classList.remove("hidden");
+    } else {
+        moreDetailsLink.classList.add("hidden");
+    }
 
     // CRITICAL: Always update the URL hash to reflect the current page
     window.location.hash = "#page" + currentPage;

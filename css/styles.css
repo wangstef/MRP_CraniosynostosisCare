@@ -1447,6 +1447,29 @@ input:checked + .slider:before {
 }
 
 
+/* Chapter 5 more details */
+.more-details-link {
+    position: absolute; /* Position it relative to its parent (chapter-container) */
+    bottom: 31vh; /* Adjust as needed for vertical positioning from the bottom */
+    right: 29vw; /* Adjust as needed for horizontal positioning from the right */
+    background-color: transparent; /* Or a color that matches your design */
+    padding: 10px 15px; /* Add some padding around the text */
+    border: 0px solid #000; /* Optional: Add a border for a "box" look */
+    text-align: center;
+    cursor: pointer; /* Indicates it's clickable */
+    z-index: 10; /* Ensure it's above other content if there's overlap */
+}
 
+.more-details-link a {
+    color: rgb(233, 147, 72); /* Or your desired link color */
+    text-decoration: underline; /* Make the text underlined */
+    font-weight: bold; /* Make the text bold */
+    font-size: 1.1em; /* Adjust font size as needed */
+    display: block; /* Make the entire div clickable */
+}
 
+/* To hide it by default and show it only when needed (controlled by JS) */
+.more-details-link.hidden {
+    display: none;
+}
 
