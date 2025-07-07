@@ -450,11 +450,10 @@ body {
 
 .arrow {
     position: fixed;
-    top: 40%;
+    top: 50%;
     transform: translateY(-50%);
     /*sizing arrows*/
-    width: 2rem;
-    height: 2rem;
+    width: 60px; /* Fixed width for the arrow */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -465,21 +464,13 @@ body {
     z-index: 4 ; /* Above background, below popups if any */
     user-select: none;
     transition: background-color 0.3s, color 0.3s; /* Added transition */
-    border-radius: 50%;
 }
 
-    /* Add a transition to the SVG itself for a smooth opacity change */
-    .arrow svg {
-        transition: opacity 0.3s ease;
-    }
 
-    /* * This selector targets the <svg> element ONLY when its 
-        * parent .arrow container is being hovered.
-        * This makes the icon translucent, not the background.
-    */
-    .arrow:hover svg {
-        opacity: 0.6; /* Make the icon itself translucent */
-    }
+    .arrow:hover {
+    /* opacity: 0.7; Make the icon itself translucent */
+    transform: translateY(-50%) scale(1.05); /* Slightly enlarge on hover */
+}
 
 
  
