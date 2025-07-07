@@ -13,7 +13,7 @@ const pages = [
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
-        text: "Most parents have never heard of craniosynostosis before their child is diagnosed. Click on the button above to hear how it is pronounced.",
+        text: "Most parents have never heard of craniosynostosis before their child is diagnosed. <strong> Click on the Button</strong> above to hear how it is pronounced.",
         showAudioButton: true,
         audioSrc: "/img/audio/Craniosynostosispronounce_Shelley.mp3"
     }, 
@@ -23,7 +23,7 @@ const pages = [
         showTextBox: true,
         showProgressDots: true,
         showVideoButton: true,
-        text: "If parents want to go through with surgical options, the timing is very important, as certain options (ex. Endoscopic strip Craniectomy) can only be done while the skull is still soft and growing. The following video will give a summary of craniosynostosis. "
+        text: "If parents want to go through with surgical options, the timing is very important, as certain options (ex. Endoscopic strip Craniectomy) can only be done while the skull is still soft and growing. <strong> Click the Video Button</strong> to watch a brief summary video of craniosynostosis."
     },
     {
         img: "../img/images/Non journey/BG colour.png",
@@ -38,28 +38,28 @@ const pages = [
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
-        text: "Challenges children may face growing up with craniosynostosis "
+        text: "Challenges children may face growing up with craniosynostosis."
     },
     {
         img: "../img/images/Non journey/Ch 2 l.png",
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
-        text: "With craniosynostosis there are some cases that can affect brain development and cause other complications. Your team will inform you if there are any concerns "
+        text: "With craniosynostosis there are some cases that can affect brain development and cause other complications. Your team will inform you if there are any concerns."
     },
     {
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
-        text: "The primary purpose of this surgery is to help with the shape of the child’s head and to make room for the growing brain"
+        text: "The primary purpose of this surgery is to help with the shape of the child’s head and to make room for the growing brain."
     },
     {
         img: "../img/images/Non journey/BG-wave.png",
         showButton: true,
         showTextBox: true,
         showProgressDots: true,
-        text: "There are different types of craniosynostosis depending on what sutures have fused, click the learn more button to explore some different types."
+        text: "There are different types of craniosynostosis depending on what sutures have fused, <strong> Click the Learn More </strong> button to explore some different types."
     },
     {
         img: "../img/images/Non journey/Ch 2 o.png",
@@ -131,7 +131,7 @@ function renderPage() {
 
     if (page.showTextBox) {
         textBox.style.display = "flex";
-        textContent.innerText = page.text;
+        textContent.innerHTML  = page.text;
     } else {
         textBox.style.display = "none";
     }
