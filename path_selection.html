@@ -154,29 +154,46 @@
         }
 
         /* --- BUTTONS --- */
-        .card-select-button1, .card-select-button2 {
-            position: fixed;
-            border: none;
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            cursor: pointer;
-            transition: background-color 0.2s ease, transform 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            align-self: flex-end;
-            flex-shrink: 0;
-            margin-top: auto;
+        .card-select-button1,
+        .card-select-button2{
+        position: fixed;
+        min-width: 40px; /* Set the desired width of your image */
+        min-height: 40px; /* Set the desired height of your image */
+        background-size: contain; /* Or 'cover', '100% 100%', etc., as needed */
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: background-image 0.3s ease; /* Optional: Smooth transition for the image change */
+        cursor: pointer; /* Optional: Indicates it's interactive */
+        border: none; /* Remove default button border */
+        background-color: transparent; /* Remove default button background */
+        padding: 0; /* Remove default button padding */
+        display: block; /* Or flex, inline-block, depending on layout needs */
+        align-self: flex-end; /* To align it to the end in a flex column if needed */
         }
-        
+
+        .card-select-button1 {
+        background-image: url('/img/images/Non journey/EPath-arrow.png'); /* Path to your default PNG */
+        }
+        .card-select-button2 {
+        background-image: url('/img/images/Non journey/CVPath-arrow.png'); /* Path to your default PNG */
+        }
+
+        .card-select-button1:hover, .card-select-button2:hover{transform: scale(1.1);
+        }
+
+         .card-select-button1:hover{
+        background-image: url('/img/images/Non journey/EPath-arrow-hover.png'); /* Path to your default PNG */
+        }
+         .card-select-button2:hover{
+        background-image: url('/img/images/Non journey/CVPath-arrow-hover.png'); /* Path to your default PNG */
+        }
         /* ... Other button styles remain the same ... */
-        .card-select-button1:hover, .card-select-button2:hover{transform: scale(1.1);}
+        /* .card-select-button1:hover, .card-select-button2:hover{transform: scale(1.1);}
         .card-select-button1{background-color: #2D6460;color: white;}
         .card-select-button1:hover{background-color: #A9C384;}
         .card-select-button2{background-color: #6118d6;color: white;}
         .card-select-button2:hover{background-color: #ba9bdd;}
-        .card-select-button1 svg, .card-select-button2 svg{width: 1em;height: 1em;}
+        .card-select-button1 svg, .card-select-button2 svg{width: 1em;height: 1em;} */
 
         /* --- BACK ARROW --- */
         .back-arrow-button {
@@ -198,10 +215,10 @@
             font-size: rem;
             margin: 0;
         }
-        .back-arrow-button svg {
+        .back-arrow-button-img {
         flex-shrink: 0; /* Prevents the SVG from shrinking */
-        width: 4rem; /* Set a specific width for the SVG */
-        height: 4rem; /* Set a specific height for the SVG */
+        width: 3rem; /* Set a specific width for the SVG */
+        height: 3rem; /* Set a specific height for the SVG */
         }   
 
     </style>
@@ -210,9 +227,7 @@
 
     <div class="path-selection-header">
          <div class="back-arrow-button" id="backButton" aria-label="Go back">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" xml:space="preserve" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 298 511.93">
-            <path fill-rule="nonzero" d="M285.77 441c16.24 16.17 16.32 42.46.15 58.7-16.16 16.24-42.45 16.32-58.69.16l-215-214.47c-16.24-16.16-16.32-42.45-.15-58.69L227.23 12.08c16.24-16.17 42.53-16.09 58.69.15 16.17 16.24 16.09 42.54-.15 58.7l-185.5 185.04L285.77 441z"/>
-        </svg>
+          <img src="../img/images/previous.png" class="back-arrow-button-img">
         <h3> Go <br> Back </h3>
     </div>
         <h1>Surgical Options</h1>
@@ -235,11 +250,8 @@
                         This surgery is <strong>minimally invasive</strong> where 2 small cuts are made on the child's head. It requires <strong> prolonged care over several checkups and helmet assessments.</strong> The skull will slowly change shape as it grows.
                     </p>
                 </div>
-                <button class="card-select-button1" id="selectEndoscopicPath" aria-label="Select Endoscopic Strip Craniectomy">
-                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" xml:space="preserve" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 298 511.93" style="transform: rotate(180deg);">
-                        <path fill-rule="nonzero" d="M285.77 441c16.24 16.17 16.32 42.46.15 58.7-16.16 16.24-42.45 16.32-58.69.16l-215-214.47c-16.24-16.16-16.32-42.45-.15-58.69L227.23 12.08c16.24-16.17 42.53-16.09 58.69.15 16.17 16.24 16.09 42.54-.15 58.7l-185.5 185.04L285.77 441z"/>
-                    </svg>
-                </button>
+       <button class="card-select-button1" id="selectEndoscopicPath" aria-label="Select Endoscopic Strip Craniectomy Path">
+        </button>
             </div>
         </div>
 
@@ -259,9 +271,6 @@
                     </p>
                 </div>
                  <button class="card-select-button2" id="selectCranialVaultPath" aria-label="Select Cranial Vault Reshaping">
-                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" xml:space="preserve" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 298 511.93" style="transform: rotate(180deg);">
-                        <path fill-rule="nonzero" d="M285.77 441c16.24 16.17 16.32 42.46.15 58.7-16.16 16.24-42.45 16.32-58.69.16l-215-214.47c-16.24-16.16-16.32-42.45-.15-58.69L227.23 12.08c16.24-16.17 42.53-16.09 58.69.15 16.17 16.24 16.09 42.54-.15 58.7l-185.5 185.04L285.77 441z"/>
-                    </svg>
                 </button>
             </div>
         </div>

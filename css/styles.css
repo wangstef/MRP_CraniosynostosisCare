@@ -450,11 +450,10 @@ body {
 
 .arrow {
     position: fixed;
-    top: 40%;
+    top: 50%;
     transform: translateY(-50%);
     /*sizing arrows*/
-    width: 2rem;
-    height: 2rem;
+    width: 60px; /* Fixed width for the arrow */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -465,21 +464,13 @@ body {
     z-index: 4 ; /* Above background, below popups if any */
     user-select: none;
     transition: background-color 0.3s, color 0.3s; /* Added transition */
-    border-radius: 50%;
 }
 
-    /* Add a transition to the SVG itself for a smooth opacity change */
-    .arrow svg {
-        transition: opacity 0.3s ease;
-    }
 
-    /* * This selector targets the <svg> element ONLY when its 
-        * parent .arrow container is being hovered.
-        * This makes the icon translucent, not the background.
-    */
-    .arrow:hover svg {
-        opacity: 0.6; /* Make the icon itself translucent */
-    }
+    .arrow:hover {
+    /* opacity: 0.7; Make the icon itself translucent */
+    transform: translateY(-50%) scale(1.05); /* Slightly enlarge on hover */
+}
 
 
  
@@ -671,7 +662,7 @@ input:checked + .slider:before {
         width: 100%;
         background-color: #FFD791; /* Light brownish/grey background for the bar */
         padding: 8px 0; 
-        z-index: 150; /* Above page content, below modals */
+        z-index: 1500; /* Above page content, below modals */
         text-align: center;
 
         box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
@@ -1381,7 +1372,7 @@ input:checked + .slider:before {
     top: 280px; /* Adjust as needed for vertical positioning */
     left: 150px;
     right : 150px;
-    z-index: 1001; /* Ensure it's above other content */
+    z-index: 1000; /* Ensure it's above other content */
     text-align: center;
     background-color: #ffffff;
     border: 4px solid #e8aaaa;
@@ -1476,9 +1467,9 @@ input:checked + .slider:before {
 
 /* Chapter 5 more details */
 .more-details-link {
-    position: absolute; /* Position it relative to its parent (chapter-container) */
-    bottom: 31vh; /* Adjust as needed for vertical positioning from the bottom */
-    right: 29vw; /* Adjust as needed for horizontal positioning from the right */
+    position:fixed; /* Position it relative to its parent (chapter-container) */
+    bottom: 10vh; /* Adjust as needed for vertical positioning from the bottom */
+    right: 5vw; /* Adjust as needed for horizontal positioning from the right */
     background-color: transparent; /* Or a color that matches your design */
     padding: 10px 15px; /* Add some padding around the text */
     border: 0px solid #000; /* Optional: Add a border for a "box" look */
