@@ -42,7 +42,7 @@ const pages = [
         text: ""
     },
     {
-        img: "../img/images/Endoscopic/EPost-Healingtips.png",
+        img: "../img/images/Cranial Vault/CVPost-Healingtips.png",
         showButton: false,
         showTextBox: false,
         text: ""
