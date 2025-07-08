@@ -59,7 +59,7 @@ function generateChapterNavigation() {
             hasPopup: true,
             popup: [
                 { name: "Timeline", file: "chapter5.html#page2" },
-                { name: "Benefit vs Risks", file: "chapter5.html#page5" },
+                { name: "Benefits vs Responsibilities", file: "chapter5.html#page5" },
             ]
         },
         { id: 6, name: "End", file: "../nonjourney/chapter6.html", isPathSpecific: false } 
