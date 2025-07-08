@@ -73,7 +73,7 @@ const pages = [
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
-        text: "No matter what your decision is, your team at SickKids hospital will be there to help. If you choose not to pursue surgery, your team will still monitor and regularly check up to make sure your child stays healthy "
+        text: "No matter what your decision is, your team at SickKids hospital will be there to help. If you choose not to pursue surgery, your team will still monitor and regularly check up to make sure your child stays healthy."
     }
 ]; 
 

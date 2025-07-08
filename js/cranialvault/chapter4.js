@@ -123,7 +123,7 @@ function renderPage() {
     pageContentDescription.innerText = page.pageContentDescription || "";
 
     // You can still update the browser tab's title if you wish, using the new pageContentTitle
-    document.title = page.pageContentTitle ? `Chapter 4: ${page.pageContentTitle}` : "Chapter 4: Surgery – Cranial Vault";
+    document.title = page.pageContentTitle ? `Chapter 4: Surgery – Cranial Vault` : "Chapter 4: Surgery – Cranial Vault";
 
 
     // Highlight current progress dot
