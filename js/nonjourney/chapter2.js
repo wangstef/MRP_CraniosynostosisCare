@@ -126,7 +126,7 @@ function renderPage() {
     backgroundImg.src = page.img;
     infoButton.style.display = page.showButton ? "block" : "none";
 
-    const textBox = document.getElementById("textBox2");
+    const textBox = document.getElementById("textBox");
     const textContent = document.getElementById("textContent");
 
     if (page.showTextBox) {
@@ -150,7 +150,7 @@ function renderPage() {
 
     if (page.showVideoButton) {
         videoButton.style.display = "flex";
-        playVidIcon.innerHTML = videoIconSVG;
+        // playVidIcon.innerHTML = videoIconSVG; // Set the video icon SVG
         videoButtonText.innerText = "Watch Video"; // Set the text for the video button
     } else {
         videoButton.style.display = "none";

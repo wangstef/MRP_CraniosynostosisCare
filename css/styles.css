@@ -422,26 +422,7 @@ body {
     display: flex; /* Overrides `display: none` to show the active page */
 }
 
-.text-box2 {
-    position: fixed;
-    bottom: 6rem; /* Adjust if it overlaps with new nav bar */
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 6rem); /* Max width with padding */
-    /* Max width for readability */
-    background: #E1F3F4;
-    border: 5px solid #457885; 
-    padding: 2rem;
-    border-radius: 2rem;
-    font-size: 1rem;
-    color: #1A4651;
-    z-index: 3; /* Above background image */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    text-align: center; /* Text content should be centered if desired */
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
+
 
 
 /*--------------------------*/
@@ -494,7 +475,7 @@ body {
     border: 5px solid #457885; 
     padding: 2rem;
     border-radius: 2rem;
-    font-size: 2rem;
+    font-size: 1.2rem; /* Scalable font size */
     color: #1A4651;
     z-index: 3; /* Above background image */
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
