@@ -29,7 +29,7 @@ const pages = [
         img: "../img/images/Non journey/Ch 1 d.png",
         showButton: false,
         showTextBox: true,
-        text: "But your team at SickKids hospital is there to help no matter what treatment you decide. We hope that this resource will help you in communicating better with them."
+        text: "But your medical team is there to help no matter what treatment you decide. We hope that this resource will help you in communicating better with them."
     },
     {
         img: "../img/images/Non journey/Ch 1 e.png",
