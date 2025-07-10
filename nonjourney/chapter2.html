@@ -271,27 +271,29 @@
         
         .detail-content {
             background-color: #fdfdfd; /* Lighter background for detail popup */
-            padding: 30px;
+            padding: 3vh;
+            margin: 2vh;
             text-align: center;
             display: flex;
             flex-direction: column;
             gap: 15px;
-            max-width: 600px; /* Max width for detail popup */
+            max-height: 80vh; /* Max width for detail popup */
             min-height: unset; /* Override main lightbox content min-height */
             background-image: none; /* No background image for detail content */
         }
 
         .detail-illustration-container {
             width: 100%;
-            max-height: 300px; /* Limit height of detail illustration */
-            overflow: hidden; /* Hide overflow if image is too large */
+            max-height: 40vh; /* Limit height of detail illustration */
             display: flex;
+            object-fit: contain;
             justify-content: center;
             align-items: center;
         }
 
         .detail-illustration-container img {
-            max-width: 100%;
+            max-height: 30vh;
+            object-fit: contain;
             height: auto;
             display: block; /* Remove extra space below image */
             border-radius: 4px;
@@ -299,7 +301,8 @@
         }
 
         .detail-content p {
-            font-size: 1.1em;
+            text-align: left;
+            font-size: 1.2vw;
             line-height: 1.6;
             color: #444;
             margin: 0; /* Remove default paragraph margin */
@@ -425,24 +428,64 @@
         // Data structure to hold content for each PNG of the poster
         const pngData = {
             png1: {
-                illustration: 'https://via.placeholder.com/400x300/ff6347/ffffff?text=Detail_for_PNG1',
-                text: 'Sagittal Craniosynostosis is characterized by the fusion of the sagittal suture, leading to a long and narrow skull shape. This condition can affect brain development and requires careful monitoring and potential surgical intervention.'
+                illustration: '/img/images/Non journey/Sagittal4.png', // Replace with actual image path
+                text: '<strong>Sagittal</strong> (Synostotic Scaphocephaly)' +
+              '<ul>' +
+              '<li>Commonest (1 in 2,500)</li>' +
+              '<li>Boys>girls</li>' +
+              '<li>Long and narrow</li>' +
+              '<li>Forehead bossed</li>' +
+              '<li>Prominence in the occiput</li>' +
+              '<li>Symmetric</li>' +
+              '<li>“Scapho” = keel shape</li>' +
+              '</ul>'
             },
             png2: {
-                illustration: 'https://via.placeholder.com/400x300/32cd32/ffffff?text=Detail_for_PNG2',
-                text: 'Metopic Craniosynostosis involves the fusion of the metopic suture, resulting in a triangular forehead shape. This condition can lead to developmental delays and may require surgical correction to allow for normal brain growth.'
+                illustration: '/img/images/Non journey/Metopic4.png', // Replace with actual image path
+                text: '<strong>Metopic</strong> (Trigonocephaly)' +
+              '<ul>' +
+              '<li>Second commonest (1 in 10,000)</li>' +
+              '<li>Boys>girls</li>' +
+              '<li>Triangular shape</li>' +
+              '<li>Prominent forehead ridge</li>' +
+              '<li>Eyes close together</li>' +
+              '<li>“Trigo” - triangular</li>' +
+              '</ul>'
             },
             png3: {
-                illustration: 'https://via.placeholder.com/400x300/4169e1/ffffff?text=Detail_for_PNG3',
-                text: 'Lambdoid Craniosynostosis is characterized by the premature fusion of the lambdoid suture, which can cause an asymmetrical head shape. '
+                illustration: '/img/images/Non journey/Lambdoid4.png', // Replace with actual image path
+                text: '<strong>Lambdoid </strong> (Posterior Plagiocephaly)' +
+              '<ul>' +
+              '<li>Rarest (1 in 65,000)</li>' +
+              '<li>Asymmetric</li>' +
+              '<li>Flat occiput on one side</li>' +
+              '<li>Head bulges to opposite side</li>' +
+              '</ul>'
             },
             png4: {
-                illustration: 'https://via.placeholder.com/400x300/ffa500/ffffff?text=Detail_for_PNG4',
-                text: 'Unicoronal Craniosynostosis occurs when one of the coronal sutures fuses early, leading to a flattened forehead on one side and potential developmental issues.'
+                illustration: '/img/images/Non journey/Unicoronal4.png', // Replace with actual image path
+                text: '<strong>Unicoronal  </strong> (Anterior Plagiocephaly)' +
+              '<ul>' +
+              '<li>Third commonest (1 in 15,000)</li>' +
+              '<li>Asymmetric</li>' +
+              '<li>Girls>boys</li>' +
+              '<li>Orbital asymmetry</li>' +
+              '<li>Nose deviated</li>' +
+              '<li>Flat forehead on side of suture fusion</li>' +
+              '<li>“Plagio” = asymmetric</li>' +
+              '</ul>'
             },
             png5: {
-                illustration: 'https://via.placeholder.com/400x300/ffa500/ffffff?text=Detail_for_PNG4',
-                text: 'Bicoronal Craniosynostosis involves the fusion of both coronal sutures, resulting in a flattened forehead.'
+                illustration: '/img/images/Non journey/Bicoronal4.png', // Replace with actual image path
+                text:'<strong>Bicoronal </strong> (Turri-Brachycephaly)' +
+              '<ul>' +
+              '<li>Rare</li>' +
+              '<li>Often associated with a syndrome</li>' +
+              '<li>Turri = Tall</li>' +
+              '<li>Brachy = Short</li>' +
+              '<li>Forehead flat</li>' +
+              '<li>Eyes prominent</li>' +
+              '</ul>'
             }
             // Add data for all your PNGs
         };
@@ -461,7 +504,7 @@
 
             if (data) {
                 detailIllustration.src = data.illustration;
-                detailText.textContent = data.text;
+                detailText.innerHTML = data.text;
                 
                 detailLightbox.classList.remove('hidden'); // Show the detail lightbox
                 // document.getElementById('lightbox').classList.add('hidden'); // This line is now commented out

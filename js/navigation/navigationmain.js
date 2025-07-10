@@ -224,7 +224,7 @@ function createAndShowModal(title, text, targetFile) {
                 <button id="navModalSelectEndoscopic" class="path-choice-button">Endoscopic Path</button>
                 <button id="navModalSelectCV" class="path-choice-button">Cranial Vault Path</button>
             </div>
-            <button id="navModalCancelPathChoice" class="path-choice-button">Cancel</button>
+            <button id="navModalCancelPathChoice" class="close-modal-btn" aria-label="Close modal">×</button>
         </div>
     `;
     document.body.appendChild(choiceContainer);
