@@ -8,8 +8,8 @@ const pages = [
     {
         img: "../img/images/Endoscopic/EPost-after.png",
         showButton: false,
-        showTextBox: false,
-        text: "If parents want to go through with surgical options, the timing is very important, as certain options (ex. Endoscopic strip Craniectomy) can only be done while the skull is still soft and growing. The following video will give a summary of craniosynostosis. "
+        showTextBox: true,
+        text: "It can be quite an emotionally intense experience seeing your infant after surgery. Just know this is all normal and part of your baby’s healing process. "
     },
     {
         img: "../img/images/Endoscopic/EPost-timeline.png",
@@ -20,26 +20,26 @@ const pages = [
     { 
         img: "../img/images/Endoscopic/EPost-helmet.png",
         showButton: false ,
-        showTextBox: false,
-        text: "endo ch5"
+        showTextBox: true,
+        text: "Infants will have to wear a helmet until they are around 12 months to make sure that their skull grows in the right shape. These helmets are not meant to squeeze the head, but just guide the growth. "
     },
     {
         img: "../img/images/Endoscopic/EPost-HTtips.png",
         showButton: false,
-        showTextBox: false,
+        showTextBox: true,
         text: "If parents want to go through with surgical options, the timing is very important, as certain options (ex. Endoscopic strip Craniectomy) can only be done while the skull is still soft and growing. The following video will give a summary of craniosynostosis. "
     },
     {
         img: "../img/images/Endoscopic/EPost-HTteam.png",
         showButton: false,
-        showTextBox: false,
-        text: ""
+        showTextBox: true,
+        text: "You will meet the team from the Orthotics Department in the hospital, they will help you with the helmet therapy process. "
     },
     {
         img: "../img/images/Endoscopic/EPost-healing.png",
         showButton: false,
-        showTextBox: false,
-        text: ""
+        showTextBox: true,
+        text: "“Babies need some time to adapt to wearing the helmet, they may find it quite difficult for the first few days,  if there are any concerns you can contact the Plastics or Orthotics teams.” "
     },
     {
         img: "../img/images/Cranial Vault/CVPost-Healingtips.png",

@@ -8,8 +8,8 @@ const pages = [
     {
         img: "../img/images/Cranial Vault/CVPost-after.png",
         showButton: false,
-        showTextBox: false,
-        text: "If parents want to go through with surgical options, the timing is very important, as certain options (ex. Endoscopic strip Craniectomy) can only be done while the skull is still soft and growing. The following video will give a summary of craniosynostosis. "
+        showTextBox: true,
+        text: "It can be quite an emotionally intense experience seeing your infant after surgery. There will be a temporary drainage tube that will stay in for the first night, just know this is all normal and part of your baby’s healing process. "
     },
     {
         img: "../img/images/Cranial Vault/CVPost-timeline.png",
@@ -20,8 +20,8 @@ const pages = [
     { 
         img: "../img/images/Cranial Vault/CVPost-healing.png",
         showButton: false ,
-        showTextBox: false,
-        text: "endo ch5"
+        showTextBox: true,
+        text: "Your child may experience some discomfort after surgery but they should heal quickly. To improve scarring make sure to keep up with the post operative care."
     },
     {
         img: "../img/images/Cranial Vault/CVPost-Healingtips.png",

@@ -53,7 +53,7 @@ const pages = [
         showTextBox: false,
         text: "",
         pageContentTitle: "5. Closing the incision", // Changed name
-        pageContentDescription: "Because the tools are tiny, they don’t need to make a big cut, which means after surgery, the child heals faster." // Changed name
+        pageContentDescription: "Because the tools are tiny, they don’t need to make a big incision, which means after surgery, the child heals faster." // Changed name
     }
 ];
 
