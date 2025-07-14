@@ -34,7 +34,7 @@ const pages = [
         youtubeId: "qVMcp1ZcgZw" // YouTube video ID
     },
     {
-        img: "../img/images/Non journey/NJConsequence.png",
+        img: "../img/images/Non journey/NJConsequences.png",
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
