@@ -1,12 +1,6 @@
 
 const pages = [
-    //img: is bg img, showbutton is for lightbox button, text: is the text in the text box
-    { 
-        img: "../img/images/Non journey/C Ch 7 End credits.png",
-        showButton: false ,
-        showTextBox: false,
-        text: "ch6"
-    }, 
+    //img: is bg img, showbutton is for lightbox button, text: is the text in the text box 
     {
         img: "../img/images/Non journey/C End.png",
         showButton: false,

@@ -545,7 +545,7 @@ body {
     position: absolute;
     cursor: pointer;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: #2D6460;
+    background-color: #2D643E;
     transition: .4s;
     border-radius: 34px;
 }
@@ -749,7 +749,7 @@ input:checked + .slider:before {
         align-items: center;
         justify-content: center;
         background-color: #CBE4A7; /* Light cream/beige button background */
-        color: #2D6460; 
+        color: #2D643E; 
         text-decoration: none;
         padding: 10px 8px; 
         border-radius: 25px; 
@@ -766,14 +766,14 @@ input:checked + .slider:before {
     /* Hover Effect for Buttons */
     #chapter-nav-container-endo ul li a:hover {
         background-color: #a9c384; /* Brownish tan hover */
-        color: #2D6460; 
+        color: #2D643E; 
         border-color: #ffffff; 
     }
 
     /* Active Button Style */
     #chapter-nav-container-endo ul li a.active,
     #chapter-nav-container-endo ul li a.active-parent { /* Style for parent of an active sub-item */
-        background-color: #2D6460; /* Muted brown active color */
+        background-color: #2D643E; /* Muted brown active color */
         color: #FFFFFF; 
         border-color: #ca5405; 
         font-weight: 700;
@@ -1081,7 +1081,7 @@ input:checked + .slider:before {
 
 /* Specific styling for path selection buttons */
 #navModalSelectEndoscopic {
-    background-color: #2D6460; /* Blue */
+    background-color: #2D643E; /* Blue */
     color: #ffffff;
     /* box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3); */
 }
