@@ -23,7 +23,7 @@ const pages = [
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false,
         showTextBox: true,
-        text: "Secondly, I know having a diagnosis of Craniosynostosis can be very overwhelming."
+        text: "Secondly, I know having a diagnosis of craniosynostosis can be very overwhelming."
     },
     {
         img: "../img/images/Non journey/Ch 1 d.png",
