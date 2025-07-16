@@ -1,6 +1,6 @@
 const pages = [
     {
-        img: "../img/images/Cranial Vault/CV-title.png",
+        img: "../img/images/Cranial Vault/CVSurg-title.png",
         showButton: false,
         showTextBox: false,
         text: "cv ch4", 

@@ -2,13 +2,13 @@
 const pages = [
     //img: is bg img, showbutton is for lightbox button, text: is the text in the text box 
     {
-        img: "../img/images/Non journey/C End.png",
+        img: "../img/images/Non journey/NJSplash.png",
         showButton: false,
         showTextBox: true,
         text: "Although we reach the end of this resource, your journey will continue. There are so many people that want to help and support you and your family."
     }, 
     {
-        img: "../img/images/Non journey/C End.png",
+        img: "../img/images/Non journey/NJCredits.png",
         showButton: false,
         showTextBox: false,
         text: ""

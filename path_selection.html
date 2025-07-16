@@ -24,7 +24,7 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            padding: 1rem;
+            padding: 0.5rem;
         }
 
         /* --- Header Section (Does not need to change) --- */
@@ -32,7 +32,7 @@
             text-align: center;
             width: 100%;
             margin: 0 auto;
-            padding-bottom: 1rem;
+            padding-bottom: 2rem;
             flex-shrink: 0; 
             display: flex;
             flex-direction: column; /* Default to column for smaller screens */
@@ -48,7 +48,7 @@
         }
 
         .path-selection-header p {
-            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            font-size: clamp(0.8rem, 2.5vw, 1.1rem);
             color: #555555;
             margin: 0;
         }
@@ -63,13 +63,13 @@
             flex-grow: 1; 
             min-height: 0;
             align-items: stretch; 
-            overflow-y: auto; /* Allows scrolling if content overflows */
+            padding-top: 0.5rem;
         }
 
         /* --- INDIVIDUAL CARDS: THE CONTAINER QUERY SETUP --- */
-        .path-option-card {
+        .path-option-card1 {
             background-color: #FFF;
-            border: 2px solid #FDEEAA;
+            border: 2px solid #2D643E;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             display: flex;
@@ -78,45 +78,88 @@
             /* KEY CHANGE 1: Make the card scalable */
             width: 45%; /* Use percentage to make the card scale with its container */
             max-width: 30vw; /* Optional: prevent it from getting too large */
-            min-width: 300px; /* Prevent it from getting too squished */
+            min-width: 280px; /* Prevent it from getting too squished */
 
-            max-height: 80vh; /* Optional: prevent it from getting too tall */
+            max-height: 70vh; /* Optional: prevent it from getting too tall */
             overflow: hidden;
 
             /* KEY CHANGE 2: Define this element as a query container */
             container-type: inline-size;
             container-name: path-card;
+
+            /* Make the entire card clickable */
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        .path-option-card2 {
+            background-color: #FFF;
+            border: 2px solid #6118D6;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            
+            /* KEY CHANGE 1: Make the card scalable */
+            width: 45%; /* Use percentage to make the card scale with its container */
+            max-width: 30vw; /* Optional: prevent it from getting too large */
+            min-width: 280px; /* Prevent it from getting too squished */
+
+            max-height: 70vh; /* Optional: prevent it from getting too tall */
+            overflow: hidden;
+
+            /* KEY CHANGE 2: Define this element as a query container */
+            container-type: inline-size;
+            container-name: path-card;
+
+            /* Make the entire card clickable */
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .path-option-card1:hover,
+        .path-option-card2:hover {
+            transform: scale(1.02); /* Slightly scale up on hover */
         }
 
         /* --- Card Internals --- */
-        .path-option-card .card-header {
+        .path-option-card1 .card-header, .path-option-card2 .card-header {
             padding: 0.75rem 1.5rem;
             text-align: center;
             flex-shrink: 0;
         }
 
         /* KEY CHANGE 3: Use Container Query Units (cqw) for font sizes */
-        .path-option-card .card-header .age-info {
+        .path-option-card1 .card-header .age-info,  .path-option-card2 .card-header .age-info {
             font-size: 4cqw; /* 3% of the container's width */
             color: #555;
             font-weight: bold;
         }
 
-        .path-option-card .card-image-container {
+        .path-option-card1 .card-image-container, .path-option-card2 .card-image-container {
             width: 100%;
             text-align: center;
             padding: 0;
             flex-shrink: 0;
         }
 
-        .path-option-card .card-image-container img {
+        .path-option-card1 .card-image-container img, .path-option-card2 .card-image-container img {
             max-width: 20vw;
             height: auto;
             border-radius: 0;
         }
 
-        .path-option-card .card-content {
-            background-color: #FEF9E7;
+        .path-option-card1 .card-content {
+            background-color: #cedeb6;
+            padding: 1rem;
+            text-align: left;
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto; ;
+            min-height: 0;
+        }
+       .path-option-card2 .card-content {
+            background-color: #c7b3dd;
             padding: 1rem;
             text-align: left;
             flex-grow: 1; 
@@ -126,75 +169,47 @@
             min-height: 0;
         }
 
-        .path-option-card .card-content > div {
+        .path-option-card1 .card-content,  .path-option-card2 .card-content > div {
             flex-shrink: 1;
         }
 
-        .path-option-card .card-content h2 {
+        .path-option-card1 .card-content h2, .path-option-card2 .card-content h2 {
             font-size: 4.5cqw; /* 4.5% of the container's width */
             margin: 0 0 0.5rem 0;
             color: #333;
         }
 
-        .path-option-card .card-content .surgery-subtitle {
+        .path-option-card1 .card-content .surgery-subtitle, .path-option-card2 .card-content .surgery-subtitle {
             font-size: 4.5cqw; /* 2.8% of the container's width */
             color: #555;
             margin-bottom: 1rem;
         }
 
-        .path-option-card .card-content .description {
-            font-size: 4cqw; /* 3% of the container's width */
+        .path-option-card1 .card-content .description, .path-option-card2 .card-content .description {
+            font-size: 2cqh; /* 3% of the container's width */
             line-height: 1.5;
             color: #444;
             margin-bottom: 1rem;
+            flex-grow: 1; /* Allow the description to take up available space */
         }
 
-        .path-option-card .card-content .description strong {
-            color: #D35400;
+        .path-option-card1 .card-content .description strong {
+            color: #2D643E;
+        }
+        .path-option-card2 .card-content .description strong {
+            color: #6118D6;
         }
 
-        /* --- BUTTONS --- */
+        /* --- BUTTONS (Removed or adapted) --- */
+        /* The button styles are now largely irrelevant as the cards themselves are clickable.
+           You can remove or comment out the .card-select-button1 and .card-select-button2 styles
+           if you don't plan to use them elsewhere.
+        */
         .card-select-button1,
-        .card-select-button2{
-        position: fixed;
-        min-width: 40px; /* Set the desired width of your image */
-        min-height: 40px; /* Set the desired height of your image */
-        background-size: contain; /* Or 'cover', '100% 100%', etc., as needed */
-        background-repeat: no-repeat;
-        background-position: center;
-        transition: background-image 0.3s ease; /* Optional: Smooth transition for the image change */
-        cursor: pointer; /* Optional: Indicates it's interactive */
-        border: none; /* Remove default button border */
-        background-color: transparent; /* Remove default button background */
-        padding: 0; /* Remove default button padding */
-        display: block; /* Or flex, inline-block, depending on layout needs */
-        align-self: flex-end; /* To align it to the end in a flex column if needed */
-        }
-
-        .card-select-button1 {
-        background-image: url('/img/images/Non journey/EPath-arrow.png'); /* Path to your default PNG */
-        }
         .card-select-button2 {
-        background-image: url('/img/images/Non journey/CVPath-arrow.png'); /* Path to your default PNG */
+            display: none; /* Hide the buttons */
         }
-
-        .card-select-button1:hover, .card-select-button2:hover{transform: scale(1.1);
-        }
-
-         .card-select-button1:hover{
-        background-image: url('/img/images/Non journey/EPath-arrow-hover.png'); /* Path to your default PNG */
-        }
-         .card-select-button2:hover{
-        background-image: url('/img/images/Non journey/CVPath-arrow-hover.png'); /* Path to your default PNG */
-        }
-        /* ... Other button styles remain the same ... */
-        /* .card-select-button1:hover, .card-select-button2:hover{transform: scale(1.1);}
-        .card-select-button1{background-color: #2D643E;color: white;}
-        .card-select-button1:hover{background-color: #A9C384;}
-        .card-select-button2{background-color: #6118d6;color: white;}
-        .card-select-button2:hover{background-color: #ba9bdd;}
-        .card-select-button1 svg, .card-select-button2 svg{width: 1em;height: 1em;} */
-
+        
         /* --- BACK ARROW --- */
         .back-arrow-button {
             position: absolute;
@@ -209,6 +224,7 @@
             z-index: 10;
             height: auto;
             padding-left: 1rem; 
+            background-color: white;
         }
         .back-arrow-button:hover{opacity: 0.6;}
         .back-arrow-button h3 {
@@ -216,27 +232,25 @@
             margin: 0;
         }
         .back-arrow-button-img {
-        flex-shrink: 0; /* Prevents the SVG from shrinking */
-        width: 3rem; /* Set a specific width for the SVG */
-        height: 3rem; /* Set a specific height for the SVG */
+            flex-shrink: 0; /* Prevents the SVG from shrinking */
+            width: 3rem; /* Set a specific width for the SVG */
+            height: 3rem; /* Set a specific height for the SVG */
         }   
-
     </style>
 </head>
 <body class="path-selection-page">
 
     <div class="path-selection-header">
-         <div class="back-arrow-button" id="backButton" aria-label="Go back">
-          <img src="../img/images/previous.png" class="back-arrow-button-img">
+           <div class="back-arrow-button" id="backButton" aria-label="Go back">
+           <img src="../img/images/previous.png" class="back-arrow-button-img">
         <h3> Go <br> Back </h3>
     </div>
         <h1>Surgical Options</h1>
-        <p>Click one of the surgical paths to learn more</p>
+        <p>Click one of the cards to learn more. <br> You can return to this page any time OR use the toggle in the top corner to explore both options. </p>
     </div>
 
-<!-- Endoscopic card -->
-    <div class="path-options-container">
-        <div class="path-option-card">
+<div class="path-options-container">
+        <div class="path-option-card1" data-path="endoscopic">
             <div class="card-header">
                 <div class="age-info">Before 4 months old</div>
             </div>
@@ -248,16 +262,13 @@
                     <h2>Endoscopic Strip Craniectomy</h2>
                     <p class="surgery-subtitle">Surgery before 4 months old</p>
                     <p class="description">
-                        This surgery is <strong>minimally invasive</strong> where 2 small cuts are made on the child's head. It requires <strong> prolonged care over several checkups and helmet assessments.</strong> The skull will slowly change shape as it grows.
+                        This surgery is <strong>minimally invasive</strong> where 2 small incisions are made on the child's head. It requires <strong>prolonged care over several checkups and helmet assessments.</strong> The skull will slowly change shape as it grows.
                     </p>
                 </div>
-       <button class="card-select-button1" id="selectEndoscopicPath" aria-label="Select Endoscopic Strip Craniectomy Path">
-        </button>
             </div>
         </div>
 
-<!-- Cranial Vault card -->
-        <div class="path-option-card">
+<div class="path-option-card2" data-path="cranialvault">
             <div class="card-header">
                 <div class="age-info">All ages</div>
             </div>
@@ -269,11 +280,9 @@
                     <h2>Cranial Vault Reshaping</h2>
                     <p class="surgery-subtitle">Surgery typically before 12 months old</p>
                     <p class="description">
-                        This is a <strong>more invasive surgery</strong> that remodels the skull. It requires <strong>intensive aftercare for a short period.</strong> It results in an immediate change to the skull shape needing less checkups and no helmet.
+                        This is a <strong>more invasive surgery</strong> that has a larger incision and involves remodeling the skull. It requires <strong>intensive aftercare for a short period.</strong> It results in an immediate change to the skull shape needing less checkups and no helmet.
                     </p>
                 </div>
-                 <button class="card-select-button2" id="selectCranialVaultPath" aria-label="Select Cranial Vault Reshaping">
-                </button>
             </div>
         </div>
     </div>
@@ -291,20 +300,22 @@
             targetUrl: 'cranialvault/chapter3.html#page0'
         };
 
-        document.getElementById('selectEndoscopicPath').addEventListener('click', function() {
-            localStorage.setItem(PATH_CHOICE_STORAGE_KEY, PATH_ENDOSCOPIC_EQUIVALENT.id);
-            window.location.href = PATH_ENDOSCOPIC_EQUIVALENT.targetUrl;
-        });
-
-        document.getElementById('selectCranialVaultPath').addEventListener('click', function() {
-            localStorage.setItem(PATH_CHOICE_STORAGE_KEY, PATH_CRANIAL_VAULT_EQUIVALENT.id);
-            window.location.href = PATH_CRANIAL_VAULT_EQUIVALENT.targetUrl;
+        document.querySelectorAll('.path-option-card1, .path-option-card2').forEach(card => {
+            card.addEventListener('click', function() {
+                const path = this.dataset.path;
+                if (path === 'endoscopic') {
+                    localStorage.setItem(PATH_CHOICE_STORAGE_KEY, PATH_ENDOSCOPIC_EQUIVALENT.id);
+                    window.location.href = PATH_ENDOSCOPIC_EQUIVALENT.targetUrl;
+                } else if (path === 'cranialvault') {
+                    localStorage.setItem(PATH_CHOICE_STORAGE_KEY, PATH_CRANIAL_VAULT_EQUIVALENT.id);
+                    window.location.href = PATH_CRANIAL_VAULT_EQUIVALENT.targetUrl;
+                }
+            });
         });
 
         document.getElementById('backButton').addEventListener('click', function() {
             history.back();
         });
-
     </script>
 
 </body>

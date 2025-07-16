@@ -2,7 +2,7 @@
 
 const pages = [
     {
-        img: "../img/images/Non journey/Ch 2 What is Craniosynostosis_.png",
+        img: "../img/images/Non journey/NJIntroduction-title.png",
         showButton: false,
         showTextBox: false,
         showProgressDots: true,
@@ -66,7 +66,7 @@ const pages = [
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
-        text: "Although many children undergo craniosynostosis surgery, the decision is yours to make based on what you believe is best for your child. Children with craniosynostosis have grown up with healthy brain function and lead fulfilling, successful lives"
+        text: "Although many children undergo craniosynostosis surgery, the decision is yours to make on what is best for your child. Children with craniosynostosis have grown up with healthy brain function and lead fulfilling, successful lives."
     },
     {
         img: "../img/images/Non journey/BG-wave.png",
