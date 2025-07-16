@@ -9,7 +9,7 @@ const pages = [
         img: "../img/images/Cranial Vault/CVPost-after.png",
         showButton: false,
         showTextBox: true,
-        text: "It can be quite an emotionally intense experience seeing your infant after surgery. There will be a temporary drainage tube that will stay in for the first night, just know this is all normal and part of your baby’s healing process. "
+        text: "Post-surgery; some dried blood, bruising and swelling are all normal. There will be a JP drain to collect the excess fluid, this will be removed by the doctor."
     },
     {
         img: "../img/images/Cranial Vault/CVPost-timeline.png",

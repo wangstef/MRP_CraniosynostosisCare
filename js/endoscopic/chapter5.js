@@ -9,7 +9,7 @@ const pages = [
         img: "../img/images/Endoscopic/EPost-after.png",
         showButton: false,
         showTextBox: true,
-        text: "It can be quite an emotionally intense experience seeing your infant after surgery. Just know this is all normal and part of your baby’s healing process. "
+        text: "Post-surgery; some dried blood, bruising and swelling are all normal."
     },
     {
         img: "../img/images/Endoscopic/EPost-timeline.png",
