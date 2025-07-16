@@ -45,7 +45,7 @@ const pages = [
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
-        text: "With craniosynostosis there are some cases that can affect brain development and cause other complications. Your team will inform you if there are any concerns."
+        text: "If left untreated, craniosynostosis may affect brain development and cause other complications. Your team will monitor your child and inform you of any concerns."
     },
     {
         img: "../img/images/Non journey/BG-wave.png",
@@ -73,7 +73,7 @@ const pages = [
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
-        text: "No matter what your decision is, your Craniofacial team at the hospital will be there to help. If you choose not to pursue surgery, your team will still monitor and regularly check up to make sure your child stays healthy."
+        text: "No matter what your decision is, your Craniofacial team at the hospital will be there to support you. If you choose not to pursue surgery, your team will still monitor and provide regular check ups to make sure your child stays healthy."
     }
 ]; 
 

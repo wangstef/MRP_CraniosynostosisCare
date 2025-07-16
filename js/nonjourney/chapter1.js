@@ -11,7 +11,7 @@ const pages = [
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false,
         showTextBox: true,
-        text: "Welcome to Craniosynostosis Care. My name is Dr. Cranio and I am here to be your guide through exploring a surgical journey. From preparing for surgery all the way to aftercare."
+        text: "Welcome to Craniosynostosis Care. My name is Dr. Cranio and I am here to guide you through a surgical journey from pre-operation to aftercare."
     },
     {
         img: "../img/images/Non journey/BG-wave.png",
@@ -29,7 +29,7 @@ const pages = [
         img: "../img/images/Non journey/Ch 1 d.png",
         showButton: false,
         showTextBox: true,
-        text: "But your medical team is there to help no matter what treatment you decide. We hope that this resource will help you in communicating better with them."
+        text: "Your medical team will fully support your treatment choices. This resource is to provide knowledge about the condition to help you communicate with your care team."
     },
     {
         img: "../img/images/Non journey/Ch 1 e.png",
