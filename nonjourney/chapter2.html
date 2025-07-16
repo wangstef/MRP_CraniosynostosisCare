@@ -279,9 +279,11 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            max-height: 80vh; /* Max width for detail popup */
+            height: 60vh; /* Max width for detail popup */
+            max-height: 60vh; /* Limit height to fit on screen */
             min-height: unset; /* Override main lightbox content min-height */
             background-image: none; /* No background image for detail content */
+            overflow: auto; /* Allow scrolling if content is too tall */
         }
 
         .detail-illustration-container {
@@ -291,6 +293,7 @@
             object-fit: contain;
             justify-content: center;
             align-items: center;
+            margin-top: 5vh;
         }
 
         .detail-illustration-container img {
