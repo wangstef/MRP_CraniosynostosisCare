@@ -45,7 +45,7 @@ const pages = [
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
-        text: "If left untreated, <strong> craniosynostosis may affect brain development and cause other complications. </strong> Your team will monitor your child and inform you of any concerns."
+        text: "If left untreated, craniosynostosis may affect brain development and cause other complications. Your team will monitor your child and inform you of any concerns."
     },
     {
         img: "../img/images/Non journey/BG-wave.png",
@@ -66,7 +66,7 @@ const pages = [
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
-        text: "Although many children undergo craniosynostosis surgery, <strong> the decision is yours to make on what is best for your child.</strong> Children with craniosynostosis have grown up with healthy brain function and lead fulfilling, successful lives."
+        text: "Although many children undergo craniosynostosis surgery, the decision is yours to make on what is best for your child. Children with craniosynostosis have grown up with healthy brain function and lead fulfilling, successful lives."
     },
     {
         img: "../img/images/Non journey/BG-wave.png",
