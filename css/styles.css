@@ -1176,7 +1176,7 @@ color: #000;
   transform: translateX(-50%);
   width: 40%;
   text-align: center;
-  font-size: 2em; /* Adjust as needed */
+  font-size: 3vw; /* Adjust as needed */
   color: #333; /* Or your preferred color */
   z-index: 2; /* Ensure it's above the background image */
   font-weight: bold;
