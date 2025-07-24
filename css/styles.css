@@ -1170,34 +1170,33 @@ color: #000;
 /* FOR SURGERY PAGES */
 
 .page-content-title { /* Changed class name */
-  position: fixed;
-  top: 80px; /* Adjust as needed */
+  position: relative;
+  top: 12vh; /* Adjust as needed */
   left: 50%;
   transform: translateX(-50%);
   width: 40%;
   text-align: center;
   font-size: 2em; /* Adjust as needed */
   color: #333; /* Or your preferred color */
-  z-index: 10; /* Ensure it's above the background image */
+  z-index: 2; /* Ensure it's above the background image */
   font-weight: bold;
-  /* background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.9);
   border-radius: 8px;
-  padding: 5px; Add some padding for better readability */
+  margin-top: 2vh; /*Add some padding for better readability*/
 }
 
 .page-content-description { /* Changed class name */
-  position: fixed;
-  top: 150px; /* Adjust to be below the title */
+  position: relative;
+  top: 15vh; /* Adjust to be below the title */
   left: 50%;
   transform: translateX(-50%);
-  width: 70%;
+  width: 70vw;
   text-align: center;
-  font-size: 1.2em; /* Adjust as needed */
+  font-size: 2vw; /* Adjust as needed */
   color: #555; /* Or your preferred color */
-  z-index: 10;
-  /* background-color: rgba(255, 255, 255, 0.9);
+  z-index: 3;
+  background-color: rgba(255, 255, 255, 0.9);
   border-radius: 8px;
-  padding: 5px; Add some padding for better readability */
 }
 
 
