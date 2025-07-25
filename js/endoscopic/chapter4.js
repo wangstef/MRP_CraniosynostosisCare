@@ -139,7 +139,7 @@ function prevPage() {
       currentPage--;
       renderPage();
     } else {
-      window.location.href = "chapter3.html#page2";
+      window.location.href = "chapter3.html#page1";
     }
 }
 

@@ -27,9 +27,46 @@ document.addEventListener('DOMContentLoaded', function () {
         let targetHash = window.location.hash || "#page0";
 
         // Existing logic for chapter4.html
+        // if (currentPageFilename === 'chapter4.html') {
+        //     targetHash = '#page0';
+        // }
+
+        // --- REVISED LOGIC FOR CHAPTER 4 ---
         if (currentPageFilename === 'chapter4.html') {
-            targetHash = '#page0';
+            const currentHash = window.location.hash;
+            const currentJourneyInURL = getCurrentJourneyFromURL(); // e.g., 'cranialvault' or 'endoscopic'
+
+            // Define your specific mappings for Chapter 5
+            // The key is the *current* journey, and the value is an object
+            // mapping the *current* hash to the *target* hash in the *other* journey.
+            const chapter4Mappings = {
+                'cranialvault': { // If currently in 'cranialvault' journey
+                    // When toggling from cranialvault to endoscopic:
+                    '#page0': '#page0', // From cranialvault/chapter5.html#page0 to endoscopic/chapter5.html#page0
+                    '#page1': '#page1', // From cranialvault/chapter5.html#page1 to endoscopic/chapter5.html#page1
+
+                    // Add more cranialvault -> endoscopic mappings as needed
+                },
+                'endoscopic': { // If currently in 'endoscopic' journey
+                    // When toggling from endoscopic to cranialvault:
+                    '#page0': '#page0', // From endoscopic/chapter5.html#page0 to cranialvault/chapter5.html#page0
+                    '#page1': '#page1', // From endoscopic/chapter5.html#page1 to cranialvault/chapter5.html#page1
+                    // Add more endoscopic -> cranialvault mappings as needed
+                }
+            };
+
+            // Look up the target hash based on the current journey and current hash
+            if (chapter4Mappings[currentJourneyInURL] && chapter4Mappings[currentJourneyInURL][currentHash]) {
+                targetHash = chapter4Mappings[currentJourneyInURL][currentHash];
+            } else {
+                // Fallback if no specific mapping is found for the current hash in chapter 5.
+                // It's often safest to default to #page0 if you don't have a specific mapping.
+                // Or you could keep the currentHash if you prefer that behavior: targetHash = currentHash;
+                targetHash = '#page0';
+            }
         }
+        // --- END REVISED LOGIC FOR CHAPTER 4 ---
+
 
         // --- REVISED LOGIC FOR CHAPTER 5 ---
         if (currentPageFilename === 'chapter5.html') {
