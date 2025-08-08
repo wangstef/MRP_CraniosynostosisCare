@@ -33,13 +33,13 @@ const pages = [
         img: "../img/images/Endoscopic/EPost-HTteam.png",
         showButton: false,
         showTextBox: true,
-        text: "You will meet the team from the Orthotics Department in the hospital, they will help you with the helmet therapy process. "
+        text: "You will meet the team from the Orthotics Department in the hospital.They will help you with the helmet therapy process. "
     },
     {
         img: "../img/images/Endoscopic/EPost-healing.png",
         showButton: false,
         showTextBox: true,
-        text: "“Babies need some time to adapt to wearing the helmet, they may find it quite difficult for the first few days,  if there are any concerns you can contact the Plastics or Orthotics teams.” "
+        text: "“Babies need some time to adapt to wearing the helmet. They may find it quite difficult for the first few days. If you have any concerns you can contact the Plastics or Orthotics teams.” "
     },
     {
         img: "../img/images/Cranial Vault/CVPost-Healingtips.png",

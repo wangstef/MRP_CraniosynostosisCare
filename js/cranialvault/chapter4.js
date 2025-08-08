@@ -155,7 +155,7 @@ function prevPage() {
       currentPage--;
       renderPage();
     } else {
-      window.location.href = "chapter3.html#page1";
+      window.location.href = "../path_selection.html";
     }
 }
 

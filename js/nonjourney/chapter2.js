@@ -31,7 +31,7 @@ const pages = [
         showTextBox: false,
         showProgressDots: true,
         text: "",
-        youtubeId: "qVMcp1ZcgZw" // YouTube video ID
+        youtubeId: "hnsPiHIUao8" // YouTube video ID https://youtu.be/hnsPiHIUao8
     },
     {
         img: "../img/images/Non journey/NJConsequences.png",
@@ -59,7 +59,7 @@ const pages = [
         showButton: true,
         showTextBox: true,
         showProgressDots: true,
-        text: "There are different types of craniosynostosis depending on what sutures have fused, <strong> Click the Learn More </strong> button to explore some different types."
+        text: "There are different types of craniosynostosis depending on which sutures have fused, <strong> Click the Learn More </strong> button to explore some different types."
     },
     {
         img: "../img/images/Non journey/Ch 2 o.png",
@@ -73,7 +73,7 @@ const pages = [
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
-        text: "No matter what your decision is, your Craniofacial team at the hospital will be there to support you. If you choose not to pursue surgery, your team will still monitor and provide regular check ups to make sure your child stays healthy."
+        text: "No matter what your decision is, your Craniofacial team at the hospital will be there to support you. If you choose not to pursue surgery, your team will still monitor and provide regular check-ups to make sure your child stays healthy."
     }
 ]; 
 

@@ -49,7 +49,6 @@ function generateChapterNavigation() {
                 { name: "Surgical options", file: "../path_selection.html" }
             ]
         },
-        { id: 3, name: "Pre-Op", file: "chapter3.html", isPathSpecific: true },
         { id: 4, name: "Surgery", file: "chapter4.html", isPathSpecific: true },
         {
             id: 5,
