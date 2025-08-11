@@ -39,7 +39,7 @@ const pages = [
         img: "../img/images/Endoscopic/EPost-healing.png",
         showButton: false,
         showTextBox: true,
-        text: "“Babies need some time to adapt to wearing the helmet. They may find it quite difficult for the first few days. If you have any concerns you can contact the Plastics or Orthotics teams.” "
+        text: "Babies need some time to adapt to wearing the helmet. They may find it quite difficult for the first few days. If you have any concerns you can contact the Plastics or Orthotics teams."
     },
     {
         img: "../img/images/Cranial Vault/CVPost-Healingtips.png",
