@@ -23,7 +23,7 @@ const pages = [
         showTextBox: true,
         showProgressDots: true,
         showVideoButton: true,
-        text: "If parents want to go through with surgical options, the timing is very important, as certain options (ex. Endoscopic strip Craniectomy) can only be done while the skull is still soft and growing. <strong> Click the Video Button</strong> to watch a brief summary video of craniosynostosis."
+        text: "If parents want to go through with surgical options, the timing is very important. Certain options (ex. Endoscopic strip Craniectomy) can only be done while the skull is still soft and growing. <strong> Click the Video Button</strong> to watch a brief summary video of craniosynostosis."
     },
     {
         img: "../img/images/Non journey/BG colour.png",
