@@ -9,7 +9,7 @@ const pages = [
         img: "../img/images/Cranial Vault/CVPost-after.png",
         showButton: false,
         showTextBox: true,
-        text: "Post-surgery; some dried blood, bruising and swelling are all normal. There will be a JP drain to collect the excess fluid, this will be removed by the doctor."
+        text: "Post surgery: some dried blood, bruising, swelling around the eyes and face are all common. This usually will take a few days to reduce. There will be a drain to collect excess fluid, this will be removed by the doctor."
     },
     {
         img: "../img/images/Cranial Vault/CVPost-timeline.png",

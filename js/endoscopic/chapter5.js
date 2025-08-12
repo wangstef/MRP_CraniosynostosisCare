@@ -9,7 +9,7 @@ const pages = [
         img: "../img/images/Endoscopic/EPost-after.png",
         showButton: false,
         showTextBox: true,
-        text: "Post-surgery; some dried blood, bruising and swelling are all normal."
+        text: "Post surgery: some dried blood, bruising, swelling around the eyes and face are all common. This usually will take a few days to reduce."
     },
     {
         img: "../img/images/Endoscopic/EPost-timeline.png",
@@ -21,7 +21,7 @@ const pages = [
         img: "../img/images/Endoscopic/EPost-helmet.png",
         showButton: false ,
         showTextBox: true,
-        text: "Infants will have to wear a helmet until they are around 12 months to make sure that their skull grows in the right shape. These helmets are not meant to squeeze the head, but just guide the growth. "
+        text: "Children need to wear a helmet until they are around 12 months old to ensure the skull grows in the right shape. These helmets are not meant to squeeze the head, just to guide the growth. "
     },
     {
         img: "../img/images/Endoscopic/EPost-HTtips.png",
@@ -39,10 +39,16 @@ const pages = [
         img: "../img/images/Endoscopic/EPost-healing.png",
         showButton: false,
         showTextBox: true,
-        text: "Babies need some time to adapt to wearing the helmet. They may find it quite difficult for the first few days. If you have any concerns you can contact the Plastics or Orthotics teams."
+        text: "Babies need some time to adapt to the helmets, it might be quite difficult for the first few days. If you have any concerns you can contact the Plastics or Orthotics teams."
     },
     {
         img: "../img/images/Cranial Vault/CVPost-Healingtips.png",
+        showButton: false,
+        showTextBox: false,
+        text: ""
+    },
+    {
+        img: "/img/images/Cranial Vault/CV-Concerns.png",
         showButton: false,
         showTextBox: false,
         text: ""

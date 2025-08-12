@@ -21,7 +21,7 @@ const pages = [
         showTextBox: false,
         text: "cv ch4", 
         pageContentTitle: "1. Preparation", // Changed name
-        pageContentDescription: "The doctor will have the child fall asleep with medication through a gas mask, and after they will give the child anesthesia through an IV." // Changed name
+        pageContentDescription: "The child will be put to sleep with medication through a mask, then receive anaesthesia through an IV." // Changed name
     },
     {
         img: "../img/images/Endoscopic/ESurg-2.png",
@@ -29,7 +29,7 @@ const pages = [
         showTextBox: false,
         text: "cv ch4 2",
         pageContentTitle: "2. Making the incision", // Changed name
-        pageContentDescription: "The doctor makes two small incisions on the child’s head, near the closed sutures."
+        pageContentDescription: "Two small incisions are made on the head, near the ends of the closed sutures."
     },
     {
         img: "../img/images/Endoscopic/ESurg-3.png", 
@@ -37,7 +37,7 @@ const pages = [
         showTextBox: false,
         text: "",
         pageContentTitle: "3. Tools ", // Changed name
-        pageContentDescription: "Once the child is asleep, the doctors will use small tools and a tiny camera called an endoscope." // Changed name
+        pageContentDescription: "Small tools and a tiny camera called an endoscope are used." // Changed name
     },
     {
         img: "../img/images/Endoscopic/ESurg-4.png",
@@ -45,7 +45,7 @@ const pages = [
         showTextBox: false,
         text: "",
         pageContentTitle: "4. Removing the bone strip", // Changed name
-        pageContentDescription: "Using the camera and tools, the doctor carefully removes a strip of bone from the fused area. This opens up space so the skull can grow properly." // Changed name
+        pageContentDescription: "A strip of bone is carefully removed from the fused area. This opens up space so the skull can grow properly." // Changed name
     },
     {
         img: "../img/images/Endoscopic/ESurg-5.png",
@@ -53,7 +53,7 @@ const pages = [
         showTextBox: false,
         text: "",
         pageContentTitle: "5. Closing the incision", // Changed name
-        pageContentDescription: "Because the tools are tiny, they don’t need to make a big incision, which means after surgery, the child heals faster." // Changed name
+        pageContentDescription: "Because of the small tools, a large incision is not needed. Which means after the surgery the child heals much faster." // Changed name
     }
 ];
 

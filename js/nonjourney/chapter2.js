@@ -38,21 +38,21 @@ const pages = [
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
-        text: "Challenges children may face growing up with craniosynostosis."
+        text: "Children with craniosynostosis may face challenges because they look different from others."
     },
     {
         img: "../img/images/Non journey/Ch 2 l.png",
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
-        text: "If left untreated, <strong> craniosynostosis may affect brain development and cause other complications. </strong> Your team will monitor your child and inform you of any concerns."
+        text: "Craniosynostosis causes an unusual head shape and may increase pressure on the brain. <strong> This can sometimes affect brain development and cause other complications. </strong> Your care team will monitor your child and will speak with you about any concerns. "
     },
     {
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
-        text: "The primary purpose of this surgery is to help with the shape of the child’s head and to make room for the growing brain."
+        text: "The purpose of the surgery is to re-shape the head and to make room for brain growth."
     },
     {
         img: "../img/images/Non journey/BG-wave.png",
@@ -73,7 +73,42 @@ const pages = [
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
-        text: "No matter what your decision is, your Craniofacial team at the hospital will be there to support you. If you choose not to pursue surgery, your team will still monitor and provide regular check-ups to make sure your child stays healthy."
+        text: "No matter what you decide, your Craniofacial team at the hospital will be there to support you. If you choose not to pursue surgery, your team will still provide regular check-ups to monitor your child to ensure their healthy development."
+    },
+    {
+        img: "../img/images/Non journey/BG-wave.png",
+        showButton: false,
+        showTextBox: true,
+        showProgressDots: true,
+        text: "If you are interested in continuing with surgery, you will have a <strong> consultation meeting </strong> with your surgeon. Bring your questions and prepare to write down notes."
+    },
+    {
+        img: "../img/images/Non journey/BG-wave.png",
+        showButton: false,
+        showTextBox: true,
+        showProgressDots: true,
+        text: "After your meeting, your surgeon will book a surgery date and you will receive instructions on how to prepare your child for the surgery."
+    },
+    {
+        img: "../img/images/Non journey/NJ-Pre-surgery.png",
+        showButton: false,
+        showTextBox: false,
+        showProgressDots: true,
+        text: ""
+    },
+    {
+        img: "../img/images/Non journey/BG-wave.png",
+        showButton: false,
+        showTextBox: true,
+        showProgressDots: true,
+        text: "A CT scan is required to proceed with surgery. This is a special x-ray that shows the anatomy and helps the surgeons plan the operation. The procedure only takes a few seconds and normally is done after the child is fed. Like all x-rays, they will be exposed to a small amount of radiation.  "
+    },
+    {
+        img: "../img/images/Non journey/BG-wave.png",
+        showButton: false,
+        showTextBox: true,
+        showProgressDots: true,
+        text: "Continue to the next page to learn more about two surgical options that are commonly offered."
     }
 ]; 
 
