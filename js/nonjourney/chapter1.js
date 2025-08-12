@@ -11,25 +11,25 @@ const pages = [
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false,
         showTextBox: true,
-        text: "Welcome to Craniosynostosis Care. My name is Dr. Cranio and I am here to guide you through a surgical journey from before surgery to aftercare."
+        text: "Welcome to Craniosynostosis Care. My name is Dr. Cranio and I am here to guide you through a surgical journey from pre-operation to aftercare."
+    }, 
+    {
+        img: "../img/images/Non journey/BG-wave.png",
+        showButton: false,
+        showTextBox: true,
+        text: "If you find any words hard to understand. You can check for how to pronounce them and a definition in our “Vocabulary Words” page. Click the three lines in the top corner to find the page."
     },
     {
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false,
         showTextBox: true,
-        text: "Firstly, congratulations on the birth of your baby!"
-    },
-    {
-        img: "../img/images/Non journey/BG-wave.png",
-        showButton: false,
-        showTextBox: true,
-        text: "Secondly, I know having a diagnosis of craniosynostosis can be very overwhelming."
+        text: "Arrival of a new baby can be both a joyful and stressful experience. A diagnosis of craniosynostosis may add to those overwhelming emotions. This resource gives a summary about commonly offered options."
     },
     {
         img: "../img/images/Non journey/Ch 1 d.png",
         showButton: false,
         showTextBox: true,
-        text: "Your medical team will fully support your treatment choices. This resource is to provide knowledge about the condition to help you communicate with your care team."
+        text: "This resource has information about craniosynostosis to help you communicate with your medical care team. Your medical care team will guide you through the journey and fully support your treatment choices."
     },
     {
         img: "../img/images/Non journey/Ch 1 e.png",

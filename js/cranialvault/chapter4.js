@@ -21,7 +21,7 @@ const pages = [
         showTextBox: false,
         text: "cv ch4", 
         pageContentTitle: "1. Preparation", // Changed name
-        pageContentDescription: "The doctor will have the child fall asleep with medication through a gas mask, and after they will give the child anesthesia through an IV." // Changed name
+        pageContentDescription: "The child will be put to sleep with medication through a mask, then receive anaesthesia through an IV." // Changed name
     },
     {
         img: "../img/images/Cranial Vault/CVSurg-2.png",
@@ -29,7 +29,7 @@ const pages = [
         showTextBox: false,
         text: "cv ch4 2",
         pageContentTitle: "2. Making the incision", // Changed name
-        pageContentDescription: "The surgeon will make an incision across the top of the child’s head, from one ear to the other." // Changed name
+        pageContentDescription: "An incision is made across the top of the head from one ear to the other." // Changed name
     },
     {
         img: "../img/images/Cranial Vault/CVSurg-3.png",
@@ -37,7 +37,7 @@ const pages = [
         showTextBox: false,
         text: "",
         pageContentTitle: "3. Removing skull ", // Changed name
-        pageContentDescription: "The doctor carefully removes sections of the skull bones." // Changed name
+        pageContentDescription: "Sections of the skull bones are carefully removed." // Changed name
     },
     {
         img: "../img/images/Cranial Vault/CVSurg-4.png",
@@ -45,7 +45,7 @@ const pages = [
         showTextBox: false,
         text: "",
         pageContentTitle: "4. Reshaping the bones", // Changed name
-        pageContentDescription: "The doctor reshapes the pieces of bone they removed. " // Changed name
+        pageContentDescription: "The removed bone pieces are reshaped." // Changed name
     },
     {
         img: "../img/images/Cranial Vault/CVSurg-5.png",
@@ -53,7 +53,7 @@ const pages = [
         showTextBox: false,
         text: "",
         pageContentTitle: "5. Placing bones in place", // Changed name
-        pageContentDescription: "Placing the pieces back together in a way that allows the skull to grow normally." // Changed name
+        pageContentDescription: "Reshaped pieces are placed back in a way that allows the skull to grow normally." // Changed name
     },
     {
         img: "../img/images/Cranial Vault/CVSurg-6.png",
@@ -61,7 +61,7 @@ const pages = [
         showTextBox: false,
         text: "",
         pageContentTitle: "6. Secure bones in place", // Changed name
-        pageContentDescription: "They use special small plates and screws that will later dissolve on their own." // Changed name
+        pageContentDescription: "Small special plates and screws are used to secure the bones, the plates and screws will dissolve on their own." // Changed name
     },
     {
         img: "../img/images/Cranial Vault/CVSurg-7.png",
@@ -69,7 +69,7 @@ const pages = [
         showTextBox: false,
         text: "",
         pageContentTitle: "7. Closing the incision ", // Changed name
-        pageContentDescription: "After the bones are put back in place, the doctor closes up the incision with stitches." // Changed name
+        pageContentDescription: "After the bones are all secures, the incision is closed with stitches and a drain is placed.." // Changed name
     }
 ];
 
