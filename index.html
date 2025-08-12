@@ -12,6 +12,44 @@
 </head>
 
 <body>
+<style>
+.vertically {
+      display: flex;
+  justify-content: center;
+  align-items: center;
+height: auto;	
+width: 25vw; /* Adjust as needed */
+max-width: 350px; /* Limit maximum width */
+min-width: 150px;
+position: relative;
+}
+
+.inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+width: 25vw; /* Adjust as needed */
+max-width: 350px; /* Limit maximum width */
+min-width: 150px;
+height: auto;
+position: relative;
+animation-name: example;
+animation-duration: 6s;
+animation-iteration-count: infinite;
+}
+
+@keyframes example {
+  0%   {animation-timing-function: ease-in-out;top:-20px;}
+  25%  { animation-timing-function: ease-in-out; top:10px;}
+  50%  { animation-timing-function: ease-in-out; top:-20px;}
+  75%  { animation-timing-function: ease-in-out; top:10px;}
+  100% { animation-timing-function: ease-in-out; top:-20px;}
+}
+
+</style>
+
+
+
     <div class="container">
         <header>
             <button class="btn btn-primary-orange" id="ourTeamBtn">Our Team</button>
@@ -61,8 +99,11 @@
         </header>
 
         <main class="main-content">
-            <img src="/img/images/Logo/CC-logo-colour-v002-01.png" alt="logo" class="main-icon">
-
+            <div class="vertically">
+            <div class="inner">
+            <img id="Logo" src="/img/images/Logo/CC-logo-colour-v002-01.png" alt="logo" class="main-icon">
+        </div>
+        </div>
             <div class="content-stack">
                 <p class="intro-text">
                     This is a comprehensive resource that will teach you the basics of Endoscopic and Cranial Vault surgical journeys.
