@@ -30,6 +30,12 @@ const pages = [
         text: "If parents want to go through with surgical options, the timing is very important, as certain options (ex. Endoscopic strip Craniectomy) can only be done while the skull is still soft and growing. The following video will give a summary of craniosynostosis. "
     },
     {
+        img: "../img/images/Cranial Vault/CV-Concerns.png",
+        showButton: false,
+        showTextBox: false,
+        text: "If parents want to go through with surgical options, the timing is very important, as certain options (ex. Endoscopic strip Craniectomy) can only be done while the skull is still soft and growing. The following video will give a summary of craniosynostosis. "
+    },
+    {
         img: "../img/images/Cranial Vault/CVPost-pvc.png",
         showButton: false,
         showTextBox: false,
