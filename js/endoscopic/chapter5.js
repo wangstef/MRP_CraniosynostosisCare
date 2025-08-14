@@ -9,7 +9,7 @@ const pages = [
         img: "../img/images/Endoscopic/EPost-after.png",
         showButton: false,
         showTextBox: true,
-        text: "Post surgery: some dried blood, bruising, swelling around the eyes and face are all common. This usually will take a few days to reduce."
+        text: "Post surgery: some dried blood near scar, bruising, swelling around the eyes and face are all common. This usually will take a few days to reduce."
     },
     {
         img: "../img/images/Endoscopic/EPost-timeline.png",
