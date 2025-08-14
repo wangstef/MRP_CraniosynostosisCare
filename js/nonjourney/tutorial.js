@@ -5,7 +5,7 @@ const pages = [
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false ,
         showTextBox: true,
-        text: "“This is the text box where I will be speaking to you.”"
+        text: "“This is a tutorial page. Click the next arrow to keep going.”"
     }
 ];
   
