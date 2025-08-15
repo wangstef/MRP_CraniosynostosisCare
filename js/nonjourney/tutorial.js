@@ -2,7 +2,7 @@
 const pages = [
     //img: is bg img, showbutton is for lightbox button, text: is the text in the text box
     { 
-        img: "../img/images/Non journey/BG-wave.png",
+        img: "../img/images/Non journey/BG-clinic.png",
         showButton: false ,
         showTextBox: true,
         text: "“This is a tutorial page. Click the next arrow to keep going.”"
