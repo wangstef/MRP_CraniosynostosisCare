@@ -489,7 +489,7 @@ body {
     border: 5px solid #457885; 
     padding:4vh;
     border-radius: 2rem;
-    font-size: 1.8vw; /* Scalable font size */
+    font-size: 1.8vw 1.2vh; /* Scalable font size */
     color: #1A4651;
     z-index: 3; /* Above background image */
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
