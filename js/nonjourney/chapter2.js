@@ -97,11 +97,11 @@ const pages = [
         text: ""
     },
     {
-        img: "../img/images/Non journey/BG-wave.png",
+        img: "../img/images/Non journey/CTScan.png",
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
-        text: "A CT scan is required to proceed with surgery. This is a special x-ray that shows the anatomy and helps the surgeons plan the operation. The procedure only takes a few seconds and normally is done after the child is fed. Like all x-rays, they will be exposed to a small amount of radiation.  "
+        text: "A CT scan is required to proceed with surgery. This is a special x-ray that helps the surgeons plan the operation. Children can eat beforehand and the procedure only takes a few seconds. Like all x-rays, children will be exposed to a small amount of radiation."
     },
     {
         img: "../img/images/Non journey/BG-wave.png",

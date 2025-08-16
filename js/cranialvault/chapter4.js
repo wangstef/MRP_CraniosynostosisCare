@@ -69,7 +69,7 @@ const pages = [
         showTextBox: false,
         text: "",
         pageContentTitle: "7. Closing the incision ", // Changed name
-        pageContentDescription: "After the bones are all secures, the incision is closed with stitches and a drain is placed.." // Changed name
+        pageContentDescription: "After the bones are all secured, the incision is closed with stitches and a drain is placed." // Changed name
     }
 ];
 
