@@ -158,6 +158,15 @@ function prevPage() {
         window.location.href = "../endoscopic/chapter4.html#page6"; // Adjust #lastpage as needed
     }
 }
+
+// Keyboard navigation with arrow keys
+document.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowRight") {
+    nextPage(); // Right arrow → Next page
+  } else if (event.key === "ArrowLeft") {
+    prevPage(); // Left arrow → Previous page
+  }
+});
  
 function toggleLightbox() {
     lightbox.classList.toggle("hidden");

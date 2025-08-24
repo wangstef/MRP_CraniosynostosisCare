@@ -133,6 +133,17 @@ if (window.location.hash.startsWith("#page")) {
   }
   
   infoButton.addEventListener("click", toggleLightbox);
+
+
+// Keyboard navigation with arrow keys
+document.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowRight") {
+    nextPage(); // Right arrow → Next page
+  } else if (event.key === "ArrowLeft") {
+    prevPage(); // Left arrow → Previous page
+  }
+});
+
   
   // Initial render
   renderPage();

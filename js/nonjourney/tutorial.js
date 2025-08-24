@@ -5,7 +5,7 @@ const pages = [
         img: "../img/images/Non journey/BG-clinic.png",
         showButton: false ,
         showTextBox: true,
-        text: "“This is a tutorial page. Click the next arrow to keep going.”"
+        text: "“Click the orange arrow or the right arrow on your keyboard to continue.”"
     }
 ];
   
@@ -81,7 +81,14 @@ if (window.location.hash.startsWith("#page")) {
     }
   }
   
-
+ // Keyboard navigation with arrow keys
+document.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowRight") {
+    nextPage(); // Right arrow → Next page
+  } else if (event.key === "ArrowLeft") {
+    prevPage(); // Left arrow → Previous page
+  }
+});  
 
   // Event listeners THE LIGHTBOX
   function toggleLightbox() {
