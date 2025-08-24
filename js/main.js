@@ -22,3 +22,5 @@ function toggleOurTeamLightbox() { // Renamed function
 
 // Add a click event listener to the "Our Team" button
 infoButton.addEventListener('click', toggleOurTeamLightbox); // Updated function call
+
+

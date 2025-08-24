@@ -9,7 +9,7 @@ const pages = [
         img: "../img/images/Endoscopic/EPost-after.png",
         showButton: false,
         showTextBox: true,
-        text: "Post surgery: some dried blood, bruising, swelling around the eyes and face are all common. This usually will take a few days to reduce."
+        text: "Post surgery: some dried blood near scar, bruising, swelling around the eyes and face are all common. This usually will take a few days to reduce."
     },
     {
         img: "../img/images/Endoscopic/EPost-timeline.png",
@@ -158,6 +158,15 @@ function prevPage() {
         window.location.href = "../endoscopic/chapter4.html#page6"; // Adjust #lastpage as needed
     }
 }
+
+// Keyboard navigation with arrow keys
+document.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowRight") {
+    nextPage(); // Right arrow → Next page
+  } else if (event.key === "ArrowLeft") {
+    prevPage(); // Left arrow → Previous page
+  }
+});
  
 function toggleLightbox() {
     lightbox.classList.toggle("hidden");

@@ -9,7 +9,7 @@ const pages = [
         img: "../img/images/Cranial Vault/CVPost-after.png",
         showButton: false,
         showTextBox: true,
-        text: "Post surgery: some dried blood, bruising, swelling around the eyes and face are all common. This usually will take a few days to reduce. There will be a drain to collect excess fluid, this will be removed by the doctor."
+        text: "Post surgery: some dried blood near scar, bruising, swelling around the eyes and face are all common. This usually will take a few days to reduce. There will be a drain to collect excess fluid, this will be removed by the doctor."
     },
     {
         img: "../img/images/Cranial Vault/CVPost-timeline.png",
@@ -25,6 +25,12 @@ const pages = [
     },
     {
         img: "../img/images/Cranial Vault/CVPost-Healingtips.png",
+        showButton: false,
+        showTextBox: false,
+        text: "If parents want to go through with surgical options, the timing is very important, as certain options (ex. Endoscopic strip Craniectomy) can only be done while the skull is still soft and growing. The following video will give a summary of craniosynostosis. "
+    },
+    {
+        img: "../img/images/Cranial Vault/CV-Concerns.png",
         showButton: false,
         showTextBox: false,
         text: "If parents want to go through with surgical options, the timing is very important, as certain options (ex. Endoscopic strip Craniectomy) can only be done while the skull is still soft and growing. The following video will give a summary of craniosynostosis. "
@@ -135,6 +141,15 @@ function prevPage() {
         window.location.href = "../cranialvault/chapter4.html#page8"; // Adjust #lastpage as needed
     }
 }
+
+// Keyboard navigation with arrow keys
+document.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowRight") {
+    nextPage(); // Right arrow → Next page
+  } else if (event.key === "ArrowLeft") {
+    prevPage(); // Left arrow → Previous page
+  }
+});
  
 function toggleLightbox() {
     lightbox.classList.toggle("hidden");

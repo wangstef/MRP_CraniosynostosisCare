@@ -2,10 +2,10 @@
 const pages = [
     //img: is bg img, showbutton is for lightbox button, text: is the text in the text box
     { 
-        img: "../img/images/Non journey/BG-wave.png",
+        img: "../img/images/Non journey/BG-clinic.png",
         showButton: false ,
         showTextBox: true,
-        text: "“This is the text box where I will be speaking to you.”"
+        text: "“Click the orange arrow or the right arrow on your keyboard to continue.”"
     }
 ];
   
@@ -81,7 +81,14 @@ if (window.location.hash.startsWith("#page")) {
     }
   }
   
-
+ // Keyboard navigation with arrow keys
+document.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowRight") {
+    nextPage(); // Right arrow → Next page
+  } else if (event.key === "ArrowLeft") {
+    prevPage(); // Left arrow → Previous page
+  }
+});  
 
   // Event listeners THE LIGHTBOX
   function toggleLightbox() {

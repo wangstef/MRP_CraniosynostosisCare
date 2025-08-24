@@ -5,36 +5,43 @@ const pages = [
         img: "../img/images/Non journey/NJWelcome-title.png",
         showButton: false ,
         showTextBox: false,
+        showtooltip: false,
         text: ""
+
     }, 
     {
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false,
         showTextBox: true,
+        showtooltip: false,        
         text: "Welcome to Craniosynostosis Care. My name is Dr. Cranio and I am here to guide you through a surgical journey from pre-operation to aftercare."
     }, 
     {
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false,
         showTextBox: true,
-        text: "If you find any words hard to understand. You can check for how to pronounce them and a definition in our “Vocabulary Words” page. Click the three lines in the top corner to find the page."
+        showtooltip: true,
+        text: "If you find any words hard to understand. You can check for how to pronounce them and a definition in our <strong>“Vocabulary Words”</strong> page."
     },
     {
         img: "../img/images/Non journey/BG-wave.png",
         showButton: false,
         showTextBox: true,
+        showtooltip: false,
         text: "Arrival of a new baby can be both a joyful and stressful experience. A diagnosis of craniosynostosis may add to those overwhelming emotions. This resource gives a summary about commonly offered options."
     },
     {
         img: "../img/images/Non journey/Ch 1 d.png",
         showButton: false,
         showTextBox: true,
+        showtooltip: false,
         text: "This resource has information about craniosynostosis to help you communicate with your medical care team. Your medical care team will guide you through the journey and fully support your treatment choices."
     },
     {
         img: "../img/images/Non journey/Ch 1 e.png",
         showButton: false,
         showTextBox: false,
+        showtooltip: false,
         text: ""
     }
 ];
@@ -67,6 +74,8 @@ if (window.location.hash.startsWith("#page")) {
       progressBar.appendChild(dot);
     });
 
+
+  //RENDER page 
   function renderPage() {
   const page = pages[currentPage];
   backgroundImg.src = page.img;
@@ -74,13 +83,18 @@ if (window.location.hash.startsWith("#page")) {
 
   const textBox = document.getElementById("textBox");
   const textContent = document.getElementById("textContent");
+  const tooltip = document.getElementById("static-tooltip-container");
 
   if (page.showTextBox) {
     textBox.style.display = "flex"; // changed from "block" for flex layout
-    textContent.innerText = page.text;
+    textContent.innerHTML  = page.text;
+;
   } else {
     textBox.style.display = "none";
   }
+
+  // Tooltip visibility
+  tooltip.style.display = page.showtooltip ? "block" : "none";
 
   // Highlight current progress dot
   const dots = document.querySelectorAll(".progress-dot");
@@ -119,6 +133,17 @@ if (window.location.hash.startsWith("#page")) {
   }
   
   infoButton.addEventListener("click", toggleLightbox);
+
+
+// Keyboard navigation with arrow keys
+document.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowRight") {
+    nextPage(); // Right arrow → Next page
+  } else if (event.key === "ArrowLeft") {
+    prevPage(); // Left arrow → Previous page
+  }
+});
+
   
   // Initial render
   renderPage();

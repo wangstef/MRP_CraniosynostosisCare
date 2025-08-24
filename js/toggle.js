@@ -84,7 +84,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     '#page2': '#page2',  // From cranialvault/chapter5.html#page2 to endoscopic/chapter5.html#page3 (example of different mapping)
                     '#page3': '#page6',
                     '#page4': '#page7',
-                    '#page5': '#page8'
+                    '#page5': '#page8',
+                    '#page6': '#page9'
                     // Add more cranialvault -> endoscopic mappings as needed
                 },
                 'endoscopic': { // If currently in 'endoscopic' journey
@@ -92,9 +93,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     '#page0': '#page0', // From endoscopic/chapter5.html#page0 to cranialvault/chapter5.html#page0
                     '#page1': '#page1', // From endoscopic/chapter5.html#page1 to cranialvault/chapter5.html#page1
                     '#page2': '#page2',  // From endoscopic/chapter5.html#page3 to cranialvault/chapter5.html#page2 (inverse of the example above)
+                    '#page3': '#page3',
+                    '#page4': '#page3',
+                    '#page5': '#page3',
                     '#page6': '#page3',
                     '#page7': '#page4',
-                    '#page8': '#page5'
+                    '#page8': '#page5',
+                    '#page9': '#page6'
                     // Add more endoscopic -> cranialvault mappings as needed
                 }
             };

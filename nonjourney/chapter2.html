@@ -43,24 +43,23 @@
     /* ---------------------------------------------------------------------------------------------------------------- */
     .video-button {
         position: fixed;
-        bottom: 58%;
-        left: 58%;
+        bottom: 50%;
+        left: 58.2%;
         transform: translateX(-50%);
-        padding: 2rem 3rem;
+        padding: 4vh 3vw;
         background-color: #457885; /* An orange-brown color from your image */
         color: white;
         border: none;
-        border-radius: 50px; /* Highly rounded corners */
+        border-radius: 8px; /* Highly rounded corners */
         cursor: pointer;
         font-family: sans-serif;
-        font-size: 3rem;
+        font-size: 2.4vw;
         font-weight: bold;
         text-align: center;
         z-index: 6; /* Ensure it's above other content */
         display: flex; /* Make the button a flex container */
         align-items: center; /* Vertically align items in the center */
         justify-content: center; /* Horizontally align items in the center (if you want them grouped) */
-        gap: 8px; /* Add some space between the text and the SVG */
     }
     .video-button:hover {
         transform: translateX(-50%) scale(1.05); /* Slightly enlarges the button on hover */
@@ -143,16 +142,14 @@
 
      .lightbox {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center regardless of size */
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            transition: opacity 0.3s ease; /* Smooth transition for showing/hiding */
+            transition: opacity 0.3s ease;
         }
 
         .lightbox.hidden {
@@ -169,27 +166,28 @@
 
         /* Styling for the content container within any lightbox */
         .lightbox-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            max-width: 90%;
-            max-height: 100%;
-            position: relative; /* Crucial for absolute positioning of PNGs */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            /* Background illustration for the main lightbox */
-            background-image: url('/img/images/Non journey/Ch 2 j.png'); /* Replace with your image path */
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            min-width: 590px; /* these determine the poster size */
-            min-height: 420px; /* Example min-height */
-            width: 53vw; /* Responsive width */
-            height: 50vh; /* Responsive height */
-            display: flex; /* Use flexbox to center content if needed, or remove for absolute PNGs */
-            justify-content: center;
-            align-items: center;
-            flex-direction: column; /* Stack content vertically */
-            gap: 10px; /* Space between content elements */
+        position: relative;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        background-image: url('/img/images/Non journey/Ch 2 j.png');
+        background-size: cover;
+        background-position: center center;
+
+        /* ✅ Force aspect ratio (width : height) — adjust as needed */
+        aspect-ratio: 59 / 42; /* Example ratio from your min-width/min-height */
+
+        /* ✅ Let width scale responsively */
+        width: min(70vw, 70vh * (59/42));
+        height: auto; /* auto so ratio is preserved */
+
+        min-width: 590px;
+        min-height: 420px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
         }
 
         /* CLick on skulls to learn more text styling*/
@@ -229,36 +227,28 @@
         #png1 {
             top: 60%;
             left: 3%;
-            width: 120px; /* Fixed size example */
-            height: 120px;
+            width: 15%; /* relative to container width */
         }
-
         #png2 {
             top: 23%;
             left: 6%;
-            width: 120px; /* Fixed size example */
-            height: 120px;
+            width: 15%;
         }
-
         #png3 {
             top: 18%;
             left: 50%;
-            transform: translateX(-50%); /* Center horizontally */
-            width: 120px; /* Fixed size example */
-            height: 120px;
+            transform: translateX(-50%);
+            width: 15%;
         }
-        
         #png4 {
             top: 23%;
             right: 6%;
-            width: 120px; /* Fixed size example */
-            height: 120px;
+            width: 15%;
         }
         #png5 {
             top: 60%;
             right: 3%;
-            width: 120px; /* Fixed size example */
-            height: 120px;
+            width: 15%;
         }
 
 
@@ -379,7 +369,6 @@
     <div id="progressBar" class="progress-bar"></div>
 
     <button id="videoButton" class="video-button" style="display: none;">
-        <div id="playVidIcon" class="icon-container"></div>
         <span id="videoButtonText"></span>
     </button>
     <div id="videoContainer" class="video-container" style="display: none;"></div>
@@ -390,7 +379,7 @@
  <div id="lightbox" class="lightbox hidden">
         <div class="lightbox-content">
             <button class="close-btn" onclick="toggleLightbox()">×</button>
-            <h5>Click on a skull to learn more</h5>
+            <h5 style="font-size: 1.5vw; color: #000000;">Click on a skull to learn more</h5>
             <img src="/img/images/Non journey/P-Sagittal.png" class="overlay-png" id="png1" alt="Red Circle">
             <img src="/img/images/Non journey/P-Metopic.png" class="overlay-png" id="png2" alt="Green Square">
             <img src="/img/images/Non journey/P-Lambdoid.png" class="overlay-png" id="png3" alt="Blue Triangle">

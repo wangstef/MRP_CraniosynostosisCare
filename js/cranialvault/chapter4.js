@@ -69,7 +69,7 @@ const pages = [
         showTextBox: false,
         text: "",
         pageContentTitle: "7. Closing the incision ", // Changed name
-        pageContentDescription: "After the bones are all secures, the incision is closed with stitches and a drain is placed.." // Changed name
+        pageContentDescription: "After the bones are all secured, the incision is closed with stitches and a drain is placed." // Changed name
     }
 ];
 
@@ -159,9 +159,20 @@ function prevPage() {
     }
 }
 
+// Keyboard navigation with arrow keys
+document.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowRight") {
+    nextPage(); // Right arrow → Next page
+  } else if (event.key === "ArrowLeft") {
+    prevPage(); // Left arrow → Previous page
+  }
+});
+
+
 function toggleLightbox() {
     lightbox.classList.toggle("hidden");
 }
+
 
 infoButton.addEventListener("click", toggleLightbox);
 

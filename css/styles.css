@@ -164,7 +164,7 @@ body {
         }
 
         /* logo */
-        .main-icon {
+        #Logo {
             width: 25vw; /* Adjust as needed */
             max-width: 350px; /* Limit maximum width */
             min-width: 150px;
@@ -489,7 +489,7 @@ body {
     border: 5px solid #457885; 
     padding:4vh;
     border-radius: 2rem;
-    font-size: 1.8vw; /* Scalable font size */
+    font-size: calc(12px + 1.2vh); /* Scalable font size */
     color: #1A4651;
     z-index: 3; /* Above background image */
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
@@ -1375,12 +1375,11 @@ color: #000;
 .static-title-container {
     position: fixed;
     top: 280px; /* Adjust as needed for vertical positioning */
-    left: 150px;
-    right : 150px;
     z-index: 1000; /* Ensure it's above other content */
     text-align: center;
     background-color: #ffffff;
     border: 4px solid #e8aaaa;
+    width: 20vw;
     border-radius: 10px;
 }
 .static-title-container h2 {
@@ -1390,7 +1389,8 @@ color: #000;
     margin: 0;
     padding: 10px;
     text-align: center;
-    letter-spacing: 1px;}
+    letter-spacing: 1px;
+}
 
 .static-tooltip-container {
     position: fixed;
@@ -1403,14 +1403,13 @@ color: #000;
 /* Experiment with these values: */
     /* box-shadow: 0 0 8px 2px rgba(200, 200, 200, 0.6); Light gray glow */
     z-index: 1000;
-    width: auto;
+    width: 15vw;
     max-width: 25vw;
-    min-width: 150px;
     text-align: center;
     font-family: Arial, sans-serif;
     color: #333;
     pointer-events: auto;
-    font-size: clamp(0.8rem, 1.2vw, 1.1rem);
+    font-size: 2vh;
     font-weight: bold;
     line-height: 1.4;
     box-sizing: border-box;
