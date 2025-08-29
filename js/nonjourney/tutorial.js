@@ -5,7 +5,7 @@ const pages = [
         img: "../img/images/Non journey/BG-clinic.png",
         showButton: false ,
         showTextBox: true,
-        text: "Click the orange arrow or the right arrow on your keyboard to continue."
+        text: "Click the orange arrow or use the right arrow on your keyboard to continue."
     }
 ];
   
