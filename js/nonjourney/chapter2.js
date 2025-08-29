@@ -97,7 +97,7 @@ const pages = [
         text: ""
     },
     {
-        img: "../img/images/Non journey/CTScan.png",
+        img: "../img/images/Non journey/CTscan.png",
         showButton: false,
         showTextBox: true,
         showProgressDots: true,
