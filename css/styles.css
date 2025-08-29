@@ -1439,7 +1439,7 @@ color: #000;
 /* Arrow pointing UP (tooltip is BELOW target) */
 .static-tooltip-container.arrow-top::before {
     border-color: transparent transparent #c62c2c transparent;
-    top: calc(-1 * (clamp(16px, 2vw, 30px) - 0.5px)); /* Added +1px */
+    top: calc(-1 * (clamp(16px, 2vw, 30px) - 0.4px)); /* Added +1px */
     left: var(--arrow-horizontal-offset);
     transform: translateX(-50%);
 }
@@ -1455,7 +1455,7 @@ color: #000;
 /* Arrow pointing LEFT (tooltip is to the RIGHT of target) */
 .static-tooltip-container.arrow-left::before {
     border-color: transparent #c62c2c transparent transparent;
-    left: calc(-1 * (clamp(16px, 2vw, 30px) - 0.5px));
+    left: calc(-1 * (clamp(16px, 2vw, 30px) - 0.4px));
     top: var(--arrow-vertical-offset); /* Use custom property */
     transform: translateY(-50%); /* Only translateY needed */
 }
