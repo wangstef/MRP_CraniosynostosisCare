@@ -16,6 +16,8 @@ body {
     /* padding-top: 35px; */
 }
 
+
+
 /*Top bar styling*/
 #top-bar {
   position: fixed;
@@ -864,6 +866,11 @@ input:checked + .slider:before {
         font-weight: 700;
     }
 
+@media (max-width: 768px) {
+    #chapter-nav-container-main {
+        display: none; /* hide chapter nav on mobile */
+    }
+}
 
 
 
