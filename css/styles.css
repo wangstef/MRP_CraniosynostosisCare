@@ -501,6 +501,21 @@ body {
     gap: 1rem;
 }
 
+@media (max-width: 768px) {
+    .text-box {
+    position: fixed;
+    bottom: 1rem; /* Adjust if it overlaps with new nav bar */
+    left: 50%;
+    width: calc(100vw - 20vw); /* Max width with padding */
+    /* Max width for readability */
+    background: #E1F3F4;
+    border: 5px solid #457885; 
+    padding:4vh;
+    border-radius: 2rem;
+    font-size: calc(8px); /* Scalable font size */
+    }
+}
+
 /* Progress bar pages: Dots (inside text-box) */
 .progress-bar {
     /* Positioning */
