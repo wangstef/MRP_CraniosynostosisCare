@@ -14,7 +14,7 @@ const pages = [
         showButton: false,
         showTextBox: true,
         showtooltip: false,        
-        text: "Welcome to Craniosynostosis Care. My name is Dr. Cranio and I am here to guide you through a surgical journey from pre-operation to aftercare."
+        text: "Welcome to CraniosynostosisCare. My name is Dr. Cranio and I am here to guide you through a surgical journey from pre-operation to aftercare."
     }, 
     {
         img: "../img/images/Non journey/BG-wave.png",
