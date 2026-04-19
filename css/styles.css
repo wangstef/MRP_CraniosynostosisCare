@@ -162,6 +162,15 @@ body {
             /* This is KEY: Aligns the text and button to the left within this column */
             align-items:center; /* Center the text and button horizontally */
         }
+        /* Intro text and start button */
+        .disclaimer {
+            display: flex;
+            flex-direction: column; /* Stack children (text, button) vertically */
+            gap: 25px;              /* Create space between the text and the button */
+            
+            /* This is KEY: Aligns the text and button to the left within this column */
+            align-items:center; /* Center the text and button horizontally */
+        }
 
         /* logo */
         #Logo {
@@ -185,6 +194,17 @@ body {
             line-height: 1.6;
             font-weight: 500;
             max-width: 60ch; /* Use 'ch' unit to cap line-length for readability */
+            text-align: center; /* Recommended for centered layouts */
+            margin-bottom: 0px;
+            
+        }
+        .disclaimer-text {
+            /* Use clamp() for fluid font size again */
+            font-size: clamp(0.75rem, 0.25vw, 0.25rem); /* Scales between 16px and 20px */
+            color: #1A4651;
+            line-height: 1.6;
+            font-weight: 500;
+            max-width: 80ch; /* Use 'ch' unit to cap line-length for readability */
             text-align: center; /* Recommended for centered layouts */
             margin-bottom: 0px;
             
